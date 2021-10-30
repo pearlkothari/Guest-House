@@ -1,0 +1,51 @@
+.Login {
+  background-color: #232f3e;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Login > h1 {
+  color: white;
+}
+.lnmiit_logo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  object-fit: contain;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.Login_Container {
+  width: 300px;
+  background-color: white;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+.Login_Container > h1 {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.Login_Container > form > input {
+  height: 25px;
+  margin-bottom: 10px;
+  background-color: white;
+  width: 96%;
+}
+.Login_Container > p {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.Login_Container > form > button {
+  border-radius: 2px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  margin-top: 10px;
+  background-color: #9faab8;
+}
