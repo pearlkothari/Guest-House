@@ -52,7 +52,7 @@ class ManageGuest extends Component {
                                         </tr>
                                 )
                             }
-                    </tbody>
+                            </tbody>
                     </table>
     
                 </div>
