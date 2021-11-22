@@ -41,14 +41,14 @@ class ManageGuest extends Component {
                             <tbody>
                             {
                                 this.state.data.map(
-                                    todo => 
-                                        <tr key={todo.Id}>
-                                            <td>{todo.Id}</td>
-                                            <td>{todo.Name}</td>
-                                            <td>{todo.Contact_Info}</td>
-                                            <td>{todo.GuestType}</td>
-                                            <td>{todo.Room_Type}</td>
-                                            <td>{todo.Room_no}</td>
+                                    guest => 
+                                        <tr key={guest.Id}>
+                                            <td>{guest.Id}</td>
+                                            <td>{guest.Name}</td>
+                                            <td>{guest.Contact_Info}</td>
+                                            <td>{guest.GuestType}</td>
+                                            <td>{guest.Room_Type}</td>
+                                            <td>{guest.Room_no}</td>
                                         </tr>
                                 )
                             }
