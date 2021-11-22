@@ -1,8 +1,20 @@
 import React,{Component} from 'react'
-import Info from './Info'
 import SearchBar from "material-ui-search-bar";
 import AdminHeader from '../AdminHeader';
 class ManageGuest extends Component {
+    constructor(props){
+        super(props);
+
+        this.state={
+            data:[
+                {Id:1,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+                {Id:2,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+                {Id:3,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+                {Id:4,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+                {Id:5,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'}
+            ]
+        }
+    }
     render(){
         return (
             /*
@@ -16,7 +28,7 @@ class ManageGuest extends Component {
                 <AdminHeader/>
                 <div className="Subclass">
                     <table className="table">
-                            {<thead>
+                            <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
@@ -25,13 +37,23 @@ class ManageGuest extends Component {
                                         <th>Guest Type</th>
                                         <th>Room Number</th>
                                     </tr>
-                            </thead>}
-                            
+                            </thead>
+                            <tbody>
+                            {
+                                this.state.data.map(
+                                    todo => 
+                                        <tr key={todo.Id}>
+                                            <td>{todo.Id}</td>
+                                            <td>{todo.Name}</td>
+                                            <td>{todo.Contact_Info}</td>
+                                            <td>{todo.GuestType}</td>
+                                            <td>{todo.Room_Type}</td>
+                                            <td>{todo.Room_no}</td>
+                                        </tr>
+                                )
+                            }
+                    </tbody>
                     </table>
-                    <Info Id={1} Name={"Pearl"} Contact_Info={"9521074578"} Room_No={"001"} Room_Type={"Single"} GuestType={"General"}/>
-                    <Info Id={2} Name={"Pearl"} Contact_Info={"9521074578"} Room_No={"001"} Room_Type={"Single"} GuestType={"General"}/>
-                    <Info Id={3} Name={"Pearl"} Contact_Info={"9521074578"} Room_No={"001"} Room_Type={"Single"} GuestType={"General"}/>
-                    <Info Id={4} Name={"Pearl"} Contact_Info={"9521074578"} Room_No={"001"} Room_Type={"Single"} GuestType={"General"}/>
     
                 </div>
             </div>
