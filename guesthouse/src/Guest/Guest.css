@@ -1,0 +1,17 @@
+.guest {
+  display: flex;
+  flex-direction: column;
+}
+.ImageSlider {
+  align-items: center;
+  display: flex;
+  margin-top: 30px;
+  margin-left: 160px;
+}
+.Container {
+  margin-top: 30px;
+  margin-left: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
