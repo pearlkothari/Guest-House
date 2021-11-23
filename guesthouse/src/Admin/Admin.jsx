@@ -12,9 +12,6 @@ function Admin() {
             <div className="container_1">
                  <Container what={"ManageEmployee"}/>
                  <Container what={"ManageGuest"}/>
-            </div>
-
-            <div className="container_1">
                  <Container what={"Approval"}/>
                  <Container what={"Feedback"}/>
             </div>
