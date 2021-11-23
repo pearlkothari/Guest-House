@@ -3,7 +3,9 @@ import React from 'react'
 function Employee() {
     return (
         <div>
-            Hello
+            1. Manage Rooms 
+            2. View Reservation
+            3. Feedback
         </div>
     )
 }

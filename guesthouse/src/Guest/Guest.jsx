@@ -7,8 +7,8 @@ import SimpleImageSlider from "react-simple-image-slider";
 function Guest() {
     const Image=[
         {url:'https://www.lnmiit.ac.in/Slider/data1/images/mittal-1.jpg'},
-        {url:'https://www.lnmiit.ac.in/Slider/data1/images/mittal-1.jpg'},
-        {url:'https://www.lnmiit.ac.in/Slider/data1/images/mittal-1.jpg'}
+        {url:'https://www.lnmiit.ac.in/Slider/data1/images/MOU-Slider.jpg'},
+        {url:'https://www.lnmiit.ac.in/Slider/data1/images/mmeslider.jpg'}
     ]
     return (
         <div classname="guest">
@@ -24,7 +24,7 @@ function Guest() {
             <div className='Container'>
                  <Container what={"Room Booking"}/>
                  <Container what={"Status"}/>
-                 <Container what={"Feedback"}/>
+                 {/* <Container what={"Feedback"}/> */}
             </div>
             <div className='Container'>
                 <Container what={"Dining Lounge"}/>
@@ -34,4 +34,4 @@ function Guest() {
     )
 }
 
-export default Guest
+export default Guest;
