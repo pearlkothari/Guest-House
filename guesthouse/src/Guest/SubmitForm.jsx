@@ -14,11 +14,6 @@ function SubmitForm() {
       }
     return (
         <div className="submit">
-<<<<<<< HEAD
-=======
-            <h1>THE LNM INSTITUTE OF INFORMATION TECHNOLOGY, JAIPUR</h1>
-            <h2>GUEST HOUSE REQUISTION FORM</h2>
->>>>>>> 9b9772fdd83c4c4edd7f87cd2546f4029002d9d7
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
