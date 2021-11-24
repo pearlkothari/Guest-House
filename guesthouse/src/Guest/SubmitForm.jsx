@@ -1,4 +1,5 @@
-import React, { useState} from 'react'
+import React, { useState} from 'react';
+import './SubmitForm.css';
 
 
 function SubmitForm() {
@@ -15,55 +16,48 @@ function SubmitForm() {
     return (
         <div className="submit">
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className="Label_1">
                     Name:
                     <input type="text" name="name" value={inputs.name || ""} onChange={handleChange}/>
                 </label>
-                <label>
+                <label className="Label_1">
                     Roll No/Designation:
                     <input type="text" name="designation" value={inputs.designation || ""} onChange={handleChange} />
                 </label>
-                <label>
+                <label className="Label_1">
                     Branch/Department:
                     <input type="text" name="branch" value={inputs.branch || ""} onChange={handleChange} />
                 </label>
-                <label>
+                <label className="Label_1">
                     MobileNo:
-                    <input type="number" name="mobile" value={inputs.mobile || ""} onChange={handleChange}/>
+                    <input type="tel" name="mobile" value={inputs.mobile || ""} onChange={handleChange}/>
                 </label>
-                <label>
+                <label className="Label_1">
                     Guest Name:
                     <input type="text" name="guestname" value={inputs.guestname || ""} onChange={handleChange}/>
                 </label>
-                <label>
+                <label className="Label_1">
                     Relation:
                     <input type="text" name="relation" value={inputs.relation || ""} onChange={handleChange}/>
                 </label>
-                <label>
+                <label className="Label_1">
                     Guest Mobile No:
                     <input type="text" name="guestmobile" value={inputs.guestmobile || ""} onChange={handleChange}/>
                 </label>
-                <label>
+                <label className="Label_1">
                     Number of Guests:
                     <input type="number" name="numberguests" value={inputs.numberguests || ""} onChange={handleChange}/>
                 </label>
-                <label>
-                    Guest Mobile No:
-                    <input type="text" name="guestmobile" value={inputs.guestmobile || ""} onChange={handleChange} />
-                </label>
-                <label>
+                <label className="Label_1">
                     No. of Rooms Required :
                     <input type="number" name="norooms" value={inputs.norooms || ""} onChange={handleChange}/>
                 </label>
-                <label>
+                <label className="Label_1">
                     Check-in:
                     <input type="date" name="checkin" value={inputs.checkin || ""} onChange={handleChange}/>
                 </label>
-                <label>
-                    Check-out:
-                    <input type="date" name="checkout" value={inputs.checkout || ""} onChange={handleChange}/>
-                </label>
-                <input type="submit" value="Submit" />
+                
+                <button onClick={handleSubmit}>Submit</button>
             </form>
         </div>
     )

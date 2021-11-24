@@ -1,6 +1,7 @@
 import React from 'react'
 import GuestHeader from './GuestHeader'
 import SubmitForm from './SubmitForm'
+import './RoomBooking.css'
 
 function RoomBooking() {
     
@@ -13,9 +14,9 @@ function RoomBooking() {
                     src="logo1.png"
                 /> */}
                 <h1 className="heading1">THE LNM INSTITUTE OF INFORMATION TECHNOLOGY, JAIPUR</h1>
-                <h2 className="heading2">GUEST HOUSE REQUISTION FORM</h2>
+                {/* <h2 className="heading2">GUEST HOUSE REQUISTION FORM</h2> */}
+                <SubmitForm/>
             </div>
-            <SubmitForm/>
         </div>
     )
 }

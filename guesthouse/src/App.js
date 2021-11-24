@@ -18,13 +18,13 @@ function App() {
             <Route path="/" element={<Login/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/admin" element={<Admin/>}/>
-            <Route path="/admin/ManageGuest" element={<ManageGuest/>}/>
-            <Route path="/admin/ManageEmployee" element={<ManageEmployee/>}/>
+            <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>
+            <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>
             <Route path="/admin/Approval" element={<Approval/>}/>
             <Route path="/admin/Feedback" element={<Feedback/>}/>
             <Route path="/guest" element={<Guest/>}/>
             <Route path="/Employee" element={<Employee/>}/>
-            <Route path="/guest/Room%20Booking" element={<RoomBooking/>}/>
+            <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>
           </Routes>
       </div>
     </Router>

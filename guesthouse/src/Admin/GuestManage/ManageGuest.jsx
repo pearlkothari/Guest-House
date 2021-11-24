@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import SearchBar from "material-ui-search-bar";
 import AdminHeader from '../AdminHeader';
 class ManageGuest extends Component {
     constructor(props){

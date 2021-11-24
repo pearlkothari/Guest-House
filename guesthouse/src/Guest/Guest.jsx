@@ -11,18 +11,20 @@ function Guest() {
         {url:'https://www.lnmiit.ac.in/Slider/data1/images/mmeslider.jpg'}
     ]
     return (
-        <div classname="guest">
+        <div classname="Guest">
             <GuestHeader/>
             <div className="ImageSlider">
                 <SimpleImageSlider
-                        width={1200}
-                        height={504}
+                        width={1450}
+                        height={500}
                         images={Image}
                         showNavs={true}
+                        loop={true}
+                        autoPlay={true}
                 />
             </div>
             <div className='Container'>
-                 <Container what={"Room Booking"}/>
+                 <Container what={"Book Your Stay"}/>
                  <Container what={"Status"}/>
                  {/* <Container what={"Feedback"}/> */}
             </div>

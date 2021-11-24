@@ -2,7 +2,7 @@ import React from 'react'
 
 function Employee() {
     return (
-        <div>
+        <div className="Employees">
             1. Manage Rooms 
             2. View Reservation
             3. Feedback

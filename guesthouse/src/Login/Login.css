@@ -1,12 +1,14 @@
 .Login {
-  background-color: #232f3e;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .Login > h1 {
-  color: white;
+  margin-top: 20px;
+  color: rgba(243, 12, 12, 0.856);
+  -webkit-text-stroke-width: 1px;
+  /* -webkit-text-stroke-color: black; */
   margin-bottom: 20px;
 }
 .lnmiit_logo {
@@ -20,6 +22,7 @@
 .Login_Container {
   margin-top: 30px;
   width: 300px;
+  height: 500px;
   background-color: white;
   height: fit-content;
   display: flex;

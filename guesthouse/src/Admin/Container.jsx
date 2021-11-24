@@ -9,7 +9,10 @@ function Container(props) {
     let link=`/admin/${props.what}`;
     return (
         <div className="main_container" onClick={() => history(link)}>
-            {props.what}
+            <p>{props.what}</p>
+            <img
+                src='../Logo_Edit.png'
+            />
         </div>
     )
 }

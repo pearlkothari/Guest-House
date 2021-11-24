@@ -1,12 +1,9 @@
-.guest {
-  display: flex;
-  flex-direction: column;
-}
 .ImageSlider {
   align-items: center;
   display: flex;
   margin-top: 30px;
-  margin-left: 160px;
+  margin-left: 30px;
+  margin-right: 20px;
 }
 .Container {
   margin-top: 30px;
