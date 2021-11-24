@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import { Link } from "react-router-dom";
 
-class AdminHeader extends Component{
+class GuestHeader extends Component{
     render(){
         return(
             <header>
@@ -12,7 +12,9 @@ class AdminHeader extends Component{
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
                         {true && <li ><Link className="nav-link" to="/admin">Home</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/admin">About Me</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/admin">Services</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/admin">Contacts</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/admin">Feedback</Link></li>}
                     </ul>
                 </nav>
             </header>
@@ -20,4 +22,4 @@ class AdminHeader extends Component{
     }
 }
 
-export default AdminHeader;
+export default GuestHeader;

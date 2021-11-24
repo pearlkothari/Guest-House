@@ -1,5 +1,6 @@
 import React from 'react'
 import AdminHeader from '../AdminHeader';
+import Searchbar from '../../SearchBar';
 import './bootstrap.css'
 function ManageEmployee() {
     const Employees=[
@@ -13,6 +14,10 @@ function ManageEmployee() {
     return (
         <div>
             <AdminHeader/>
+            <div className="Add-Employee">
+                <Searchbar/>
+                <button className="Add_Employee" >Add Employee</button>
+            </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">
                             <thead>
@@ -39,9 +44,6 @@ function ManageEmployee() {
                             }
                             </tbody>
                 </table>
-            <div className="Add Employee">
-                <button className="Add_Employee">Add Employee</button>
-            </div>
         </div>
     )
 }

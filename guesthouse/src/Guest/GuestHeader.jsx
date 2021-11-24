@@ -9,12 +9,13 @@ class GuestHeader extends Component{
                     <ul className="navbar-nav">
                         {true && <li ><Link className="nav-link" to="/login">Login</Link></li>}
                         {true && <li ><Link className="nav-link"  to="/logout">Logout</Link></li>}
+                        {true && <li ><Link className="nav-link"  to="/guest">About Me</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
-                        {true && <li ><Link className="nav-link" to="/admin">Home</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/admin">Services</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/admin">Contacts</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/admin">Feedback</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/guest">Home</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/guest">Services</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/guest">Contacts</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/guest">Feedback</Link></li>}
                     </ul>
                 </nav>
             </header>

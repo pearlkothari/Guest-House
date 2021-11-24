@@ -1,15 +1,43 @@
 .submit {
-  margin-top: 30px;
+  margin-top: 25px;
   width: 700px;
   background-color: white;
-  height: 500px;
+  height: max-content;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
   border: 12px solid lightgray;
   padding: 20px;
 }
-.submit > h1 {
+.checkin {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkin > h5 {
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.checkin > input {
+  display: block;
+  width: 40%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border-radius: 5px;
+}
+
+.form > input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+}
+/* .submit > h1 {
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -31,7 +59,7 @@
 .submit > p {
   margin-top: 15px;
   font-size: 12px;
-}
+} */
 
 .submit > form > button {
   border-radius: 3px;
@@ -40,5 +68,6 @@
   border: 1px solid;
   margin-top: 10px;
   border-radius: 15px;
-  background-color: #9faab8;
+  border: 2px solid rgb(248, 0, 0);
+  background-color: #9dc2f3;
 }

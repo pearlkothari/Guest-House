@@ -7,8 +7,9 @@ import ManageGuest from './Admin/GuestManage/ManageGuest';
 import Approval from './Admin/Approval/Approval';
 import Feedback from './Admin/Feedback/Feedback';
 import Guest from './Guest/Guest';
-import Employee from './Employee/Employee';
 import RoomBooking from './Guest/RoomBooking';
+import Manager from './Employee/Manager';
+import Caretaker from './Employee/Caretaker';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
             <Route path="/admin/Approval" element={<Approval/>}/>
             <Route path="/admin/Feedback" element={<Feedback/>}/>
             <Route path="/guest" element={<Guest/>}/>
-            <Route path="/Employee" element={<Employee/>}/>
+            <Route path="/Manager" element={<Manager/>}/>
+            <Route path="/Caretaker" element={<Caretaker/>}/>
             <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>
           </Routes>
       </div>

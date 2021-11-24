@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Employee() {
+function Manager() {
     return (
         <div className="Employees">
             1. Manage Rooms 
@@ -11,4 +11,4 @@ function Employee() {
     )
 }
 
-export default Employee
+export default Manager

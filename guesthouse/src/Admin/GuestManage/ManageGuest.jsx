@@ -1,5 +1,8 @@
 import React,{Component} from 'react'
 import AdminHeader from '../AdminHeader';
+import Searchbar from '../../SearchBar';
+import './bootstrap.css'
+
 class ManageGuest extends Component {
     constructor(props){
         super(props);
@@ -26,6 +29,7 @@ class ManageGuest extends Component {
             <div className="ManageGuest">
                 <AdminHeader/>
                 <div className="Subclass">
+                    <Searchbar/>
                     <table className="table">
                             <thead>
                                     <tr>

@@ -1,6 +1,42 @@
 @import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
 
-.Add_Employee{
-    color: black;
-    background-color: #e7e7e7;
+.Add-Employee{
+  margin-top: 10px;
+}
+.table {
+  background-color: white;
+}
+/* .header__search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 24px;
+}
+
+.header__searchInput {
+  height: 12px;
+  padding: 10px;
+  border: none;
+  width: 95%;
+}
+
+.header__searchIcon {
+  padding: 5px;
+  height: 22px !important;
+  background-color: #cd9042;
+} */
+/* .Add-Employee{
+  display: flex;
+} */
+.Add_Employee {
+  border-radius: 3px;
+  width: 10%;
+  height: 30px;
+  border: 1px solid;
+  margin-top: 10px;
+  margin-right: 0%;
+  border-radius: 15px;
+  font-weight: bold;
+  border: 2px solid rgb(70, 66, 66);
+  background-color: #f5f5f5;
 }
