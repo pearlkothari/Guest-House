@@ -15,7 +15,7 @@ class GuestHeader extends Component{
                         {true && <li ><Link className="nav-link" to="/guest">Home</Link></li>}
                         {true && <li ><Link className="nav-link" to="/guest">Services</Link></li>}
                         {true && <li ><Link className="nav-link" to="/guest">Contacts</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/guest">Feedback</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/guest%20Feedback">Feedback</Link></li>}
                     </ul>
                 </nav>
             </header>

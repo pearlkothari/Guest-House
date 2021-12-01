@@ -6,9 +6,8 @@ import SimpleImageSlider from "react-simple-image-slider";
 
 function Guest() {
     const Image=[
-        {url:'https://www.lnmiit.ac.in/Slider/data1/images/mittal-1.jpg'},
-        {url:'https://www.lnmiit.ac.in/Slider/data1/images/MOU-Slider.jpg'},
-        {url:'https://www.lnmiit.ac.in/Slider/data1/images/mmeslider.jpg'}
+        {url:'https://admissions.lnmiit.ac.in/assets/img/gallery/big/360%20VIEW%20OF%20LNMIIT.jpg'},
+        {url:'https://educationiconnect.com/wp-content/uploads/2019/03/LNM-Institute-of-Information-Technology-Fee-Structure.jpg'},
     ]
     return (
         <div classname="Guest">

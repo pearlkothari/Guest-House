@@ -29,7 +29,15 @@ class ManageGuest extends Component {
             <div className="ManageGuest">
                 <AdminHeader/>
                 <div className="Subclass">
-                    <Searchbar/>
+                    <div className="Searching">
+                        <select className="Search_By" id="Search_By">
+                            <option value="ID">ID</option>
+                            <option value="Name">Name</option>
+                            <option value="Room_Type">Room Type</option>
+                            <option value="Room_Number">Room Number</option>
+                        </select>
+                        <Searchbar/>
+                    </div>
                     <table className="table">
                             <thead>
                                     <tr>

@@ -15,8 +15,17 @@ function ManageEmployee() {
         <div>
             <AdminHeader/>
             <div className="Add-Employee">
-                <Searchbar/>
+                    <div className="Searching">
+                                <select className="Search_By" id="Search_By">
+                                    <option value="ID">ID</option>
+                                    <option value="Name">Name</option>
+                                    <option value="Room_Type">Room Type</option>
+                                    <option value="Room_Number">Room Number</option>
+                                </select>
+                                <Searchbar/>
+                    </div>
                 <button className="Add_Employee" >Add Employee</button>
+                <button className="Remove_Employee" >Remove Employee</button>
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">

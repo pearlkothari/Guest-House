@@ -6,7 +6,6 @@ export default function Searchbar(){
       {/* <img className="logo" src={logo} alt="" width="70px" height="70px" /> */}
       <SearchBar
         style={{
-          margin: "0 400px",
           width: "800px",
           minWidth: "300px"
         }}
