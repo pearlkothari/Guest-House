@@ -2,12 +2,12 @@ import './App.css';
 import Login from './View/Login/Login';
 import Admin from './View/Admin/Admin';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
-import ManageEmployee from './View/Admin/EmployeeManage/ManageEmployee'
 import ManageGuest from './View/Admin/GuestManage/ManageGuest';
 import Approval from './View/Admin/Approval/Approval';
 import Guest_Feedback from './View/Guest/Guest_Feedback';
 import Guest from './View/Guest/Guest';
 import RoomBooking from './View/Guest/RoomBooking';
+import ManageEmployee from './View/Admin/EmployeeManage/ManageEmployee'
 import Manager from './View/Employee/Manager';
 import Caretaker from './View/Employee/Caretaker';
 import CheckAvailability from './View/Guest/CheckAvailability';
