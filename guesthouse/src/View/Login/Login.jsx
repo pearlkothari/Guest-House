@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-import AuthenticationService from '../AuthenticationService';
+import AuthenticationService from '../../AuthenticationService';
 import { useNavigate } from 'react-router';
 
 function Navigate(para){

@@ -1,16 +1,16 @@
 import './App.css';
-import Login from './Login/Login';
-import Admin from './Admin/Admin';
+import Login from './View/Login/Login';
+import Admin from './View/Admin/Admin';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
-import ManageEmployee from './Admin/EmployeeManage/ManageEmployee'
-import ManageGuest from './Admin/GuestManage/ManageGuest';
-import Approval from './Admin/Approval/Approval';
-import Guest_Feedback from './Guest/Guest_Feedback';
-import Guest from './Guest/Guest';
-import RoomBooking from './Guest/RoomBooking';
-import Manager from './Employee/Manager';
-import Caretaker from './Employee/Caretaker';
-import CheckAvailability from './Guest/CheckAvailability';
+import ManageEmployee from './View/Admin/EmployeeManage/ManageEmployee'
+import ManageGuest from './View/Admin/GuestManage/ManageGuest';
+import Approval from './View/Admin/Approval/Approval';
+import Guest_Feedback from './View/Guest/Guest_Feedback';
+import Guest from './View/Guest/Guest';
+import RoomBooking from './View/Guest/RoomBooking';
+import Manager from './View/Employee/Manager';
+import Caretaker from './View/Employee/Caretaker';
+import CheckAvailability from './View/Guest/CheckAvailability';
 
 function App() {
   return (
