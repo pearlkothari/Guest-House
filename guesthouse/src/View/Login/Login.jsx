@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './Login.css';
 import AuthenticationService from '../../AuthenticationService';
+import { Navigate } from 'react-router';
 import { useNavigate } from 'react-router';
 
-function Navigate(para){
-    let navi=useNavigate();
-    navi(para);
-}
 class Login extends Component {
     constructor(props){
         super(props);
@@ -31,18 +28,23 @@ class Login extends Component {
             username:event.target.value
         });
     }
-    onClicked(){
-        if(this.state.username==='19ucs071@lnmiit.ac.in' && this.state.password==='pearl@123'){
+    onClicked =(e) =>{
+        e.preventDefault();
+        if(this.state.username==='19ucs071' &&  this.state.password==="123"){
             AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password);
-            Navigate('/admin');
+            this.setState({
+                success:true,
+                notsuccess:false
+            })
         }else{
             this.setState({
-                success: false,
+                success:false,
                 notsuccess:true
             })
         }
     }
     render(){
+
         return (
             <div className='Login'>
                 <a href='/'>
@@ -51,14 +53,16 @@ class Login extends Component {
                         src="logo1.png"
                     />
                 </a>
+                {this.state.success && <Navigate to="/guest" repalce={true}/>}
+                
                 <h1>WELCOME TO LNMIIT GUEST HOUSE</h1>
                 <div className='Login_Container'>
                     <h1>Sign-in</h1>
                     <form>
                         <h5>E-mail</h5>
-                        <input type='text' value={this.state.username} onChange={this.handleUsername}/>
+                        <input type='text' onChange={this.handleUsername}/>
                         <h5>Password</h5>
-                        <input type='password' value={this.state.password} onChange={this.handlePassword}/>
+                        <input type='password' onChange={this.handlePassword}/>
 
                         <button onClick={this.onClicked}>Sign In</button>
                     </form>

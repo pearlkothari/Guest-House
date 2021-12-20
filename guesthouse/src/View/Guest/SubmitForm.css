@@ -27,6 +27,13 @@
   margin: 0.9vw 0;
   border-radius: 5px;
 }
+.checkin > select{
+  display:block;
+  width:40%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border-radius: 5px;
+}
 
 .form > input {
   display: block;

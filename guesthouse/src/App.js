@@ -10,29 +10,33 @@ import RoomBooking from './View/Guest/RoomBooking';
 import ManageEmployee from './View/Admin/EmployeeManage/ManageEmployee'
 import Manager from './View/Employee/Manager';
 import Caretaker from './View/Employee/Caretaker';
+import ErrorComponent from '../src/View/ErrorComponent'
 import CheckAvailability from './View/Guest/CheckAvailability';
+import AuthenticationService from './AuthenticationService';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-          <Routes>
-            <Route path="/" element={<Login/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/admin" element={<Admin/>}/>
-            <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>
-            <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>
-            <Route path="/admin/Approval" element={<Approval/>}/>
-            {/* <Route path="/admin/Feedback" element={<Feedback/>}/> */}
-            <Route path="/guest" element={<Guest/>}/>
-            <Route path="/Manager" element={<Manager/>}/>
-            <Route path="/Caretaker" element={<Caretaker/>}/>
-            <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>
-            <Route path="/guest%20Feedback" element={<Guest_Feedback/>}/>
-            <Route path="/guest/Check%20Availability" element={<CheckAvailability/>}/>
-          </Routes>
+        <div className="App">
+            <Router>
+              <Routes>
+                <Route path="/" element={<Login/>}/>
+                <Route path="/login" element={<Login/>}/> 
+                {AuthenticationService.isLoggedIn() && (<Route  path="/admin" element={<Admin/>}/>)}
+                {AuthenticationService.isLoggedIn()  && <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/admin/Approval" element={<Approval/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/guest" element={<Guest/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/Manager" element={<Manager/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/Caretaker" element={<Caretaker/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Check%20Availability" element={<CheckAvailability/>}/>}
+                <Route element={<ErrorComponent/>}/>
+              </Routes>
+          </Router>
+
+          
       </div>
-    </Router>
   );
 }
 

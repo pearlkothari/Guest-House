@@ -2,8 +2,10 @@ import React from 'react';
 import './Admin.css';
 import Container from './Container.jsx';
 import AdminHeader from './AdminHeader';
+import AuthenticationService from '../../AuthenticationService';
 
 function Admin() {
+    console.log(AuthenticationService.isLoggedIn());
     return (
         <div className="Admin">
             <AdminHeader/>

@@ -6,7 +6,6 @@ import SimpleImageSlider from "react-simple-image-slider";
 
 function Guest() {
     const Image=[
-        {url:'https://admissions.lnmiit.ac.in/assets/img/gallery/big/360%20VIEW%20OF%20LNMIIT.jpg'},
         {url:'https://educationiconnect.com/wp-content/uploads/2019/03/LNM-Institute-of-Information-Technology-Fee-Structure.jpg'},
     ]
     return (
@@ -29,7 +28,8 @@ function Guest() {
             </div>
             <div className='Container'>
                 <Container what={"Dining Lounge"}/>
-                <Container what={"Check Availability"}/>
+                {/* <Container what={"Check Availability"}/> */}
+                <Container what={"Feedback"}/>
             </div>
         </div>
     )

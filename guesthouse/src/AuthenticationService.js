@@ -7,14 +7,14 @@ class AuthenticationService{
     }
 
     isLoggedIn(){
-        let user=sessionStorage.getItem('authenticatedUser');
-        if(user==null){
+        let user=sessionStorage.length;
+        if(user==0){
             return false;
         }
         return true;
     }
     getusername(){
-        let user=sessionStorage.getItem('authenticatedUser');
+        let user=sessionStorage.getItem('authenticatedUser');        
         if(user==null){
             return '';
         }

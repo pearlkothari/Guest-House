@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Navigate } from 'react-router';
 import './Feedback.css';
 
 function Guest_Feedback() {
@@ -8,26 +9,21 @@ function Guest_Feedback() {
         email:"",
         feedback:""
     })
-    const [count, setCount] = useState(1);
-
-    const [page,setPage]=useState(1);
+    const [count, setCount] = useState(false);
 
     const updateForm = (e) => {
-        const Name=e.target.name;
         setInputs ({
-            
+            ...inputs,
+            [e.target.name]:e.target.value
         })
-        // console.log(e.target)
-        // console.log(form)
     }
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({...values, [name]: value}))
-    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(inputs);
+        setCount({
+            count:true
+        })
+        console.log(inputs);
       }
     return(
         <div className="Feedback">
@@ -49,7 +45,7 @@ function Guest_Feedback() {
                         <input 
                             type ="text" 
                             className = "form-input"
-                            name ="Email" 
+                            name ="email" 
                             placeholder="Email"
                             onChange ={updateForm} 
                             value = {inputs.email}
@@ -65,29 +61,11 @@ function Guest_Feedback() {
                                 value={inputs.feedback}
                             />
                     </div>
-                    {/* {[...Array(page)].map((el, index) => (
-                        <div className="Guest_ID">
-                            Guest {index+1}:
-                            <input
-                                type=""
-                        </div>
-                    ))} */}
+                    
                     <button onClick={handleSubmit}>Submit</button>
 
-                    {/* <button 
-                        className = "prevBtn"
-                        type = "submit" 
-                        onClick = {() => setCount(page -1)} //decrease the page count
-                        disabled = {page <= 1} //don't do anytying when the page is the first page
-                    > PREV </button>
+                    {count && <Navigate to="/guest"/>}
 
-                    {/* NEXT button */}
-                    {/* <button 
-                        className = "nextBtn"
-                        type = "submit" 
-                        onClick = {() => setCount(page +1)}
-                        disabled = {page >= count} //at the last page, disable the next button
-                    > NEXT </button> */}
                 </form>
             </div>
         </div>

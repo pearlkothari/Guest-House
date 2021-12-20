@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import { Link } from "react-router-dom";
+import AuthenticationService from "../../AuthenticationService";
 
 class GuestHeader extends Component{
     render(){
@@ -7,15 +8,14 @@ class GuestHeader extends Component{
             <header>
                 <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
                     <ul className="navbar-nav">
-                        {true && <li ><Link className="nav-link" to="/login">Login</Link></li>}
-                        {true && <li ><Link className="nav-link"  to="/logout">Logout</Link></li>}
+                        {!AuthenticationService.isLoggedIn() && <li ><Link className="nav-link" to="/login">Login</Link></li>}
+                        {AuthenticationService.isLoggedIn() && <li ><Link className="nav-link"  to="/" onClick={AuthenticationService.logout}>Logout</Link></li>}
                         {true && <li ><Link className="nav-link"  to="/guest">About Me</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
                         {true && <li ><Link className="nav-link" to="/guest">Home</Link></li>}
                         {true && <li ><Link className="nav-link" to="/guest">Services</Link></li>}
                         {true && <li ><Link className="nav-link" to="/guest">Contacts</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/guest%20Feedback">Feedback</Link></li>}
                     </ul>
                 </nav>
             </header>
