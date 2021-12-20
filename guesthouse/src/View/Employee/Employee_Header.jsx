@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import { Link } from "react-router-dom";
 
-class GuestHeader extends Component{
+class Employee_Header extends Component{
     render(){
         return(
             <header>
@@ -22,4 +22,4 @@ class GuestHeader extends Component{
     }
 }
 
-export default GuestHeader;
+export default Employee_Header;

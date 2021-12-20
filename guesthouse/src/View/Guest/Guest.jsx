@@ -1,6 +1,6 @@
 import React from 'react'
-import GuestHeader from './GuestHeader'
-import Container from './Container'
+import GuestHeader from '../Guest/Header/GuestHeader.jsx'
+import Container from '../Guest/Container/Container.jsx'
 import './Guest.css'
 import SimpleImageSlider from "react-simple-image-slider";
 

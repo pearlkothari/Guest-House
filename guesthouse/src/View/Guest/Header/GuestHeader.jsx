@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { Link } from "react-router-dom";
-import AuthenticationService from "../../AuthenticationService";
+import AuthenticationService from "../../../AuthenticationService.js";
 
 class GuestHeader extends Component{
     render(){
