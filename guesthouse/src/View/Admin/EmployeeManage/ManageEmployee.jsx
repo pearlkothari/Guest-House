@@ -1,6 +1,8 @@
 import React from 'react'
-import AdminHeader from '../AdminHeader';
-import Searchbar from '../../SearchBar';
+import AdminHeader from '../Header/AdminHeader';
+// import Searchbar from '../../SearchBar';
+import SearchBar from "material-ui-search-bar";
+import { useState } from 'react';
 import './bootstrap.css'
 function ManageEmployee() {
     const Employees=[
@@ -11,18 +13,38 @@ function ManageEmployee() {
         {Id:5,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
         {Id:6,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'}
     ]
+
+    const [value, setValue] = useState();
+
+    const handleChange = (e) => {
+        setValue(e.target.value);
+        console.log(value);
+    };
+
+    const [searchValue,setsearchValue] =useState("");
+
+    const doSomethingWith =(e) =>{
+       console.log(searchValue);
+    }
     return (
         <div>
             <AdminHeader/>
             <div className="Add-Employee">
                     <div className="Searching">
-                                <select className="Search_By" id="Search_By">
+                                <select name='value' onChange={handleChange}>
                                     <option value="ID">ID</option>
                                     <option value="Name">Name</option>
-                                    <option value="Room_Type">Room Type</option>
-                                    <option value="Room_Number">Room Number</option>
+                                    <option value="Contact_Number">Contact Number</option>
+                                    <option value="Email_Id">Email ID</option>
                                 </select>
-                                <Searchbar/>
+                                <SearchBar value={searchValue}
+                                    onChange={(newValue) => setsearchValue(newValue)}
+                                    onRequestSearch={doSomethingWith}
+                                    style={{
+                                        width: "800px",
+                                        minWidth: "300px"
+                                    }}
+                                />
                     </div>
                 <button className="Add_Employee" >Add Employee</button>
                 <button className="Remove_Employee" >Remove Employee</button>

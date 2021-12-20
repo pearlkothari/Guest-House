@@ -1,7 +1,7 @@
 import React from 'react';
 import './Admin.css';
 import Container from './Container.jsx';
-import AdminHeader from './AdminHeader';
+import AdminHeader from '../Admin/Header/AdminHeader';
 import { useEffect } from 'react';
 
 function Admin() {
@@ -18,7 +18,7 @@ function Admin() {
                  <Container what={"Manage Employee"}/>
                  <Container what={"Manage Guest"}/>
                  <Container what={"Approval"}/>
-                 <Container what={"Feedback"}/>
+                 <Container what={"Guest Feedback"}/>
             </div>
         </div>
     )

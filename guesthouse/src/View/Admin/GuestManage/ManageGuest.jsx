@@ -1,23 +1,30 @@
-import React,{Component} from 'react'
-import AdminHeader from '../AdminHeader';
-import Searchbar from '../../SearchBar';
+import React from 'react'
+import AdminHeader from '../Header/AdminHeader';
+import SearchBar from 'material-ui-search-bar';
+import { useState } from 'react';
 import './bootstrap.css'
 
-class ManageGuest extends Component {
-    constructor(props){
-        super(props);
+function ManageGuest() {
 
-        this.state={
-            data:[
-                {Id:1,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-                {Id:2,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-                {Id:3,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-                {Id:4,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-                {Id:5,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'}
-            ]
+        const data=[
+            {Id:1,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+            {Id:2,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+            {Id:3,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+            {Id:4,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
+            {Id:5,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'}
+        ]
+        const [value, setValue] = useState();
+
+        const handleChange = (e) => {
+            setValue(e.target.value);
+            console.log(value);
+        };
+
+        const [searchValue,setsearchValue] =useState("");
+        
+        const doSomethingWith =(e) =>{
+        console.log(searchValue);
         }
-    }
-    render(){
         return (
             /*
                 Search bar 
@@ -30,13 +37,21 @@ class ManageGuest extends Component {
                 <AdminHeader/>
                 <div className="Subclass">
                     <div className="Searching">
-                        <select className="Search_By" id="Search_By">
+                        <select name='value' onChange={handleChange}>
                             <option value="ID">ID</option>
                             <option value="Name">Name</option>
                             <option value="Room_Type">Room Type</option>
                             <option value="Room_Number">Room Number</option>
-                        </select>
-                        <Searchbar/>
+                            <option value="Contact_Info">Contact Number</option>
+                        </select>   
+                        <SearchBar value={searchValue}
+                                    onChange={(newValue) => setsearchValue(newValue)}
+                                    onRequestSearch={doSomethingWith}
+                                    style={{
+                                        width: "800px",
+                                        minWidth: "300px"
+                                    }}
+                                />
                     </div>
                     <table className="table">
                             <thead>
@@ -51,7 +66,7 @@ class ManageGuest extends Component {
                             </thead>
                             <tbody>
                             {
-                                this.state.data.map(
+                                data.map(
                                     guest => 
                                         <tr key={guest.Id}>
                                             <td>{guest.Id}</td>
@@ -69,7 +84,6 @@ class ManageGuest extends Component {
                 </div>
             </div>
         )
-    }
 }
 
 export default ManageGuest

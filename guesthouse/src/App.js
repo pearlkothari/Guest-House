@@ -14,6 +14,7 @@ import ErrorComponent from '../src/View/ErrorComponent'
 import AuthenticationService from './AuthenticationService';
 import Footer from './View/Footer/Footer';
 import Status from './View/Guest/Status/Status';
+import Feedback from './View/Admin/Feedback/Feedback';
 
 function App() {
   return (
@@ -22,10 +23,12 @@ function App() {
               <Routes>
                 <Route path="/" element={<Login/>}/>
                 <Route path="/login" element={<Login/>}/> 
+
                 {AuthenticationService.isLoggedIn() && (<Route  path="/admin" element={<Admin/>}/>)}
                 {AuthenticationService.isLoggedIn()  && <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>}
                 {AuthenticationService.isLoggedIn()  && <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>}
                 {AuthenticationService.isLoggedIn()  && <Route path="/admin/Approval" element={<Approval/>}/>}
+                {AuthenticationService.isLoggedIn()  &&  <Route path="/admin/Guest%20Feedback" element={<Feedback/>}/>}
 
                 {AuthenticationService.isLoggedIn()  && <Route path="/Manager" element={<Manager/>}/>}
                 {AuthenticationService.isLoggedIn()  && <Route path="/Caretaker" element={<Caretaker/>}/>}
