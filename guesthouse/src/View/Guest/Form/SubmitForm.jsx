@@ -6,7 +6,6 @@ import './SubmitForm.css';
 function SubmitForm() {
     const [success,setsuccess]=useState(false)
 
-    const gender=['M','F'];
 
     const [about, setabout] = useState({
         name: "",

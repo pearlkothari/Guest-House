@@ -53,13 +53,13 @@ class Login extends Component {
 
         return (
             <div className='Login'>
+                {this.state.success && <Navigate to="/admin" repalce={true}/>}
                 <a href='/'>
                     <img 
                         className='lnmiit_logo'
                         src="logo1.png"
                     />
                 </a>
-                {this.state.success && <Navigate to="/admin" repalce={true}/>}
                 
                 <h1>WELCOME TO LNMIIT GUEST HOUSE</h1>
                 <div className='Login_Container'>

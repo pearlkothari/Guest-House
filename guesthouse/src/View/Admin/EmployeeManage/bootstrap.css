@@ -4,7 +4,7 @@
   margin-top: 10px;
 }
 .Searching{
-  margin-left: 230px;
+  margin-left: 290px;
 }
 .Searching>select{
   border: 2px solid white;
@@ -15,6 +15,7 @@
   border-radius: 20px;
   background-color: white;
 }
+tr:nth-child(even) {background-color: #f2f2f2;}
 /* .header__search {
   display: flex;
   flex: 1;
@@ -39,7 +40,7 @@
 } */
 .Add_Employee {
   border-radius: 3px;
-  width: 10%;
+  width: 20%;
   height: 30px;
   border: 1px solid;
   margin-top: 10px;
@@ -50,7 +51,7 @@
   font-weight: bold;
   border: 2px solid rgb(70, 66, 66);
   color: white;
-  background-color: #1b3d4d;
+  background-color: #214d61;
 }
 .Remove_Employee {
   border-radius: 3px;
@@ -64,5 +65,5 @@
   font-weight: bold;
   border: 2px solid rgb(70, 66, 66);
   color: white;
-  background-color: #1b3d4d;
+  background-color: #214d61;
 }

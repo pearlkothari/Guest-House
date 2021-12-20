@@ -1,6 +1,5 @@
 import React from 'react'
 import AdminHeader from '../Header/AdminHeader';
-// import Searchbar from '../../SearchBar';
 import SearchBar from "material-ui-search-bar";
 import { useState } from 'react';
 import './bootstrap.css'
@@ -27,7 +26,7 @@ function ManageEmployee() {
        console.log(searchValue);
     }
     return (
-        <div>
+        <div className='ManageEmployee'>
             <AdminHeader/>
             <div className="Add-Employee">
                     <div className="Searching">
@@ -46,11 +45,12 @@ function ManageEmployee() {
                                     }}
                                 />
                     </div>
-                <button className="Add_Employee" >Add Employee</button>
-                <button className="Remove_Employee" >Remove Employee</button>
+                    <button className="Add_Employee" >Add Employee</button>
+                    <button className="Remove_Employee" >Remove Employee</button>
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">
+                           
                             <thead>
                                     <tr>
                                         <th>ID</th>
