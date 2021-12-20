@@ -3,12 +3,13 @@ import GuestHeader from '../Header/GuestHeader';
 function Status() {
     const guest=[
         {Id:1,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
+        {Id:2,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
+        {Id:3,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
+        {Id:4,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
+        {Id:5,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
+        {Id:6,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
     ]
+    
     return (
         <div className='Status'>
             <GuestHeader/>
