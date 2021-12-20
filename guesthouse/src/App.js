@@ -39,7 +39,9 @@ function App() {
                 {!AuthenticationService.isLoggedIn() && <Route path='*' exact={true} element={<ErrorComponent/>}/>}
               </Routes>
           </Router>
-          <Footer/>
+          <div className='footer'>
+            <Footer/>
+          </div>
       </div>
   );
 }

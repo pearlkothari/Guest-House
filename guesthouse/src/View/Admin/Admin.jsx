@@ -2,10 +2,15 @@ import React from 'react';
 import './Admin.css';
 import Container from './Container.jsx';
 import AdminHeader from './AdminHeader';
-import AuthenticationService from '../../AuthenticationService';
+import { useEffect } from 'react';
 
 function Admin() {
-    console.log(AuthenticationService.isLoggedIn());
+    useEffect(() => {
+        window.history.pushState(null, document.title, window.location.href);
+        window.addEventListener('popstate', function (event){
+            window.history.pushState(null, document.title,  window.location.href);
+        });
+    })
     return (
         <div className="Admin">
             <AdminHeader/>

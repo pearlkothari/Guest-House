@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Login.css';
 import AuthenticationService from '../../AuthenticationService';
 import { Navigate } from 'react-router';
-import { useNavigate } from 'react-router';
 
 class Login extends Component {
     constructor(props){
@@ -16,6 +15,13 @@ class Login extends Component {
         this.handleUsername=this.handleUsername.bind(this);
         this.handlePassword=this.handlePassword.bind(this);
         this.onClicked=this.onClicked.bind(this);
+    }
+
+    componentDidMount() {
+        window.history.pushState(null, document.title, window.location.href);
+        window.addEventListener('popstate', function (event){
+            window.history.pushState(null, document.title,  window.location.href);
+        });
     }
 
     handlePassword(event){

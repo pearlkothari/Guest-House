@@ -2,12 +2,19 @@ import React from 'react'
 import GuestHeader from '../Guest/Header/GuestHeader.jsx'
 import Container from '../Guest/Container/Container.jsx'
 import './Guest.css'
+import { useEffect } from 'react'
 import SimpleImageSlider from "react-simple-image-slider";
 
 function Guest() {
     const Image=[
         {url:'https://educationiconnect.com/wp-content/uploads/2019/03/LNM-Institute-of-Information-Technology-Fee-Structure.jpg'},
     ]
+    useEffect(() => {
+        window.history.pushState(null, document.title, window.location.href);
+        window.addEventListener('popstate', function (event){
+            window.history.pushState(null, document.title,  window.location.href);
+        });
+    })
     return (
         <div classname="Guest">
             <GuestHeader/>
