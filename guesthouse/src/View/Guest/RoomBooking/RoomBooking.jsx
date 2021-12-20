@@ -1,6 +1,6 @@
 import React from 'react'
-import GuestHeader from '../Guest/Header/GuestHeader'
-import SubmitForm from '../Guest/Form/SubmitForm.jsx'
+import GuestHeader from '../Header/GuestHeader'
+import SubmitForm from '../Form/SubmitForm.jsx'
 import './RoomBooking.css'
 
 function RoomBooking() {

@@ -35,7 +35,7 @@ function Feedback() {
                                             <td>{guest.Name}</td>
                                             <td>{guest.Contact_Info}</td>
                                             <td>{guest.Email_ID}</td>
-                                            <button className="btn" Data={guest} onClick={() => navigate('./details', { replace: true })}>View</button>
+                                            <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
                                         </tr>
                                 )
                             }

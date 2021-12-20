@@ -5,8 +5,9 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import ManageGuest from './View/Admin/GuestManage/ManageGuest';
 import Approval from './View/Admin/Approval/Approval';
 import Guest_Feedback from './View/Guest/Feedback/Guest_Feedback.jsx';
+import Details from './View/Admin/Feedback/Details';
 import Guest from './View/Guest/Guest';
-import RoomBooking from './View/Guest/RoomBooking';
+import RoomBooking from './View/Guest/RoomBooking/RoomBooking.jsx';
 import ManageEmployee from './View/Admin/EmployeeManage/ManageEmployee'
 import Manager from './View/Employee/Manager';
 import Caretaker from './View/Employee/Caretaker';
@@ -29,6 +30,7 @@ function App() {
                 {AuthenticationService.isLoggedIn()  && <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>}
                 {AuthenticationService.isLoggedIn()  && <Route path="/admin/Approval" element={<Approval/>}/>}
                 {AuthenticationService.isLoggedIn()  &&  <Route path="/admin/Guest%20Feedback" element={<Feedback/>}/>}
+                {AuthenticationService.isLoggedIn()  &&  <Route path="/admin/Guest%20Feedback/details" element={<Details/>}/>}
 
                 {AuthenticationService.isLoggedIn()  && <Route path="/Manager" element={<Manager/>}/>}
                 {AuthenticationService.isLoggedIn()  && <Route path="/Caretaker" element={<Caretaker/>}/>}

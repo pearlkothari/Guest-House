@@ -27,9 +27,8 @@ function Guest_Feedback() {
       }
     return(
         <div className="Feedback">
-            <h1 className="heading1">THE LNM INSTITUTE OF INFORMATION TECHNOLOGY, JAIPUR</h1>
-            <h2 className="heading2">FEEDBACK FORM</h2>
             <div className="submit">
+                <h2 className="heading1">FEEDBACK FORM</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form">
                         <input 
