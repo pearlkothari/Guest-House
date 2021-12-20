@@ -1,7 +1,7 @@
 import React from 'react';
 import './Admin.css';
-import Container from './Container.jsx';
-import AdminHeader from '../Admin/Header/AdminHeader';
+import Container from '../Admin/Container/Container.jsx';
+import AdminHeader from '../Admin/Header/AdminHeader.jsx';
 import { useEffect } from 'react';
 
 function Admin() {
