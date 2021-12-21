@@ -1,54 +1,55 @@
 .submit {
-    margin-top: 25px;
-    width: 700px;
-    background-color: white;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    border: 12px solid lightgray;
-    padding: 20px;
-  }
-  .submit>h1{
-    font-weight: bolder;
-    color:red;
-  }
-  .Reservation_Date{
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .Reservation_Date > h5 {
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-left: 10px;
-  }
-  
-  .Reservation_Date > input {
-    display: block;
-    width: 40%;
-    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-    margin: 0.9vw 0;
-    border-radius: 5px;
-  }
-  .Reservation_Date > select{
-    display:block;
-    width:40%;
-    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-    margin: 0.9vw 0;
-    border-radius: 5px;
-  }
-  
-  .form > input {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-    margin: 0.9vw 0;
-    border: 0;
-    border-radius: 5px;
-    font-size: 20px;
-  }
-  /* .submit > h1 {
+  margin-top: 25px;
+  width: 700px;
+  background-color: white;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 12px solid lightgray;
+  padding: 20px;
+}
+.submit > h1 {
+  font-weight: bolder;
+  color: rgb(151, 3, 3);
+}
+.Reservation_Date {
+  display: flex;
+  flex-direction: row;
+}
+
+.Reservation_Date > h5 {
+  margin-right: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.Reservation_Date > input {
+  display: block;
+  width: 40%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border-radius: 5px;
+}
+.Reservation_Date > select {
+  display: block;
+  width: 40%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border-radius: 5px;
+}
+
+.form > input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+}
+/* .submit > h1 {
     font-weight: 500;
     margin-bottom: 20px;
   }
@@ -71,16 +72,15 @@
     margin-top: 15px;
     font-size: 12px;
   } */
-  
-  .submit > form > button {
-    border-radius: 3px;
-    width: 40%;
-    background-color: #1b3d4d;
-    height: 40px;
-    border: 1px solid;
-    margin-top: 10px;
-    border-radius: 15px;
-    color: #fff;
-    background-color: lighten(#1b3d4d, 5%);
-  }
-  
+
+.submit > form > button {
+  border-radius: 3px;
+  width: 40%;
+  background-color: #1b3d4d;
+  height: 40px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-radius: 15px;
+  color: #fff;
+  background-color: lighten(#1b3d4d, 5%);
+}

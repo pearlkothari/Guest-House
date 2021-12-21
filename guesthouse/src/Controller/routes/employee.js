@@ -82,7 +82,7 @@ router.route('/assignDiningLounge').post(function(req, res) {
     const dining = new Dining({
         guestId,
         totalGuest,
-        bookingId,
+        ReservationDate,
     });
 
     dining.save()
