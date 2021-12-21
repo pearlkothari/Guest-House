@@ -18,16 +18,17 @@
   display: flex;
   flex-direction: row;
 }
-.Rating2{
-  margin-left:50%;
-}
-.Rating>h2{
-  font-weight: bold;
-}
-.Rating{
-  width:500px;
+.Rating1{
   display: flex;
   flex-direction: row;
+}
+.Rating1>h5{
+  color: gray;
+  margin-top: 30px;
+}
+.Rating{
+  display: flex;
+  flex-direction: column;
 }
 .feedback > input {
   display: block;

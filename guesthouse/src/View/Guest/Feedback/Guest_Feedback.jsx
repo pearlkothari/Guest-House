@@ -12,7 +12,8 @@ function Guest_Feedback() {
         feedback:"",
         Service_Rating:"",
         Food_Rating:"",
-        Room_Rating:""
+        Room_Rating:"",
+        Overall_Experience:""
     })
     const [count, setCount] = useState(false);
 
@@ -22,7 +23,15 @@ function Guest_Feedback() {
             [e.target.name]:e.target.value
         })
     }
-
+    const Emotions= [
+        {Angry:0},
+        {Mad:0.5},
+        {Whatever:1},
+        {Confused:2},
+        {Happy:3},
+        {Wow:4},
+        {Love:5}
+    ]
     const handleSubmit = (event) => {
         event.preventDefault();
         setCount({
@@ -30,6 +39,13 @@ function Guest_Feedback() {
         })
         console.log(inputs);
       }
+
+    const handleRating =(name,event) =>{
+        setInputs({
+            ...inputs,
+            [name]:event
+        })
+    }
     
     return(
         <div className="Feedback">
@@ -70,25 +86,25 @@ function Guest_Feedback() {
                         <div className='Rating1'>
                             <h5>Service Rating</h5>
                             <EmojiRating 
-                                    variant='emoticons' />
-                        </div>
-                        <div className='Rating2'>
+                                    variant='emoticons' 
+                                    onChange={(what)=>handleRating("Service_Rating",what)}/>
                             <h5>Food Rating</h5>
                             <EmojiRating 
-                                    variant='emoticons' />
+                                    variant='emoticons' 
+                                    onChange={(what)=>handleRating("Food_Rating",what)}/>
                         </div>
                     </div>
                     <div className='Rating'>
-                        <div className='Rating1'>
+                            <div className='Rating1'>
                                 <h5>Room Rating</h5>
                                 <EmojiRating 
-                                        variant='emoticons' />
-                            </div>
-                            <div className='Rating2'>
+                                        variant='emoticons'
+                                        onChange={(what)=>handleRating("Room_Rating",what)}/>
                                 <h5>Overall Experience</h5>
                                 <EmojiRating 
-                                        variant='emoticons' />
-                        </div>
+                                        variant='emoticons'
+                                        onChange={(what)=>handleRating("Overall_Experience",what)} />
+                            </div>
                     </div>
                     <button onClick={handleSubmit}>Submit</button>
 
