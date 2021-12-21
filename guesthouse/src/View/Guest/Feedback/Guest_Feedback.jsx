@@ -23,7 +23,15 @@ function Guest_Feedback() {
             [e.target.name]:e.target.value
         })
     }
-
+    const Emotions= [
+        {Angry:0},
+        {Mad:0.5},
+        {Whatever:1},
+        {Confused:2},
+        {Happy:3},
+        {Wow:4},
+        {Love:5}
+    ]
     const handleSubmit = (event) => {
         event.preventDefault();
         setCount({

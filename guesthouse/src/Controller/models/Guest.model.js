@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const guestSchema = new Schema({
     emailId: {type: Number, required: true, unique: true, default: false},
-    rollNo: {type: String, required: true, default: false},
+    designation: {type: String, required: true, default: false},
     contactNo: {type: Number, required: true, default: false},
     Name: {type: String, required: true, default: false},
     guestId: {type: String, required: true, unique: true, default: false},
