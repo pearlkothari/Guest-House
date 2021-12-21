@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Caretaker() {
+function Employee() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Caretaker() {
     )
 }
 
-export default Caretaker
+export default Employee

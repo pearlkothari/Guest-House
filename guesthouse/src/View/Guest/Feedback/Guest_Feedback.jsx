@@ -1,13 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
 import { Navigate } from 'react-router';
+import EmojiRating from 'react-emoji-rating'
+
 import './Feedback.css';
 
 function Guest_Feedback() {
     const [inputs, setInputs] = useState({
         name: "",
         email:"",
-        feedback:""
+        feedback:"",
+        Service_Rating:"",
+        Food_Rating:"",
+        Room_Rating:""
     })
     const [count, setCount] = useState(false);
 
@@ -25,6 +30,7 @@ function Guest_Feedback() {
         })
         console.log(inputs);
       }
+    
     return(
         <div className="Feedback">
             <div className="submit">
@@ -60,7 +66,30 @@ function Guest_Feedback() {
                                 value={inputs.feedback}
                             />
                     </div>
-                    
+                    <div className='Rating'>
+                        <div className='Rating1'>
+                            <h5>Service Rating</h5>
+                            <EmojiRating 
+                                    variant='emoticons' />
+                        </div>
+                        <div className='Rating2'>
+                            <h5>Food Rating</h5>
+                            <EmojiRating 
+                                    variant='emoticons' />
+                        </div>
+                    </div>
+                    <div className='Rating'>
+                        <div className='Rating1'>
+                                <h5>Room Rating</h5>
+                                <EmojiRating 
+                                        variant='emoticons' />
+                            </div>
+                            <div className='Rating2'>
+                                <h5>Overall Experience</h5>
+                                <EmojiRating 
+                                        variant='emoticons' />
+                        </div>
+                    </div>
                     <button onClick={handleSubmit}>Submit</button>
 
                     {count && <Navigate to="/guest"/>}

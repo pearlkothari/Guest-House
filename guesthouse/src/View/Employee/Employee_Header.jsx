@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import { Link } from "react-router-dom";
+import AuthenticationService from "../../AuthenticationService";
 
 class Employee_Header extends Component{
     render(){
@@ -7,8 +8,8 @@ class Employee_Header extends Component{
             <header>
                 <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
                     <ul className="navbar-nav">
-                        {true && <li ><Link className="nav-link" to="/login">Login</Link></li>}
-                        {true && <li ><Link className="nav-link"  to="/logout">Logout</Link></li>}
+                        {!AuthenticationService.isLoggedIn() && <li ><Link className="nav-link" to="/login">Login</Link></li>}
+                        {AuthenticationService.isLoggedIn() && <li ><Link className="nav-link"  to="/logout">Logout</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
                         {true && <li ><Link className="nav-link" to="/admin">Home</Link></li>}

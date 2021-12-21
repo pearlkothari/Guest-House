@@ -9,8 +9,7 @@ import Details from './View/Admin/Feedback/Details';
 import Guest from './View/Guest/Guest';
 import RoomBooking from './View/Guest/RoomBooking/RoomBooking.jsx';
 import ManageEmployee from './View/Admin/EmployeeManage/ManageEmployee'
-import Manager from './View/Employee/Manager';
-import Caretaker from './View/Employee/Caretaker';
+import Employee from './View/Employee/Employee.jsx'
 import ErrorComponent from '../src/View/ErrorComponent'
 import AuthenticationService from './AuthenticationService';
 import Footer from './View/Footer/Footer';
@@ -32,8 +31,7 @@ function App() {
                 {AuthenticationService.isLoggedIn()  &&  <Route path="/admin/Guest%20Feedback" element={<Feedback/>}/>}
                 {AuthenticationService.isLoggedIn()  &&  <Route path="/admin/Guest%20Feedback/details" element={<Details/>}/>}
 
-                {AuthenticationService.isLoggedIn()  && <Route path="/Manager" element={<Manager/>}/>}
-                {AuthenticationService.isLoggedIn()  && <Route path="/Caretaker" element={<Caretaker/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/Employee" element={<Employee/>}/>}
 
 
                 {AuthenticationService.isLoggedIn()  && <Route path="/guest" element={<Guest/>}/>}
