@@ -9,6 +9,10 @@
     border: 12px solid lightgray;
     padding: 20px;
   }
+  .submit>h1{
+    font-weight: bolder;
+    color:red;
+  }
   .Reservation_Date{
     display: flex;
     flex-direction: row;

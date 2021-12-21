@@ -21,6 +21,7 @@ import Feedback_Employee from './View/Employee/GuestFeedback/Feedback/Feedback_E
 import Details2 from './View/Employee/GuestFeedback/Feedback/Details';
 import Dining_Lounge from './View/Employee/Dining_Lounge/Dining_Lounge';
 import BookDining from './View/Guest/BookDining/BookDining';
+import SubmitForm2 from './View/Admin/EmployeeManage/SubmitForm2';
 
 
 
@@ -35,6 +36,7 @@ function App() {
                 {AuthenticationService.isLoggedIn()  &&  AuthenticationService.whatRole()==='Admin' && (<Route  path="/admin" element={<Admin/>}/>)}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' &&  <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Manage%20Employee/Add_Employee" element={<SubmitForm2/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' &&  <Route path="/admin/Approval" element={<Approval/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Guest%20Feedback" element={<Feedback/>}/>}
                 {AuthenticationService.isLoggedIn() && AuthenticationService.whatRole()==='Admin'  &&  <Route path="/admin/Guest%20Feedback/details" element={<Details/>}/>}

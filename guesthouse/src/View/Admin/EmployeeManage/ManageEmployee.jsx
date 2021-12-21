@@ -1,18 +1,15 @@
 import React from 'react'
 import AdminHeader from '../Header/AdminHeader';
+import axios from "axios";
+import { useEffect } from 'react';
 import SearchBar from "material-ui-search-bar";
 import { useState } from 'react';
 import './bootstrap.css'
-function ManageEmployee() {
-    const Employees=[
-        {Id:1,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:2,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:3,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:4,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:5,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:6,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'}
-    ]
+import { useNavigate } from 'react-router';
 
+function ManageEmployee() {
+    const [Employees,setEmployees]=useState([]);
+    
     const [value, setValue] = useState();
 
     const handleChange = (e) => {
@@ -20,21 +17,46 @@ function ManageEmployee() {
         console.log(value);
     };
 
+    const url='http://localhost:5000/employee/';
     const [searchValue,setsearchValue] =useState("");
 
+    useEffect(() => 
+        axios.get(`${url}/see`)
+        .then(res =>{
+            const Data=res.data;
+            setEmployees(Data)
+        })
+    ,[])
+
     const doSomethingWith =(e) =>{
-       console.log(searchValue);
+        const update=Employees.filter(item => (item.employeeId===e || item.name===e || item.contactNo===e || item.emailId===e));
+        setEmployees(update);
     }
+
+    const deleteEmployee =(employeeId) =>{
+        const res= axios.delete(`${url}/delete`,employeeId)
+                    .then(result=>{
+                        const update=Employees.filter(item => item.employeeId!=employeeId)
+                        setEmployees(update);
+                        console.log(result.data);
+                    })
+        if(res){
+            alert(`Employee with Employee-Id ${employeeId} has been deleted successfully`);
+        }else{
+            alert('Unexpected Error Occurred');
+        }
+    }
+    const navigate=useNavigate();
     return (
         <div className='ManageEmployee'>
             <AdminHeader/>
             <div className="Add-Employee">
                     <div className="Searching">
                                 <select name='value' onChange={handleChange}>
-                                    <option value="ID">ID</option>
-                                    <option value="Name">Name</option>
-                                    <option value="Contact_Number">Contact Number</option>
-                                    <option value="Email_Id">Email ID</option>
+                                    <option value="employeeId">ID</option>
+                                    <option value="name">Name</option>
+                                    <option value="contactNo">Contact Number</option>
+                                    <option value="emailId">Email ID</option>
                                 </select>
                                 <SearchBar value={searchValue}
                                     onChange={(newValue) => setsearchValue(newValue)}
@@ -45,7 +67,7 @@ function ManageEmployee() {
                                     }}
                                 />
                     </div>
-                    <button className="Add_Employee" >Add Employee</button>
+                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{replace:true})}>Add Employee</button>
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">
@@ -63,13 +85,13 @@ function ManageEmployee() {
                             {
                                 Employees.map(
                                     Employees => 
-                                        <tr key={Employees.Id}>
-                                            <td>{Employees.Id}</td>
-                                            <td>{Employees.Name}</td>
-                                            <td>{Employees.Contact_Info}</td>
-                                            <td>{Employees.Job_Role}</td>
-                                            <td>{Employees.Email_ID}</td>
-                                            <button className="btn" >Remove Employee</button>
+                                        <tr key={Employees.employeeId}>
+                                            <td>{Employees.employeeId}</td>
+                                            <td>{Employees.name}</td>
+                                            <td>{Employees.contactNo}</td>
+                                            <td>{Employees.jobRole}</td>
+                                            <td>{Employees.emailId}</td>
+                                            <button className="btn btn-danger" onClick={() => deleteEmployee(Employees.employeeId)}>Remove Employee</button>
                                         </tr>
                                 )
                             }

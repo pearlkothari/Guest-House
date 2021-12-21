@@ -1,6 +1,7 @@
 import React from 'react'
 import './BookDining.css'
 import { useState } from 'react';
+import { Navigate } from 'react-router';
 
 function BookDining() {
 
@@ -20,7 +21,7 @@ function BookDining() {
     }
 
     const handleSubmit = (event) =>{
-
+        setsuccess(true);
     }
 
     return (
@@ -58,6 +59,7 @@ function BookDining() {
                 </div>
                 <button onClick={handleSubmit}>Submit</button>
             </form>
+            {success && <Navigate to="/guest"/>}
         </div>
     )
 }
