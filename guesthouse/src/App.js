@@ -15,6 +15,14 @@ import AuthenticationService from './AuthenticationService';
 import Footer from './View/Footer/Footer';
 import Status from './View/Guest/Status/Status';
 import Feedback from './View/Admin/Feedback/Feedback';
+import ManageGuestEmployee from './View/Employee/GuestManage/ManageGuest';
+import ManageCaretaker from './View/Employee/ManageCaretaker/ManageCaretaker';
+import Feedback_Employee from './View/Employee/GuestFeedback/Feedback/Feedback_Employee';
+import Details2 from './View/Employee/GuestFeedback/Feedback/Details';
+import Dining_Lounge from './View/Employee/Dining_Lounge/Dining_Lounge';
+import BookDining from './View/Guest/BookDining/BookDining';
+
+
 
 function App() {
   return (
@@ -24,20 +32,26 @@ function App() {
                 <Route path="/" element={<Login/>}/>
                 <Route path="/login" element={<Login/>}/> 
 
-                {AuthenticationService.isLoggedIn() && (<Route  path="/admin" element={<Admin/>}/>)}
-                {AuthenticationService.isLoggedIn()  && <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>}
-                {AuthenticationService.isLoggedIn()  && <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>}
-                {AuthenticationService.isLoggedIn()  && <Route path="/admin/Approval" element={<Approval/>}/>}
-                {AuthenticationService.isLoggedIn()  &&  <Route path="/admin/Guest%20Feedback" element={<Feedback/>}/>}
-                {AuthenticationService.isLoggedIn()  &&  <Route path="/admin/Guest%20Feedback/details" element={<Details/>}/>}
+                {AuthenticationService.isLoggedIn()  &&  AuthenticationService.whatRole()==='Admin' && (<Route  path="/admin" element={<Admin/>}/>)}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' &&  <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' &&  <Route path="/admin/Approval" element={<Approval/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Guest%20Feedback" element={<Feedback/>}/>}
+                {AuthenticationService.isLoggedIn() && AuthenticationService.whatRole()==='Admin'  &&  <Route path="/admin/Guest%20Feedback/details" element={<Details/>}/>}
 
-                {AuthenticationService.isLoggedIn()  && <Route path="/Employee" element={<Employee/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Caretaker' || AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee" element={<Employee/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Guest" element={<ManageGuestEmployee/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Caretaker" element={<ManageCaretaker/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback" element={<Feedback_Employee/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback/details" element={<Details2/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests" element={<Dining_Lounge/>}/>}
 
 
-                {AuthenticationService.isLoggedIn()  && <Route path="/guest" element={<Guest/>}/>}
-                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
-                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
-                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Status" element={<Status/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' &&  <Route path="/guest" element={<Guest/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' &&  <Route path="/guest/Dining%20Lounge" element={<BookDining/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' && <Route path="/guest/Status" element={<Status/>}/>}
 
                 {!AuthenticationService.isLoggedIn() && <Route path='*' exact={true} element={<ErrorComponent/>}/>}
               </Routes>

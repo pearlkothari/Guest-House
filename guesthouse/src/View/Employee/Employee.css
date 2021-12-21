@@ -1,0 +1,13 @@
+.Admin {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .container_1 {
+    margin-top: 30px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  

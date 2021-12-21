@@ -37,7 +37,7 @@ class Login extends Component {
     onClicked =(e) =>{
         e.preventDefault();
         if(this.state.username==='19ucs071' &&  this.state.password==="123"){
-            AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password);
+            AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password,'Manager');
             this.setState({
                 success:true,
                 notsuccess:false
@@ -53,7 +53,7 @@ class Login extends Component {
 
         return (
             <div className='Login'>
-                {this.state.success && <Navigate to="/admin" repalce={true}/>}
+                {this.state.success && <Navigate to="/Employee" repalce={true}/>}
                 <a href='/'>
                     <img 
                         className='lnmiit_logo'

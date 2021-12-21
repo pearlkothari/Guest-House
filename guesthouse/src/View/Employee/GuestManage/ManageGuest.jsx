@@ -1,10 +1,10 @@
 import React from 'react'
-import AdminHeader from '../Header/AdminHeader';
+import Employee_Header from '../Employee_Header';
 import SearchBar from 'material-ui-search-bar';
 import { useState } from 'react';
 import './bootstrap.css'
 
-function ManageGuest() {
+function ManageGuestEmployee() {
 
         const data=[
             {Id:1,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
@@ -34,7 +34,7 @@ function ManageGuest() {
                 -Search By Room Number
             */
             <div className="ManageGuest">
-                <AdminHeader/>
+                <Employee_Header/>
                 <div className="Subclass">
                     <div className="Searching">
                         <select name='value' onChange={handleChange}>
@@ -86,4 +86,4 @@ function ManageGuest() {
         )
 }
 
-export default ManageGuest
+export default ManageGuestEmployee

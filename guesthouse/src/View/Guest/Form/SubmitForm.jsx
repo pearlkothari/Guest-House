@@ -140,7 +140,7 @@ function SubmitForm() {
                 </div>
                 <button onClick={handleSubmit}>Submit</button>
 
-                {/* {success && <Navigate to="/guest"></Navigate>} */}
+                {success && <Navigate to="/guest"></Navigate>}
             </form>
         </div>
     )

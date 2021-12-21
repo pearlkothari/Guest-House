@@ -1,0 +1,9 @@
+.btn{
+    border-radius: 10px;
+    margin-top: 4px;
+    border: 2px solid rgb(70, 66, 66);
+    border: 1px solid;
+    color: white;
+    font-weight: bold;
+    background-color: #214d61;
+}

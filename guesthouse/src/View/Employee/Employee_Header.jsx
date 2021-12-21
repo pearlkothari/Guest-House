@@ -9,13 +9,11 @@ class Employee_Header extends Component{
                 <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
                     <ul className="navbar-nav">
                         {!AuthenticationService.isLoggedIn() && <li ><Link className="nav-link" to="/login">Login</Link></li>}
-                        {AuthenticationService.isLoggedIn() && <li ><Link className="nav-link"  to="/logout">Logout</Link></li>}
+                        {AuthenticationService.isLoggedIn() && <li ><Link className="nav-link"  to="/">Logout</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
-                        {true && <li ><Link className="nav-link" to="/admin">Home</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/admin">Services</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/admin">Contacts</Link></li>}
-                        {true && <li ><Link className="nav-link" to="/admin">Feedback</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/Employee">Home</Link></li>}
+                        {true && <li ><Link className="nav-link" to="/Employee">About Me</Link></li>}
                     </ul>
                 </nav>
             </header>

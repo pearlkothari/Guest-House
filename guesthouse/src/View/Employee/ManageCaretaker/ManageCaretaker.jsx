@@ -1,9 +1,10 @@
 import React from 'react'
-import AdminHeader from '../Header/AdminHeader';
-import SearchBar from "material-ui-search-bar";
 import { useState } from 'react';
-import './bootstrap.css'
-function ManageEmployee() {
+import Employee_Header from '../Employee_Header.jsx'
+import SearchBar from 'material-ui-search-bar';
+import './ManageCaretaker.css'
+
+function ManageCaretaker() {
     const Employees=[
         {Id:1,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
         {Id:2,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
@@ -27,7 +28,7 @@ function ManageEmployee() {
     }
     return (
         <div className='ManageEmployee'>
-            <AdminHeader/>
+            <Employee_Header/>
             <div className="Add-Employee">
                     <div className="Searching">
                                 <select name='value' onChange={handleChange}>
@@ -45,7 +46,6 @@ function ManageEmployee() {
                                     }}
                                 />
                     </div>
-                    <button className="Add_Employee" >Add Employee</button>
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">
@@ -75,8 +75,9 @@ function ManageEmployee() {
                             }
                             </tbody>
                 </table>
+                <button className="Add_Employee" >Add Employee</button>
         </div>
     )
 }
 
-export default ManageEmployee;
+export default ManageCaretaker

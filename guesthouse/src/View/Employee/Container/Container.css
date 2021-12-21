@@ -1,0 +1,6 @@
+.main_container {
+  display: flex;
+}
+.main_container > img {
+  width: 40px;
+}

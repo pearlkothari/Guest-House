@@ -1,0 +1,19 @@
+@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
+
+.Searching{
+    display: flex;
+    flex-direction: row;
+}
+.Searching>select{
+    border: 2px solid white;
+    margin-right: 5px;
+    border-radius: 7px;
+  }
+.Subclass{
+    margin-top: 10px;
+}
+.table{
+    border-radius: 40px;
+    margin-top: 20px;
+    background-color: white;
+}

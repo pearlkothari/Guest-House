@@ -1,14 +1,20 @@
 class AuthenticationService{
-    RegisterSuccessfulLogin(username,password){
+    RegisterSuccessfulLogin(username,password,role){
         sessionStorage.setItem('authenticatedUser',username);
+        sessionStorage.setItem('role',role);
     }
     logout(){
         sessionStorage.removeItem('authenticatedUser');
+        sessionStorage.removeItem('role');
     }
 
+    whatRole(){
+        return sessionStorage.getItem('role');
+    }
     isLoggedIn(){
-        let user=sessionStorage.length;
-        if(user==0){
+        let user=sessionStorage.getItem('autenticatedUser');
+        let user2=sessionStorage.length;
+        if(user2==0){
             return false;
         }
         return true;
