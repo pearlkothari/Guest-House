@@ -96,7 +96,7 @@ router.route('/add/items').post(function(req, res) {
     const nonConsumed = req.body.nonConsumed;
     const Name = req.body.Name;
 
-    const items = new employee({
+    const items = new Items({
         itemName,
         consumed,
         nonConsumed,
@@ -108,17 +108,13 @@ router.route('/add/items').post(function(req, res) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/update/items').post(function(req, res) {
-    Items.find({itemName: req.body.itemName})
-    .then(item => {
-        item.itemName = req.body.itemName;
-        item.consumed = req.body.consumed;
-        item.nonConsumed = req.body.nonConsumed;
-        item.Name = req.body.Name;
-
-        item.save()
-        .then(() => res.json('items updated'))
-        .catch(err => res.status(400).json('Error: ' + err));
+    Items.updateOne({
+        itemName: req.body.itemName,
+        consumed: req.body.consumed,
+        nonConsumed: req.body.nonConsumed,
+        Name: req.body.Name,
     })
+    .then(item => res.json('Items updated'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/see/items').get(function(req, res) {
