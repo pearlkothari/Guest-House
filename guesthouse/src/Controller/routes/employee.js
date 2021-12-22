@@ -63,12 +63,10 @@ router.route('/see').get(function(req, res) {
 
 router.route('/see/dining').get(function(req, res) {
     const date = new Date();
-    Dining.find()
-    .then(emp => {
-        if (emp.reservationDate >= date) {
-            res.json(emp);
-        }
-    })
+    Dining.find({reservationDate: {
+        $gte: date
+    }})
+    .then(emp =>res.json(emp))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
