@@ -11,7 +11,6 @@ class Login extends Component {
             emailId: '',
             password: '' ,
             success: false,
-            notsuccess:false,
             what:"",
         }
         this.handleUsername=this.handleUsername.bind(this);
@@ -37,31 +36,40 @@ class Login extends Component {
         });
     }
     onClicked =(e) =>{
-        if(this.state.emailId==='19ucs071' &&  this.state.password==="123"){
-            e.preventDefault();
-            AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password,'Admin');
-            this.setState({
-                success:true,
-                notsuccess:false
-            })
-        }else{
-            alert("Inavlid Username or Password");
-            this.setState({
-                success:false,
-                notsuccess:true
-            })
-        }
+        e.preventDefault();
+        // if(this.state.emailId==='19ucs071' &&  this.state.password==="123"){
+        //     AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password,'Admin');
+        //     this.setState({
+        //         success:true,
+        //     })
+        // }else{
+        //     alert("Inavlid Username or Password");
+        //     this.setState({
+        //         success:false
+        //     })
+        // }
         // e.preventDefault();
-        // const req={emailId: this.state.emailId,password :this.state.password};
-        // console.log(req);
-        // let jobRole="";
-        // let found=true;
-        // axios.post('http://localhost:5000/employee/login',req)
-        // .then(res =>{
-        //     jobRole=res.data.jobRole;
-        //     found=true;
-        //     console.log(res.data);
-        // })
+        const req={emailId: this.state.emailId,password :this.state.password};
+        let jobRole="";
+
+        axios
+        .post('http://localhost:5000/employee/login',req)
+        .then(res =>{
+            if(res.data.emailId===this.state.emailId){
+                let temp="";
+                jobRole=res.data.jobRole;
+                if(jobRole=='Admin'){
+                    temp="admin";
+                }else{
+                    temp="Employee";
+                }
+                AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password,jobRole);
+                this.setState({
+                    success:true,
+                    what:temp
+                })
+            }
+        })
 
         // if(!found){
         //     axios.post('http://localhost:5000/guest/login',req)
@@ -99,7 +107,7 @@ class Login extends Component {
 
         return (
             <div className='Login'>
-                {this.state.success && <Navigate to={'/Admin'} repalce={true}/>}
+                {this.state.success && <Navigate to={`/${this.state.what}`} repalce={true}/>}
                 <a href='/'>
                     <img 
                         className='lnmiit_logo'
