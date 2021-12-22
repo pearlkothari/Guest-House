@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Navigate } from 'react-router';
+import axios from "axios";
 import EmojiRating from 'react-emoji-rating'
 
 import './Feedback.css';
@@ -10,10 +11,10 @@ function Guest_Feedback() {
         name: "",
         email:"",
         feedback:"",
-        Service_Rating:"",
-        Food_Rating:"",
-        Room_Rating:"",
-        Overall_Experience:""
+        serviceRating:"",
+        foodRating:"",
+        roomRating:"",
+        overallExperience:""
     })
     const [count, setCount] = useState(false);
 
@@ -38,6 +39,10 @@ function Guest_Feedback() {
             count:true
         })
         console.log(inputs);
+        axios.post("http://localhost:5000/guests/feedback",inputs)
+        .then(
+            alert(`Added Feedback SuccessFully for Guest: ${inputs.name}`)
+        )
       }
 
     const handleRating =(name,event) =>{

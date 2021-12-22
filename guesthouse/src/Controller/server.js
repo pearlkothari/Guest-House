@@ -20,8 +20,9 @@ connection.once('open', () => {
 
 //routes
 const employeeRouter = require('./routes/employee');
-
+const guestRouter = require('./routes/guest');
 app.use('/employee', employeeRouter);
+app.use('/guests', guestRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

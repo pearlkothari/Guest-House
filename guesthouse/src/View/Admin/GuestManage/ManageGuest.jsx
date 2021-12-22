@@ -1,29 +1,34 @@
 import React from 'react'
 import AdminHeader from '../Header/AdminHeader';
+import axios from "axios";
+import { useEffect } from 'react';
 import SearchBar from 'material-ui-search-bar';
 import { useState } from 'react';
 import './bootstrap.css'
 
 function ManageGuest() {
-
-        const data=[
-            {Id:1,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-            {Id:2,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-            {Id:3,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-            {Id:4,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'},
-            {Id:5,Name:'Pearl',Contact_Info:'9521074578',Room_no:'001',Room_Type:'Single',GuestType:'General'}
-        ]
-        const [value, setValue] = useState();
+    const [Guests,setGuests]=useState([]);
+    const [value, setValue] = useState();
 
         const handleChange = (e) => {
             setValue(e.target.value);
             console.log(value);
         };
+        const url='http://localhost:5000/guests/';
 
         const [searchValue,setsearchValue] =useState("");
+
+        useEffect(() => 
+        axios.get(`${url}/see`)
+        .then(res =>{
+            const Data=res.data;
+            setGuests(Data)
+        })
+        ,[])
         
         const doSomethingWith =(e) =>{
-            console.log(searchValue);
+            const update=Guests.filter(item => (item.guestId===e || item.name===e || item.contactNo===e || item.RoomNo===e));
+            setGuests(update);
         }
         return (
             /*
@@ -66,15 +71,15 @@ function ManageGuest() {
                             </thead>
                             <tbody>
                             {
-                                data.map(
+                                Guests.map(
                                     guest => 
-                                        <tr key={guest.Id}>
-                                            <td>{guest.Id}</td>
-                                            <td>{guest.Name}</td>
-                                            <td>{guest.Contact_Info}</td>
-                                            <td>{guest.GuestType}</td>
-                                            <td>{guest.Room_Type}</td>
-                                            <td>{guest.Room_no}</td>
+                                        <tr key={guest.guestId}>
+                                            <td>{guest.guestId}</td>
+                                            <td>{guest.name}</td>
+                                            <td>{guest.contactNo}</td>
+                                            <td>{guest.guestType}</td>
+                                            <td>{guest.roomType}</td>
+                                            <td>{guest.roomNo}</td>
                                         </tr>
                                 )
                             }

@@ -9,7 +9,8 @@ const guestSchema = new Schema({
     guestId: {type: String, required: true, unique: true, default: false},
     guestType: {type: String, required: true, default: false},
     approved: {type: String, required: true, default: false},
-    roomNo: [{type: Schema.Types.ObjectId, ref: 'Rooms' }]
+    roomNo: {type: Number, required: true, default: false},
+    roomType: {type: String, required: true, default: false}
 })
 const guest = mongoose.model('Guest', guestSchema);
 module.exports = guest;

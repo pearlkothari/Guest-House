@@ -41,10 +41,31 @@ router.route('/add').post(function(req, res) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/feedback').post(function(req, res) {
+    const name = req.body.employeeId;
+    const feedback = req.body.feedback;
+    const serviceRating = req.body.serviceRating;
+    const foodRating = req.body.foodRating;
+    const roomRating = req.body.roomRating;
+    const overallExperience = req.body.overallExperience;
+
+    const user = new guest({
+        name,
+        feedback,
+        serviceRating,
+        foodRating,
+        roomRating,
+        overallExperience,
+    });
+
+    user.save()
+    .then(() => res.json('Feedback added'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/see').get(function(req, res) {
     guest.find()
     .then(user => res.json(user))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-module.exports=router;
