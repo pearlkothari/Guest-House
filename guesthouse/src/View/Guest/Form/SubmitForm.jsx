@@ -50,17 +50,17 @@ function SubmitForm() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="name" 
+                        name ="Name" 
                         placeholder="Name"
                         onChange ={updateForm} 
-                        value = {about.name}
+                        value = {about.Name}
                     />
                     
                     <input 
                         type ="text" 
                         className = "form-input"
                         name ="designation" 
-                        placeholder="Roll No/ Designation"
+                        placeholder="Designation"
                         onChange ={updateForm} 
                         value = {about.designation}
                     />
@@ -86,10 +86,10 @@ function SubmitForm() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="Name" 
+                        name ="name" 
                         placeholder="Guest Name"
                         onChange ={updateForm} 
-                        value = {about.Name}
+                        value = {about.name}
                     />
 
                     <input 
