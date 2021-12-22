@@ -10,9 +10,9 @@ function Guest() {
         window.addEventListener('popstate', function (event){
             window.history.pushState(null, document.title,  window.location.href);
         });
-    })
+    },[])
     return (
-        <div classname="Guest">
+        <div classnxame="Guest">
             <GuestHeader/>
             <div className='Container'>
                  <Container what={"Book Your Stay"}/>
