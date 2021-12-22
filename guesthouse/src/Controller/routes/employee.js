@@ -19,9 +19,7 @@ router.route('/login').post(function(req, res) {
         return res.status(200).json(emp);
     })
 });
-router.route('/approveGuests').post(function(req, res) {
-    const emailId = req.body.emailId;
-    const password = req.body.password;
+router.route('/approveGuests').get(function(req, res) {
     Booking.findOne({approved: false}, function(err, emp) {
         if(err) {
             console.log(err);

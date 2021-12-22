@@ -43,6 +43,8 @@ function SubmitForm() {
     }
     return (
         <div className="submit">
+            <h5 className="heading1">THE LNM INSTITUTE OF INFORMATION TECHNOLOGY, JAIPUR</h5>
+            <h6 className="heading2">GUEST HOUSE REQUISTION FORM</h6>
             <form >
                 <div className="form" onSubmit={handleSubmit}>
                     <input 
@@ -93,7 +95,7 @@ function SubmitForm() {
                     <input 
                         type ="tel" 
                         className = "form-input"
-                        name ="GuestContact" 
+                        name ="contactNo" 
                         placeholder="Guest Mobile Number"
                         onChange ={updateForm} 
                         value = {about.contactNo}
