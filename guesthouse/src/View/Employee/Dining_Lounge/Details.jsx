@@ -2,22 +2,14 @@ import React from 'react'
 import './Details.css'
 import { useLocation, useNavigate } from 'react-router';
 
-function Details3() {
+function Details4() {
     const location = useLocation();
     const navigate=useNavigate();
-    // console.log(location.state.guest);
-    //     designation: "",
-    //     emailId: "",
-    //     Name:"",
-    //     contactNo:"",
-    //     relation:"",
-    //     age:"",
-    //     checkIn:"",
-    //     checkOut:""
+
     return (
             <div className="Feedback">
             <div className="submit">
-                <h2 className="heading1">Approval Request #{location.state.guest.Id}</h2>
+                <h2 className="heading1">Dining Lounge Request #{location.state.guest.Id}</h2>
                 <form>
                     <div className="form">
                         <input 
@@ -73,4 +65,4 @@ function Details3() {
     )
 }
 
-export default Details3
+export default Details4;

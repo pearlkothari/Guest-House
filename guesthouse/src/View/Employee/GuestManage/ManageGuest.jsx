@@ -18,11 +18,12 @@ function ManageGuestEmployee() {
 
         const [searchValue,setsearchValue] =useState("");
         useEffect(() => 
-        axios.get(`${url}/see`)
-        .then(res =>{
-            const Data=res.data;
-            setGuests(Data)
-        })
+            axios.get(`${url}/see`)
+            .then(res =>{
+                const Data=res.data;
+                console.log(res.data);
+                setGuests(Data)
+            })
         ,[])
         const doSomethingWith =(e) =>{
             const update=Guests.filter(item => (item.guestId===e || item.name===e || item.contactNo===e || item.RoomNo===e));

@@ -17,7 +17,7 @@ router.route('/login').post(function(req, res) {
             return res.status(404).send();
         }
         return res.status(200).json(emp);
-    })
+    })      
 });
 router.route('/approveGuests').get(function(req, res) {
     Booking.findOne({approved: false}, function(err, emp) {
