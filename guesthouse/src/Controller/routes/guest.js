@@ -92,3 +92,4 @@ router.route('/search/name').get(function(req, res) {
     .then(emp => res.json(emp))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+module.exports = router;
