@@ -37,18 +37,6 @@ class Login extends Component {
     }
     onClicked =(e) =>{
         e.preventDefault();
-        // if(this.state.emailId==='19ucs071' &&  this.state.password==="123"){
-        //     AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password,'Admin');
-        //     this.setState({
-        //         success:true,
-        //     })
-        // }else{
-        //     alert("Inavlid Username or Password");
-        //     this.setState({
-        //         success:false
-        //     })
-        // }
-        // e.preventDefault();
         const req={emailId: this.state.emailId,password :this.state.password};
         let jobRole="";
 
