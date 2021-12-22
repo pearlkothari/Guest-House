@@ -5,6 +5,7 @@ let Items = require('../models/Items.model');
 let Feedback = require('../models/Feedback.model');
 let Booking = require('../models/Booking.model');
 let Rooms = require('../models/Rooms.model');
+let Guests = require('../models/Guest.model');
 
 router.route('/login').post(function(req, res) {
     const emailId = req.body.emailId;
@@ -65,7 +66,7 @@ router.route('/see/dining').get(function(req, res) {
     Dining.find({reservationDate: {
         $gte: date
     }})
-    .then(emp =>res.json(emp))
+    .then(emp => res.json(emp))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
