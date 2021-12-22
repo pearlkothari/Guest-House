@@ -7,10 +7,12 @@ import AuthenticationService from "../../../AuthenticationService.js";
 
 function Status() {
     const [Guests,setGuests]=useState([]);
-    const url='http://localhost:5000/guests/';
+    const url='http://localhost:5000/guests';
 
-    useEffect(() => 
-        axios.get(`${url}/see/Status`,AuthenticationService.getuseremail())
+    let user=AuthenticationService.getuseremail(); 
+    const email={emailId:user};
+    useEffect(() =>
+        axios.get(`${url}/see/Status`,email)
         .then(res =>{
             const Data=res.data;
             console.log(res.data);
@@ -23,7 +25,7 @@ function Status() {
             <table className="table">
                             <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Email ID</th>
                                         <th>Name</th>
                                         <th>Contact Info</th>
                                         <th>Age</th>
@@ -36,8 +38,8 @@ function Status() {
                             {
                                 Guests.map(
                                     guest => 
-                                        <tr key={guest.guestId}>
-                                            <td>{guest.guestId}</td>
+                                        <tr key={guest.emailId}>
+                                            <td>{guest.emailId}</td>
                                             <td>{guest.name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.age}</td>

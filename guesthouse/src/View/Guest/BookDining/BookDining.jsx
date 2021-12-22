@@ -59,7 +59,7 @@ function BookDining() {
                         <input 
                             type="date"
                             className="form-input"
-                            name="ReservationDate"
+                            name="reservationDate"
                             onChange={updateForm}
                             value={about.reservationDate}
                         />

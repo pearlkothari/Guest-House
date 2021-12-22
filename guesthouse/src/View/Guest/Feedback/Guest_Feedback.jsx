@@ -5,11 +5,13 @@ import axios from "axios";
 import EmojiRating from 'react-emoji-rating'
 
 import './Feedback.css';
+import AuthenticationService from '../../../AuthenticationService';
 
 function Guest_Feedback() {
+    let user=AuthenticationService.getuseremail();
     const [inputs, setInputs] = useState({
         name: "",
-        email:"",
+        email:user,
         feedback:"",
         serviceRating:"",
         foodRating:"",
@@ -38,7 +40,6 @@ function Guest_Feedback() {
         setCount({
             count:true
         })
-        console.log(inputs);
         axios.post("http://localhost:5000/guests/feedback",inputs)
         .then(
             alert(`Added Feedback SuccessFully for Guest: ${inputs.name}`)
@@ -75,6 +76,7 @@ function Guest_Feedback() {
                             placeholder="Email"
                             onChange ={updateForm} 
                             value = {inputs.email}
+                            disabled={true}
                         />
                     </div>
                     <div className="feedback">
@@ -92,11 +94,11 @@ function Guest_Feedback() {
                             <h5>Service Rating</h5>
                             <EmojiRating 
                                     variant='emoticons' 
-                                    onChange={(what)=>handleRating("Service_Rating",what)}/>
+                                    onChange={(what)=>handleRating("serviceRating",what)}/>
                             <h5>Food Rating</h5>
                             <EmojiRating 
                                     variant='emoticons' 
-                                    onChange={(what)=>handleRating("Food_Rating",what)}/>
+                                    onChange={(what)=>handleRating("foodRating",what)}/>
                         </div>
                     </div>
                     <div className='Rating'>
@@ -104,11 +106,11 @@ function Guest_Feedback() {
                                 <h5>Room Rating</h5>
                                 <EmojiRating 
                                         variant='emoticons'
-                                        onChange={(what)=>handleRating("Room_Rating",what)}/>
+                                        onChange={(what)=>handleRating("roomRating",what)}/>
                                 <h5>Overall Experience</h5>
                                 <EmojiRating 
                                         variant='emoticons'
-                                        onChange={(what)=>handleRating("Overall_Experience",what)} />
+                                        onChange={(what)=>handleRating("overallExperience",what)} />
                             </div>
                     </div>
                     <button onClick={handleSubmit}>Submit</button>

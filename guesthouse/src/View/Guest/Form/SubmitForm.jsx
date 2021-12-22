@@ -8,11 +8,12 @@ import AuthenticationService from '../../../AuthenticationService.js'
 function SubmitForm() {
     const [success,setsuccess]=useState(false)
 
+    let email=AuthenticationService.getuseremail();
 
     const [about, setabout] = useState({
         name: "",
         designation: "",
-        emailId: "",
+        emailId: email,
         mobileNo: "",
         Name:"",
         contactNo:"",
@@ -26,17 +27,17 @@ function SubmitForm() {
     const updateForm= (event) =>{
         setabout({
             ...about,
-            [event.target.name]:event.target.value
+            [event.target.name]:event.target.value,
         })
     }
+
     const handleSubmit=(event) =>{
         event.preventDefault();
         console.log("Submit SuccessFully");
-        // console.log(about);
-        
         setsuccess({
             [success]:true
         })
+        console.log(about);
         axios.post("http://localhost:5000/guests/bookRoom",about)
         .then(
             alert(`Request for room reservation generated SuccessFully for Guest: ${about.name}`)
@@ -51,10 +52,10 @@ function SubmitForm() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="Name" 
+                        name ="name" 
                         placeholder="Name"
                         onChange ={updateForm} 
-                        value = {about.Name}
+                        value = {about.name}
                     />
                     
                     <input 
@@ -88,10 +89,10 @@ function SubmitForm() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="name" 
+                        name ="Name" 
                         placeholder="Guest Name"
                         onChange ={updateForm} 
-                        value = {about.name}
+                        value = {about.Name}
                     />
 
                     <input 
