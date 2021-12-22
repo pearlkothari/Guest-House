@@ -2,6 +2,7 @@ import React from 'react'
 import './BookDining.css'
 import { useState } from 'react';
 import { Navigate } from 'react-router';
+import AuthenticationService from '../../../AuthenticationService.js'
 import axios from "axios";
 
 function BookDining() {
@@ -40,7 +41,8 @@ function BookDining() {
                         name ="guestId" 
                         placeholder="Your email"
                         onChange ={updateForm} 
-                        value = {about.guestId}
+                        value = {AuthenticationService.getuseremail()}
+                        disabled={true}
                     />
                     <input 
                         type ="text" 

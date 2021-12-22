@@ -19,7 +19,7 @@ class AuthenticationService{
         }
         return true;
     }
-    getusername(){
+    getuseremail(){
         let user=sessionStorage.getItem('authenticatedUser');        
         if(user==null){
             return '';

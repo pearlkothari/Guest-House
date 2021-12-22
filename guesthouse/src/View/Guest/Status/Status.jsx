@@ -10,9 +10,10 @@ function Status() {
     const url='http://localhost:5000/guests/';
 
     useEffect(() => 
-        axios.get(`${url}/see/Status`,AuthenticationService.getusername())
+        axios.get(`${url}/see/Status`,AuthenticationService.getuseremail())
         .then(res =>{
             const Data=res.data;
+            console.log(res.data);
             setGuests(Data)
         })
     ,[])

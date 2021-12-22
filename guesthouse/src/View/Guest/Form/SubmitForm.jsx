@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import { Navigate } from 'react-router';
 import './SubmitForm.css';
 import axios from "axios";
+import AuthenticationService from '../../../AuthenticationService.js'
 
 
 function SubmitForm() {
@@ -71,7 +72,8 @@ function SubmitForm() {
                         name ="emailId" 
                         placeholder="EmailId"
                         onChange ={updateForm} 
-                        value = {about.emailId}
+                        value = {AuthenticationService.getuseremail()}
+                        disabled={true}
                     />
                     
                     <input 
