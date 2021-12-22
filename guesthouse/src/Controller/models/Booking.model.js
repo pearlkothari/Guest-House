@@ -3,9 +3,10 @@ const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
     bookId: {type: Number, required: true, unique: true, default: false},
-    relationship: {type: String, required: true, default: false},
+    relation: {type: String, required: true, default: false},
     age: {type: Number, required: true, default: false},
     Name: {type: String, required: true, default: false},
+    emailId: {type: String, required: true, default: false},
     guestId: {type: Number, required: true, default: false},
     contactNo: {type: Number, required: true, default: false},
     checkIn: {type: Date, required: true, default: false},

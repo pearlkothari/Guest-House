@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import { Navigate } from 'react-router';
 import './SubmitForm.css';
+import axios from "axios";
 
 
 function SubmitForm() {
@@ -9,16 +10,16 @@ function SubmitForm() {
 
     const [about, setabout] = useState({
         name: "",
-        Designation: "",
-        Department: "",
-        MobileNo: "",
-        GuestName:"",
-        GuestContact:"",
-        Relation:"",
-        Age:"",
-        Gender:"",
-        Check_In:"",
-        Check_Out:""
+        designation: "",
+        emailId: "",
+        mobileNo: "",
+        Name:"",
+        contactNo:"",
+        relation:"",
+        age:"",
+        gender:"",
+        checkIn:"",
+        checkOut:""
     })
 
     const updateForm= (event) =>{
@@ -35,6 +36,10 @@ function SubmitForm() {
         setsuccess({
             [success]:true
         })
+        axios.post("http://localhost:5000/guests/bookRoom",about)
+        .then(
+            alert(`Booked room SuccessFully for Guest: ${about.name}`)
+        )
     }
     return (
         <div className="submit">
@@ -55,16 +60,16 @@ function SubmitForm() {
                         name ="Designation" 
                         placeholder="Roll No/ Designation"
                         onChange ={updateForm} 
-                        value = {about.Designation}
+                        value = {about.designation}
                     />
                     
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="Department" 
-                        placeholder="Department"
+                        name ="EmailId" 
+                        placeholder="EmailId"
                         onChange ={updateForm} 
-                        value = {about.Department}
+                        value = {about.emailId}
                     />
                     
                     <input 
@@ -73,7 +78,7 @@ function SubmitForm() {
                         name ="MobileNo" 
                         placeholder="Your Mobile Number"
                         onChange ={updateForm} 
-                        value = {about.MobileNo}
+                        value = {about.nobileNo}
                     />
 
                     <input 
@@ -82,7 +87,7 @@ function SubmitForm() {
                         name ="GuestName" 
                         placeholder="Guest Name"
                         onChange ={updateForm} 
-                        value = {about.GuestName}
+                        value = {about.name}
                     />
 
                     <input 
@@ -91,7 +96,7 @@ function SubmitForm() {
                         name ="GuestContact" 
                         placeholder="Guest Mobile Number"
                         onChange ={updateForm} 
-                        value = {about.GuestContact}
+                        value = {about.contactNo}
                     />
 
                     <input 
@@ -100,7 +105,7 @@ function SubmitForm() {
                         name ="Relation" 
                         placeholder="Guest Relation"
                         onChange ={updateForm} 
-                        value = {about.Relation}
+                        value = {about.relation}
                     />
                     <input 
                         type ="Age" 
@@ -108,7 +113,7 @@ function SubmitForm() {
                         name ="Age" 
                         placeholder="Guest Age"
                         onChange ={updateForm} 
-                        value = {about.Age}
+                        value = {about.age}
                     />
                 </div>
                 {/* <div className='checkin'>
@@ -126,7 +131,7 @@ function SubmitForm() {
                             name="Check_In"
                             placeholder="Check In"
                             onChange={updateForm}
-                            value={about.Check_In}
+                            value={about.checkIn}
                         />
                         <h5>Check-Out</h5>
                         <input 
@@ -135,7 +140,7 @@ function SubmitForm() {
                             name="Check_Out"
                             placeholder="Check Out"
                             onChange={updateForm}
-                            value={about.Check_Out}
+                            value={about.checkOut}
                         />
                 </div>
                 <button onClick={handleSubmit}>Submit</button>
