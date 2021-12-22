@@ -1,13 +1,47 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import AdminHeader from '../Header/AdminHeader'
+import './Approval.css'
 
 function Approval() {
+
+    const Guest=[
+        {Id:1,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
+        {Id:2,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
+        {Id:3,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
+        {Id:4,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
+        {Id:5,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
+    ]
+    const navigate=useNavigate();
     return (
-        <div>
+        <div className="Info">
             <AdminHeader/>
-            Approval
+            <table className="table">
+                            <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Contact Info</th>
+                                        <th>Email ID</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                Guest.map(
+                                    guest => 
+                                        <tr key={guest.emailId}>
+                                            <td>{guest.emailId}</td>
+                                            <td>{guest.Name}</td>
+                                            <td>{guest.Contact_Info}</td>
+                                            <td>{guest.Email_ID}</td>
+                                            <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
+                                        </tr>
+                                )
+                            }
+                            </tbody>
+                </table>
         </div>
     )
 }
 
-export default Approval
+export default Approval;
