@@ -12,7 +12,7 @@ function SubmitForm2() {
         employeeId:"",
         jobRole:"",
         contactNo:"",
-        name:"",
+        Name:"",
         emailId:"",
         password:"",
     })
@@ -33,7 +33,7 @@ function SubmitForm2() {
 
         axios.post("http://localhost:5000/employee/add",about)
         .then(
-            alert(`Added SuccessFully Employee Name: ${about.name}`)
+            alert(`Added SuccessFully Employee Name: ${about.Name}`)
         )
     }
     return (
@@ -52,10 +52,10 @@ function SubmitForm2() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="name" 
+                        name ="Name" 
                         placeholder="Name"
                         onChange ={updateForm} 
-                        value = {about.name}
+                        value = {about.Name}
                     />
                     
                     <input 

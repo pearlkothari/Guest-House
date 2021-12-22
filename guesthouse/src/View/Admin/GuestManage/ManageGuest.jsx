@@ -61,10 +61,9 @@ function ManageGuest() {
                     <table className="table">
                             <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Email ID</th>
                                         <th>Name</th>
                                         <th>Contact Info</th>
-                                        <th>Room Type</th>
                                         <th>Guest Type</th>
                                         <th>Room Number</th>
                                     </tr>
@@ -73,12 +72,11 @@ function ManageGuest() {
                             {
                                 Guests.map(
                                     guest => 
-                                        <tr key={guest.guestId}>
-                                            <td>{guest.guestId}</td>
-                                            <td>{guest.name}</td>
+                                        <tr key={guest.emailId}>
+                                            <td>{guest.emailId}</td>
+                                            <td>{guest.Name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.guestType}</td>
-                                            <td>{guest.roomType}</td>
                                             <td>{guest.roomNo}</td>
                                         </tr>
                                 )

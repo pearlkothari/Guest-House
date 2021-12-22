@@ -33,15 +33,15 @@ function ManageEmployee() {
         setEmployees(update);
     }
 
-    const deleteEmployee =(employeeId) =>{
-        const res= axios.delete(`${url}/delete`,employeeId)
+    const deleteEmployee =(emp) =>{
+        const req={employeeId:emp};
+        const res= axios.delete(`${url}/delete`,req)
                     .then(result=>{
-                        const update=Employees.filter(item => item.employeeId!=employeeId)
+                        const update=Employees.filter(item => item.employeeId!=emp)
                         setEmployees(update);
-                        console.log(result.data);
                     })
         if(res){
-            alert(`Employee with Employee-Id ${employeeId} has been deleted successfully`);
+            alert(`Employee with Employee-Id ${emp} has been deleted successfully`);
         }else{
             alert('Unexpected Error Occurred');
         }
@@ -87,7 +87,7 @@ function ManageEmployee() {
                                     Employees => 
                                         <tr key={Employees.employeeId}>
                                             <td>{Employees.employeeId}</td>
-                                            <td>{Employees.name}</td>
+                                            <td>{Employees.Name}</td>
                                             <td>{Employees.contactNo}</td>
                                             <td>{Employees.jobRole}</td>
                                             <td>{Employees.emailId}</td>
