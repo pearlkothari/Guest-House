@@ -1,6 +1,6 @@
 class AuthenticationService{
-    RegisterSuccessfulLogin(username,password,role){
-        sessionStorage.setItem('authenticatedUser',username);
+    RegisterSuccessfulLogin(email,role){
+        sessionStorage.setItem('authenticatedUser',email);
         sessionStorage.setItem('role',role);
     }
     logout(){

@@ -25,7 +25,7 @@ function BookDining() {
         setsuccess(true);
         axios.post("http://localhost:5000/guests/bookDining",about)
         .then(
-            alert(`Booked dining SuccessFully for Guest: ${about.guestId}`)
+            alert(`Request for dining reservation generated SuccessFully for Guest: ${about.guestId}`)
         )
     }
 
@@ -38,7 +38,7 @@ function BookDining() {
                         type ="text" 
                         className = "form-input"
                         name ="guestId" 
-                        placeholder="Guest ID"
+                        placeholder="Your email"
                         onChange ={updateForm} 
                         value = {about.guestId}
                     />

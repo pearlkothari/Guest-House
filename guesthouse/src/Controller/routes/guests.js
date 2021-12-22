@@ -110,7 +110,11 @@ router.route('/bookDining').post(function(req, res) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-
+router.route('/see/Status').get(function(req,res){
+    Booking.find({emailId: req.body.emailId})
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json('Error: '+ err));
+});
 router.route('/see').get(function(req, res) {
     guest.find()
     .then(user => res.json(user))
