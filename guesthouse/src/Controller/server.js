@@ -20,7 +20,7 @@ connection.once('open', () => {
 
 //routes
 const employeeRouter = require('./routes/employee');
-const guestRouter = require('./routes/guest');
+const guestRouter = require('./routes/guests');
 app.use('/employee', employeeRouter);
 app.use('/guests', guestRouter);
 

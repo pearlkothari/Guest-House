@@ -23,10 +23,10 @@ router.route('/login').post(function(req, res) {
 });
 
 router.route('/add').post(function(req, res) {
-    const emailId = req.body.employeeId;
+    const emailId = req.body.emailId;
     const designation = req.body.designation;
     const contactNo = req.body.contactNo;
-    const name = req.body.name;
+    const Name = req.body.Name;
     const guestId = req.body.guestId;
     const guestType = req.body.guestType;
     const approved = req.body.approved;
@@ -36,7 +36,7 @@ router.route('/add').post(function(req, res) {
         emailId,
         designation,
         contactNo,
-        name,
+        Name,
         guestId,
         guestType,
         approved,
@@ -87,7 +87,6 @@ router.route('/bookRoom').post(function(req, res) {
         checkOut,
         emailId
     });
-
     user.save()
     .then(() => res.json('Booking added'))
     .catch(err => res.status(400).json('Error: ' + err));
