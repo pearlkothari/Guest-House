@@ -38,7 +38,7 @@ function SubmitForm() {
         })
         axios.post("http://localhost:5000/guests/bookRoom",about)
         .then(
-            alert(`Booked room SuccessFully for Guest: ${about.name}`)
+            alert(`Request for room reservation generated SuccessFully for Guest: ${about.name}`)
         )
     }
     return (

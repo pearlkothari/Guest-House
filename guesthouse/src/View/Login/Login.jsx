@@ -51,7 +51,7 @@ class Login extends Component {
                 }else{
                     temp="Employee";
                 }
-                AuthenticationService.RegisterSuccessfulLogin(this.state.emailId,this.state.password,jobRole);
+                AuthenticationService.RegisterSuccessfulLogin(res.data.emailId,jobRole);
                 this.setState({
                     success:true,
                     what:temp
@@ -66,16 +66,14 @@ class Login extends Component {
                 if(res.data.emailId===this.state.emailId){
                     let temp="guest";
                     jobRole=res.data.designation;
-                    AuthenticationService.RegisterSuccessfulLogin(this.state.emailId,this.state.password,jobRole);
+                    AuthenticationService.RegisterSuccessfulLogin(res.data.emailId,jobRole);
                     this.setState({
                         success:true,
                         what:temp
                     })
                 }
             })
-        }
-
-        if(!this.state.success){
+        }else if(!this.state.success){
             alert("Invalid Email or Password!!");
         }
     }
