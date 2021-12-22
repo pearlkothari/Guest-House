@@ -31,7 +31,7 @@ function SubmitForm() {
     const handleSubmit=(event) =>{
         event.preventDefault();
         console.log("Submit SuccessFully");
-        console.log(about);
+        // console.log(about);
         
         setsuccess({
             [success]:true

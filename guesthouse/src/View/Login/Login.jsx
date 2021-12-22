@@ -51,7 +51,7 @@ class Login extends Component {
                 }else{
                     temp="Employee";
                 }
-                AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password,jobRole);
+                AuthenticationService.RegisterSuccessfulLogin(this.state.emailId,this.state.password,jobRole);
                 this.setState({
                     success:true,
                     what:temp
@@ -59,37 +59,21 @@ class Login extends Component {
             }
         })
 
-        // if(!found){
-        //     axios.post('http://localhost:5000/guest/login',req)
-        //     .then(res => {
-        //         jobRole="Guest";
-        //         found=true;
-        //         console.log('success');
-        //     })
-        // }
-        // if(found){
-        //     let temp="";
-        //     if(jobRole=='Guest'){
-        //         temp="guest";
-        //     }else if(jobRole=='Admin'){
-        //         temp="admin";
-        //     }else{
-        //         temp='';
-        //     }
-        //     AuthenticationService.RegisterSuccessfulLogin(this.state.username,this.state.password,jobRole);
-        //     this.setState({
-        //         success:true,
-        //         notsuccess:false,
-        //         what:temp
-        //     })
-        // }
-        // }else{
-        //     alert("Inavlid Email or Password");
-        //     this.setState({
-        //         success:false,
-        //         notsuccess:true
-        //     })
-        // }
+        if(!this.state.success){
+            axios
+            .post('http://localhost:5000/guests/login',req)
+            .then(res =>{
+                if(res.data.emailId===this.state.emailId){
+                    let temp="guest";
+                    jobRole=res.data.designation;
+                    AuthenticationService.RegisterSuccessfulLogin(this.state.emailId,this.state.password,jobRole);
+                    this.setState({
+                        success:true,
+                        what:temp
+                    })
+                }
+            })
+        }
     }
     render(){
 

@@ -12,11 +12,16 @@ function Approval() {
 
     const url='http://localhost:5000/employee';
 
+    function update(value){
+        // setGuests(value);
+        console.log(value["employeeId"])
+    }
     useEffect(() => 
         axios.get(`${url}/approveGuests`)
         .then(res =>{
-            const Data=res.data;
-            setGuests(Data)
+            if(res){
+                update(res.data);
+            }
         })
     ,[])
 
@@ -35,8 +40,8 @@ function Approval() {
                             </thead>
                             <tbody>
                             {
-                                Guests.map(
-                                    guest => {
+                                Guests.map(input => input.map(
+                                        guest =>
                                         <tr key={guest.guestId}>
                                             <td>{guest.guestId}</td>
                                             <td>{guest.Name}</td>
@@ -44,7 +49,7 @@ function Approval() {
                                             <td>{guest.emailId}</td>
                                             <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
                                         </tr>
-                                    }
+                                    )
                                 )
                             }
                             </tbody>
