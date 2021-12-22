@@ -95,12 +95,12 @@ router.route('/bookRoom').post(function(req, res) {
 });
 
 router.route('/bookDining').post(function(req, res) {
-    const guestId = req.body.guestId;
+    const emailId = req.body.emailId;
     const reservationDate = req.body.reservationDate;
     const totalGuests = req.body.totalGuests;
 
     const user = new Dinin({
-        guestId,
+        emailId,
         reservationDate,
         totalGuests
     });
