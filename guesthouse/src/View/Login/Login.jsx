@@ -74,6 +74,10 @@ class Login extends Component {
                 }
             })
         }
+
+        if(!this.state.success){
+            alert("Invalid Email or Password!!");
+        }
     }
     render(){
 

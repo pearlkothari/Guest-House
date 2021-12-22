@@ -38,7 +38,7 @@ function BookDining() {
                         type ="text" 
                         className = "form-input"
                         name ="guestId" 
-                        placeholder="Guest ID"
+                        placeholder="Guest emailId"
                         onChange ={updateForm} 
                         value = {about.guestId}
                     />
