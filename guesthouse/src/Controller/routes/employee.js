@@ -20,7 +20,7 @@ router.route('/login').post(function(req, res) {
     })      
 });
 router.route('/approveGuests').get(function(req, res) {
-    Booking.findOne({approved: false}, function(err, emp) {
+    Booking.find({approved: false}, function(err, emp) {
         if(err) {
             console.log(err);
             return res.status(500).send();
