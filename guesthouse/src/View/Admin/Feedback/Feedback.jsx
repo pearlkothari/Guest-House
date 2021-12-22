@@ -11,7 +11,7 @@ function Feedback() {
     const [Guests,setGuests]=useState([]);
     const url='http://localhost:5000/employee/';
     useEffect(() => 
-        axios.get(`${url}/feedback`)
+        axios.get(`${url}/see/feedback`)
         .then(res =>{
             const Data=res.data;
             setGuests(Data)
