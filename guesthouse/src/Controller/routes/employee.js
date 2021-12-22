@@ -3,11 +3,26 @@ let employee = require('../models/Employee.model');
 let Dining = require('../models/Dining.model');
 let Items = require('../models/Items.model');
 let Feedback = require('../models/Feedback.model');
+let Booking = require('../models/Booking.model')
 
 router.route('/login').post(function(req, res) {
     const emailId = req.body.emailId;
     const password = req.body.password;
     employee.findOne({emailId : emailId, password: password}, function(err, emp) {
+        if(err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        if(!emp) {
+            return res.status(404).send();
+        }
+        return res.status(200).json(emp);
+    })
+});
+router.route('/approveGuests').post(function(req, res) {
+    const emailId = req.body.emailId;
+    const password = req.body.password;
+    Booking.findOne({approved: false}, function(err, emp) {
         if(err) {
             console.log(err);
             return res.status(500).send();
@@ -43,6 +58,17 @@ router.route('/add').post(function(req, res) {
 router.route('/see').get(function(req, res) {
     employee.find()
     .then(emp => res.json(emp))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/see/dining').get(function(req, res) {
+    const date = new Date();
+    Dining.find()
+    .then(emp => {
+        if (emp.reservationDate >= date) {
+            res.json(emp);
+        }
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
