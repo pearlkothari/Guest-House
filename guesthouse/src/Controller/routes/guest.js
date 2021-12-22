@@ -3,7 +3,7 @@
 //approval
 const router = require('express').Router();
 let guest = require('../models/Guest.model');
-let Dining = require('../models/Dining.model');
+let Dinin = require('../models/Dining.model');
 let Booking = require('../models/Booking.model');
 let Feedback = require('../models/Feedback.model');
 
@@ -98,7 +98,7 @@ router.route('/bookDining').post(function(req, res) {
     const reservationDate = req.body.reservationDate;
     const totalGuests = req.body.totalGuests;
 
-    const user = new Dining({
+    const user = new Dinin({
         guestId,
         reservationDate,
         totalGuests
