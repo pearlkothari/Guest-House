@@ -57,7 +57,7 @@ function SubmitForm() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="Designation" 
+                        name ="designation" 
                         placeholder="Roll No/ Designation"
                         onChange ={updateForm} 
                         value = {about.designation}
@@ -66,7 +66,7 @@ function SubmitForm() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="EmailId" 
+                        name ="emailId" 
                         placeholder="EmailId"
                         onChange ={updateForm} 
                         value = {about.emailId}
@@ -75,19 +75,19 @@ function SubmitForm() {
                     <input 
                         type ="tel" 
                         className = "form-input"
-                        name ="MobileNo" 
+                        name ="mobileNo" 
                         placeholder="Your Mobile Number"
                         onChange ={updateForm} 
-                        value = {about.nobileNo}
+                        value = {about.mobileNo}
                     />
 
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="GuestName" 
+                        name ="Name" 
                         placeholder="Guest Name"
                         onChange ={updateForm} 
-                        value = {about.name}
+                        value = {about.Name}
                     />
 
                     <input 
@@ -102,7 +102,7 @@ function SubmitForm() {
                     <input 
                         type ="text" 
                         className = "form-input"
-                        name ="Relation" 
+                        name ="relation" 
                         placeholder="Guest Relation"
                         onChange ={updateForm} 
                         value = {about.relation}
@@ -110,7 +110,7 @@ function SubmitForm() {
                     <input 
                         type ="Age" 
                         className = "form-input"
-                        name ="Age" 
+                        name ="age" 
                         placeholder="Guest Age"
                         onChange ={updateForm} 
                         value = {about.age}
@@ -128,7 +128,7 @@ function SubmitForm() {
                         <input 
                             type="date"
                             className="form-input"
-                            name="Check_In"
+                            name="checkIn"
                             placeholder="Check In"
                             onChange={updateForm}
                             value={about.checkIn}
@@ -137,7 +137,7 @@ function SubmitForm() {
                         <input 
                             type="date"
                             className="form-input"
-                            name="Check_Out"
+                            name="checkOut"
                             placeholder="Check Out"
                             onChange={updateForm}
                             value={about.checkOut}

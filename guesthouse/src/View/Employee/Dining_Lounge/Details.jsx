@@ -65,7 +65,7 @@ function Details3() {
                                 <h5>{location.state.guest.Feedback}</h5>
                             </div>
                     </div>
-                    <button classname="btn alert-btn" onClick={()=>navigate('/Admin/Approval/', {replace:true})}>Approve</button>
+                    <button classname="btn alert-btn" onClick={()=>navigate('/Employee/Dining%20Lounge%20Requests/', {replace:true})}>Approve</button>
 
                 </form>
             </div>

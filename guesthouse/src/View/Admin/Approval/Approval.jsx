@@ -6,7 +6,7 @@ import './Approval.css'
 function Approval() {
 
     const Guest=[
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
+        {guestId:1,Name:'Pearl Kothari',contactNo:'9919919191',emailID:'pearlkothari@gmail.com',Room_Type:'Double'},
         {Id:2,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
         {Id:3,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
         {Id:4,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
@@ -29,8 +29,8 @@ function Approval() {
                             {
                                 Guest.map(
                                     guest => 
-                                        <tr key={guest.emailId}>
-                                            <td>{guest.emailId}</td>
+                                        <tr key={guest.Id}>
+                                            <td>{guest.Id}</td>
                                             <td>{guest.Name}</td>
                                             <td>{guest.Contact_Info}</td>
                                             <td>{guest.Email_ID}</td>
