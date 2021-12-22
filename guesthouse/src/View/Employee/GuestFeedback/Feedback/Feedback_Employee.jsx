@@ -1,18 +1,22 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
+import axios from "axios";
+import { useEffect } from 'react';
+import { useState } from 'react';
 import Employee_Header from '../../Employee_Header'
 import './Feedback.css'
 
 
 function Feedback_Employee() {
-
-    const Guest=[
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double',Feedback:'Check',Service_Rating:'Wow',Food_Rating:'Wow',Room_Rating:'Wow',Overall_Experience:'Wow'},
-        {Id:2,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double',Feedback:'Check'},
-        {Id:3,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:4,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:5,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-    ]
+    const [Guests,setGuests]=useState([]);
+    const url='http://localhost:5000/guests/';
+    useEffect(() => 
+        axios.get(`${url}/see`)
+        .then(res =>{
+            const Data=res.data;
+            setGuests(Data)
+        })
+        ,[])
     const navigate=useNavigate();
     return (
         <div className="Info">
@@ -28,13 +32,13 @@ function Feedback_Employee() {
                             </thead>
                             <tbody>
                             {
-                                Guest.map(
+                                Guests.map(
                                     guest => 
-                                        <tr key={guest.Id}>
-                                            <td>{guest.Id}</td>
-                                            <td>{guest.Name}</td>
-                                            <td>{guest.Contact_Info}</td>
-                                            <td>{guest.Email_ID}</td>
+                                        <tr key={guest.guestId}>
+                                            <td>{guest.guestsId}</td>
+                                            <td>{guest.name}</td>
+                                            <td>{guest.contactNo}</td>
+                                            <td>{guest.emailID}</td>
                                             <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
                                         </tr>
                                 )

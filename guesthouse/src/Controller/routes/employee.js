@@ -78,11 +78,11 @@ router.route('/search/name').get(function(req, res) {
 router.route('/assignDiningLounge').post(function(req, res) {
     const guestId = req.body.guestId;
     const totalGuest = req.body.totalGuest;
-    const bookingId = req.body.bookingId;
+    const reservationDate = req.body.reservationDate;
     const dining = new Dining({
         guestId,
         totalGuest,
-        ReservationDate,
+        reservationDate,
     });
 
     dining.save()

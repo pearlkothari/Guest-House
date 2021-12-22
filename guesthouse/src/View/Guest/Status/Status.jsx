@@ -1,15 +1,18 @@
 import React from 'react'
 import GuestHeader from '../Header/GuestHeader';
+import axios from "axios";
+import { useEffect } from 'react';
+import { useState } from 'react';
 function Status() {
-    const guest=[
-        {Id:1,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:2,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:3,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:4,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:5,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-        {Id:6,Name:'Pearl Kothari',Contact_Info:'9898988989',Age:'23',Relation:'Someone',Status:'false',Room_Allocated:'Not Yet'},
-    ]
-    
+    const [Guests,setGuests]=useState([]);
+    const url='http://localhost:5000/guests/';
+    useEffect(() => 
+        axios.get(`${url}/booking`)
+        .then(res =>{
+            const Data=res.data;
+            setGuests(Data)
+        })
+        ,[])
     return (
         <div className='Status'>
             <GuestHeader/>
@@ -27,16 +30,16 @@ function Status() {
                             </thead>
                             <tbody>
                             {
-                                guest.map(
+                                Guests.map(
                                     guest => 
-                                        <tr key={guest.Id}>
-                                            <td>{guest.Id}</td>
+                                        <tr key={guest.guestId}>
+                                            <td>{guest.guestId}</td>
                                             <td>{guest.Name}</td>
-                                            <td>{guest.Contact_Info}</td>
-                                            <td>{guest.Age}</td>
-                                            <td>{guest.Relation}</td>
-                                            <td>{guest.Status}</td>
-                                            <td>{guest.Room_Allocated}</td>
+                                            <td>{guest.ContactNo}</td>
+                                            <td>{guest.age}</td>
+                                            <td>{guest.relation}</td>
+                                            <td>{guest.approved}</td>
+                                            <td>{guest.roomNo}</td>
                                         </tr>
                                 )
                             }
