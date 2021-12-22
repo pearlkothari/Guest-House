@@ -177,6 +177,7 @@ router.route('/add/rooms').post(function(req, res) {
 });
 router.route('/update/rooms').post(function(req, res) {
     Rooms.updateOne({
+        roomNo: req.body.roomNo,
         availability: req.body.availability,
         charge: req.body.charge
     })
