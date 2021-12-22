@@ -3,7 +3,8 @@ let employee = require('../models/Employee.model');
 let Dining = require('../models/Dining.model');
 let Items = require('../models/Items.model');
 let Feedback = require('../models/Feedback.model');
-let Booking = require('../models/Booking.model')
+let Booking = require('../models/Booking.model');
+let Rooms = require('../models/Rooms.model');
 
 router.route('/login').post(function(req, res) {
     const emailId = req.body.emailId;
@@ -154,6 +155,37 @@ router.route('/see/items').get(function(req, res) {
 router.route('/see/feedback').get(function(req, res) {
     Feedback.find()
     .then(feedback => res.json(feedback))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/add/rooms').post(function(req, res) {
+    const roomNo = req.body.roomNo;
+    const availability = req.body.availability;
+    const charge = req.body.charge;
+    const roomType = req.body.roomType;
+
+    const room = new Rooms({
+        roomNo,
+        availability,
+        charge,
+        roomType
+    });
+
+    room.save()
+    .then(() => res.json('room added'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/update/rooms').post(function(req, res) {
+    Rooms.updateOne({
+        availability: req.body.availability,
+        charge: req.body.charge
+    })
+    .then(room => res.json('rooms updated'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/see/rooms').get(function(req, res) {
+    Rooms.find()
+    .then(room => res.json(room))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 //add
