@@ -55,11 +55,11 @@ function App() {
 
 
 
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' &&  <Route path="/guest" element={<Guest/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' &&  <Route path="/guest/Dining%20Lounge" element={<BookDining/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Guest' && <Route path="/guest/Status" element={<Status/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest" element={<Guest/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest/Dining%20Lounge" element={<BookDining/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Status" element={<Status/>}/>}
 
                 {!AuthenticationService.isLoggedIn() && <Route path='*' exact={true} element={<ErrorComponent/>}/>}
               </Routes>
