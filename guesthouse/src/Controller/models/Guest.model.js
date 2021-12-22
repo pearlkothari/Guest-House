@@ -8,7 +8,8 @@ const guestSchema = new Schema({
     Name: {type: String, required: true, default: false},
     guestId: {type: String, required: true, unique: true, default: false},
     guestType: {type: String, required: true, default: false},
-    roomNo: {type: Number, required: true, default: false}
+    roomNo: {type: Number, required: true, default: false},
+    password: {type: String, required: true, minlength: 8, default: false}
     
 })
 const guest = mongoose.model('Guest', guestSchema);

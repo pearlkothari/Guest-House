@@ -31,6 +31,7 @@ router.route('/add').post(function(req, res) {
     const guestType = req.body.guestType;
     const approved = req.body.approved;
     const roomNo = req.body.roomNo;
+    const password = req.body.password;
 
     const user = new guest({
         emailId,
@@ -40,7 +41,8 @@ router.route('/add').post(function(req, res) {
         guestId,
         guestType,
         approved,
-        roomNo
+        roomNo,
+        password
     });
 
     user.save()

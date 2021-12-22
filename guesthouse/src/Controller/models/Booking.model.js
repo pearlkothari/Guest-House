@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
-    bookId: {type: Number, required: true, unique: true, default: false},
     relation: {type: String, required: true, default: false},
     age: {type: Number, required: true, default: false},
     Name: {type: String, required: true, default: false},
