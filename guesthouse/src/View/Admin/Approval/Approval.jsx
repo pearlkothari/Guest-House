@@ -1,17 +1,25 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 import AdminHeader from '../Header/AdminHeader'
+import { useState } from 'react'
+import axios from "axios";
+import { useEffect } from 'react';
 import './Approval.css'
 
 function Approval() {
 
-    const Guest=[
-        {guestId:1,Name:'Pearl Kothari',contactNo:'9919919191',emailID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:2,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:3,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:4,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:5,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-    ]
+    const [Guests,setGuests]=useState([]);
+
+    const url='http://localhost:5000/employee';
+
+    useEffect(() => 
+        axios.get(`${url}/approveGuests`)
+        .then(res =>{
+            const Data=res.data;
+            setGuests(Data)
+        })
+    ,[])
+
     const navigate=useNavigate();
     return (
         <div className="Info">
@@ -27,15 +35,16 @@ function Approval() {
                             </thead>
                             <tbody>
                             {
-                                Guest.map(
-                                    guest => 
-                                        <tr key={guest.Id}>
-                                            <td>{guest.Id}</td>
+                                Guests.map(
+                                    guest => {
+                                        <tr key={guest.guestId}>
+                                            <td>{guest.guestId}</td>
                                             <td>{guest.Name}</td>
-                                            <td>{guest.Contact_Info}</td>
-                                            <td>{guest.Email_ID}</td>
+                                            <td>{guest.contactNo}</td>
+                                            <td>{guest.emailId}</td>
                                             <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
                                         </tr>
+                                    }
                                 )
                             }
                             </tbody>

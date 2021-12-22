@@ -6,14 +6,6 @@ function Details3() {
     const location = useLocation();
     const navigate=useNavigate();
     // console.log(location.state.guest);
-    //     designation: "",
-    //     emailId: "",
-    //     Name:"",
-    //     contactNo:"",
-    //     relation:"",
-    //     age:"",
-    //     checkIn:"",
-    //     checkOut:""
     return (
             <div className="Feedback">
             <div className="submit">
@@ -23,8 +15,8 @@ function Details3() {
                         <input 
                             type ="text" 
                             className = "form-input"
-                            name ="name" 
-                            placeholder={location.state.guest.Feedback}
+                            name ="Name" 
+                            placeholder={location.state.guest.Name}
                             disabled = {true}
                         />
                         
@@ -32,39 +24,53 @@ function Details3() {
                             type ="text" 
                             className = "form-input"
                             name ="email" 
-                            placeholder={location.state.guest.Feedback}
+                            placeholder={location.state.guest.emailId}
                             disabled = {true}
                         />
-                    </div>
-                    <div className="feedback">
-                            <input 
+                        <input 
                                 type="text"
                                 className="form-input"
-                                name="feedback"
-                                placeholder={location.state.guest.Feedback}
+                                name="contactNo"
+                                placeholder={location.state.guest.contactNo}
+                                disabled = {true}
+                            />
+                        <input 
+                                type="text"
+                                className="form-input"
+                                name="Designation"
+                                placeholder={location.state.guest.designation}
+                                disabled = {true}
+                            />
+                        <input 
+                                type="text"
+                                className="form-input"
+                                name="Relation"
+                                placeholder={location.state.relation}
+                                disabled = {true}
+                            />
+                        <input 
+                                type="text"
+                                className="form-input"
+                                name="Age"
+                                placeholder={location.state.guest.age}
+                                disabled = {true}
+                            />
+                        <input 
+                                type="text"
+                                className="form-input"
+                                name="checkIn"
+                                placeholder={location.state.guest.checkIn}
+                                disabled = {true}
+                            />
+                        <input 
+                                type="text"
+                                className="form-input"
+                                name="checkOut"
+                                placeholder={location.state.guest.checkOut}
                                 disabled = {true}
                             />
                     </div>
-                    <div className='Rating'>
-                        <div className='Rating1'>
-                            <>
-                                <h5 className='head'>Service Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                            </>
-                            <>
-                                <h5 className='head'>Food Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                            </>
-                        </div>
-                    </div>
-                    <div className='Rating'>
-                            <div className='Rating1'>
-                                <h5 className='head'>Room Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                                <h5 className='head'>Overall Experience:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                            </div>
-                    </div>
+                    
                     <button classname="btn alert-btn" onClick={()=>navigate('/Admin/Approval/', {replace:true})}>Approve</button>
 
                 </form>
