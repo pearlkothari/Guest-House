@@ -23,6 +23,7 @@ import Dining_Lounge from './View/Employee/Dining_Lounge/Dining_Lounge';
 import BookDining from './View/Guest/BookDining/BookDining';
 import SubmitForm2 from './View/Admin/EmployeeManage/SubmitForm2';
 import Details3 from './View/Admin/Approval/Details';
+import ManageRooms from './View/Employee/ManageRooms/ManageRooms'
 
 
 
@@ -50,6 +51,7 @@ function App() {
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback/details" element={<Details2/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests" element={<Dining_Lounge/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests/details" element={<Details3/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests/ManageRooms" element={<ManageRooms/>}/>}
 
 
 

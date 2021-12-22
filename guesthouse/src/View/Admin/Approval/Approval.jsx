@@ -8,15 +8,15 @@ import './Approval.css'
 
 function Approval() {
 
-    const [Guest,setGuest]=useState([]);
+    const [Guests,setGuests]=useState([]);
 
-    const url='http://localhost:5000/employee/';
+    const url='http://localhost:5000/employee';
 
     useEffect(() => 
         axios.get(`${url}/approveGuests`)
         .then(res =>{
             const Data=res.data;
-            setGuest(Data)
+            setGuests(Data)
         })
     ,[])
 
@@ -35,8 +35,8 @@ function Approval() {
                             </thead>
                             <tbody>
                             {
-                                Guest.map(
-                                    guest => 
+                                Guests.map(
+                                    guest => {
                                         <tr key={guest.guestId}>
                                             <td>{guest.guestId}</td>
                                             <td>{guest.Name}</td>
@@ -44,6 +44,7 @@ function Approval() {
                                             <td>{guest.emailId}</td>
                                             <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
                                         </tr>
+                                    }
                                 )
                             }
                             </tbody>
