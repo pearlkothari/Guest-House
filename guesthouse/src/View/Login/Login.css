@@ -42,6 +42,7 @@
   padding: 0.5rem 0.8rem 0.5rem 0.8rem;
   margin: 0.9vw 0;
   border: 0;
+  width: 400px;
   border-radius: 5px;
   font-size: 20px;
   background-color: whitesmoke;
@@ -53,7 +54,7 @@
 
 .Login_Container > form > button {
   border-radius: 2px;
-  width: 100%;
+  width: 400px;
   height: 30px;
   border: 1px solid;
   margin-top: 10px;
