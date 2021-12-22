@@ -2,6 +2,7 @@ const router = require('express').Router();
 let employee = require('../models/Employee.model');
 let Dining = require('../models/Dining.model');
 let Items = require('../models/Items.model');
+let Feedback = require('../models/Feedback.model');
 
 router.route('/login').post(function(req, res) {
     const emailId = req.body.emailId;
@@ -21,7 +22,7 @@ router.route('/add').post(function(req, res) {
     const employeeId = req.body.employeeId;
     const jobRole = req.body.jobRole;
     const contactNo = req.body.contactNo;
-    const name = req.body.Name;
+    const Name = req.body.Name;
     const emailId = req.body.emailId;
     const password = req.body.password;
 
@@ -29,7 +30,7 @@ router.route('/add').post(function(req, res) {
         employeeId,
         jobRole,
         contactNo,
-        name,
+        Name,
         emailId,
         password,
     });
@@ -41,6 +42,12 @@ router.route('/add').post(function(req, res) {
 
 router.route('/see').get(function(req, res) {
     employee.find()
+    .then(emp => res.json(emp))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/see/caretaker').get(function(req, res) {
+    employee.find({jobRole: "Caretaker"})
     .then(emp => res.json(emp))
     .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -120,6 +127,11 @@ router.route('/update/items').post(function(req, res) {
 router.route('/see/items').get(function(req, res) {
     Items.find()
     .then(item => res.json(item))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/see/feedback').get(function(req, res) {
+    Feedback.find()
+    .then(feedback => res.json(feedback))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 //add

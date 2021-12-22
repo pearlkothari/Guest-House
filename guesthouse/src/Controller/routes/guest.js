@@ -3,6 +3,9 @@
 //approval
 const router = require('express').Router();
 let guest = require('../models/Guest.model');
+let Dining = require('../models/Dining.model');
+let Booking = require('../models/Booking.model');
+let Feedback = require('../models/Feedback.model');
 
 router.route('/login').post(function(req, res) {
     const emailId = req.body.emailId;
@@ -20,20 +23,24 @@ router.route('/login').post(function(req, res) {
 });
 
 router.route('/add').post(function(req, res) {
-    const employeeId = req.body.employeeId;
-    const jobRole = req.body.jobRole;
+    const emailId = req.body.employeeId;
+    const designation = req.body.designation;
     const contactNo = req.body.contactNo;
-    const name = req.body.Name;
-    const emailId = req.body.emailId;
-    const password = req.body.password;
+    const name = req.body.name;
+    const guestId = req.body.guestId;
+    const guestType = req.body.guestType;
+    const approved = req.body.approved;
+    const roomNo = req.body.roomNo;
 
     const user = new guest({
-        employeeId,
-        jobRole,
+        emailId,
+        designation,
         contactNo,
         name,
-        emailId,
-        password,
+        guestId,
+        guestType,
+        approved,
+        roomNo
     });
 
     user.save()
@@ -49,7 +56,7 @@ router.route('/feedback').post(function(req, res) {
     const roomRating = req.body.roomRating;
     const overallExperience = req.body.overallExperience;
 
-    const user = new guest({
+    const user = new Feedback({
         name,
         feedback,
         serviceRating,
@@ -62,6 +69,46 @@ router.route('/feedback').post(function(req, res) {
     .then(() => res.json('Feedback added'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+router.route('/bookRoom').post(function(req, res) {
+    const Name = req.body.Name;
+    const relation = req.body.relation;
+    const age = req.body.age;
+    const contactNo = req.body.contactNo;
+    const checkIn = req.body.checkIn;
+    const checkOut = req.body.checkOut;
+    const emailId = req.body.emailId;
+
+    const user = new Booking({
+        Name,
+        relation,
+        age,
+        contactNo,
+        checkIn,
+        checkOut,
+        emailId
+    });
+
+    user.save()
+    .then(() => res.json('Booking added'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/bookDining').post(function(req, res) {
+    const guestId = req.body.guestId;
+    const reservationDate = req.body.reservationDate;
+    const totalGuests = req.body.totalGuests;
+
+    const user = new Dining({
+        guestId,
+        reservationDate,
+        totalGuests
+    });
+
+    user.save()
+    .then(() => res.json('Booking for dining added'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 router.route('/see').get(function(req, res) {
     guest.find()

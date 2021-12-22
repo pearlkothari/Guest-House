@@ -1,20 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
+import axios from "axios";
+import { useEffect } from 'react';
 import Employee_Header from '../Employee_Header.jsx'
 import SearchBar from 'material-ui-search-bar';
 import './ManageCaretaker.css'
 
 function ManageCaretaker() {
-    const Employees=[
-        {Id:1,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:2,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:3,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:4,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:5,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'},
-        {Id:6,Name:'John',Contact_Info:'9128312881',Job_Role:'Admin',Email_ID:'xyz@gmail.com'}
-    ]
-
+    const [Employees,setEmployees]=useState([]);
     const [value, setValue] = useState();
+    const url='http://localhost:5000/employee/';
 
     const handleChange = (e) => {
         setValue(e.target.value);
@@ -22,9 +17,16 @@ function ManageCaretaker() {
     };
 
     const [searchValue,setsearchValue] =useState("");
-
+    useEffect(() => 
+        axios.get(`${url}/see/caretaker`)
+        .then(res =>{
+            const Data=res.data;
+            setEmployees(Data)
+        })
+        ,[])
     const doSomethingWith =(e) =>{
-       console.log(searchValue);
+        const update=Employees.filter(item => (item.employeeId===e || item.name===e || item.contactNo===e || item.emailId===e));
+        setEmployees(update);
     }
     return (
         <div className='ManageEmployee'>

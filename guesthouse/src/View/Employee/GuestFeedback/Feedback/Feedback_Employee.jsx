@@ -9,9 +9,9 @@ import './Feedback.css'
 
 function Feedback_Employee() {
     const [Guests,setGuests]=useState([]);
-    const url='http://localhost:5000/guests/';
+    const url='http://localhost:5000/employee/';
     useEffect(() => 
-        axios.get(`${url}/see`)
+        axios.get(`${url}/see/feedback`)
         .then(res =>{
             const Data=res.data;
             setGuests(Data)

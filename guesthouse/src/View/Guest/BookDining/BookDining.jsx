@@ -2,6 +2,7 @@ import React from 'react'
 import './BookDining.css'
 import { useState } from 'react';
 import { Navigate } from 'react-router';
+import axios from "axios";
 
 function BookDining() {
 
@@ -9,7 +10,7 @@ function BookDining() {
 
     const [about,setabout] = useState({
         guestId:"",
-        ReservationDate:"",
+        reservationDate:"",
         totalGuests:""
     })
 
@@ -22,6 +23,10 @@ function BookDining() {
 
     const handleSubmit = (event) =>{
         setsuccess(true);
+        axios.post("http://localhost:5000/guests/bookDining",about)
+        .then(
+            alert(`Booked dining SuccessFully for Guest: ${about.guestId}`)
+        )
     }
 
     return (
@@ -54,7 +59,7 @@ function BookDining() {
                             className="form-input"
                             name="ReservationDate"
                             onChange={updateForm}
-                            value={about.ReservationDate}
+                            value={about.reservationDate}
                         />
                 </div>
                 <button onClick={handleSubmit}>Submit</button>

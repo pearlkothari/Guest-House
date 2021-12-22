@@ -9,14 +9,14 @@ function Details2() {
     return (
             <div className="Feedback">
             <div className="submit">
-                <h2 className="heading1">FEEDBACK FORM #{location.state.guest.Id}</h2>
+                <h2 className="heading1">FEEDBACK FORM #{location.state.guest.guestId}</h2>
                 <form>
                     <div className="form">
                         <input 
                             type ="text" 
                             className = "form-input"
                             name ="name" 
-                            placeholder={location.state.guest.Feedback}
+                            placeholder={location.state.guest.name}
                             disabled = {true}
                         />
                         
@@ -24,7 +24,7 @@ function Details2() {
                             type ="text" 
                             className = "form-input"
                             name ="email" 
-                            placeholder={location.state.guest.Feedback}
+                            placeholder={location.state.guest.emailId}
                             disabled = {true}
                         />
                     </div>
@@ -33,7 +33,7 @@ function Details2() {
                                 type="text"
                                 className="form-input"
                                 name="feedback"
-                                placeholder={location.state.guest.Feedback}
+                                placeholder={location.state.guest.feedback}
                                 disabled = {true}
                             />
                     </div>
@@ -41,20 +41,20 @@ function Details2() {
                         <div className='Rating1'>
                             <>
                                 <h5 className='head'>Service Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
+                                <h5>{location.state.guest.serviceRating}</h5>
                             </>
                             <>
                                 <h5 className='head'>Food Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
+                                <h5>{location.state.guest.foodRating}</h5>
                             </>
                         </div>
                     </div>
                     <div className='Rating'>
                             <div className='Rating1'>
                                 <h5 className='head'>Room Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
+                                <h5>{location.state.guest.roomRating}</h5>
                                 <h5 className='head'>Overall Experience:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
+                                <h5>{location.state.guest.overallExperience}</h5>
                             </div>
                     </div>
                     <button onClick={()=>navigate('/Employee/Manager/Guest%20Feedback', {replace:true})}>Go Back</button>
