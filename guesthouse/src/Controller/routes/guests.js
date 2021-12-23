@@ -51,7 +51,8 @@ router.route('/add').post(function(req, res) {
 });
 
 router.route('/feedback').post(function(req, res) {
-    const name = req.body.employeeId;
+    const name = req.boby.name;
+    const emailId=req.body.emailId;
     const feedback = req.body.feedback;
     const serviceRating = req.body.serviceRating;
     const foodRating = req.body.foodRating;
@@ -60,6 +61,7 @@ router.route('/feedback').post(function(req, res) {
 
     const user = new Feedback({
         name,
+        emailId,
         feedback,
         serviceRating,
         foodRating,
@@ -82,7 +84,7 @@ router.route('/bookRoom').post(function(req, res) {
 
     const user = new Booking({
         Name,
-        relation,
+        relation, 
         age,
         contactNo,
         checkIn,

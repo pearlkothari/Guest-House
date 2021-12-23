@@ -1,77 +1,83 @@
 import React from 'react'
 import './Details.css'
 import { useLocation, useNavigate } from 'react-router';
+import axios from 'axios';
 
 function Details3() {
     const location = useLocation();
     const navigate=useNavigate();
     // console.log(location.state.guest);
+
     return (
             <div className="Feedback">
             <div className="submit">
-                <h2 className="heading1">Approval Request #{location.state.guest.Id}</h2>
+                <h2 className="heading1">Approval Request #{location.state.guest.Name}</h2>
                 <form>
                     <div className="form">
-                        <input 
-                            type ="text" 
-                            className = "form-input"
-                            name ="Name" 
-                            placeholder={location.state.guest.Name}
-                            disabled = {true}
-                        />
-                        
-                        <input 
-                            type ="text" 
-                            className = "form-input"
-                            name ="email" 
-                            placeholder={location.state.guest.emailId}
-                            disabled = {true}
-                        />
-                        <input 
+                            {/*<h5>Guest Name</h5>*/}
+                            <input 
+                                type ="text" 
+                                className = "form-input"
+                                name ="Name" 
+                                placeholder={`Guest Name: ${location.state.guest.Name}`}
+                                disabled = {true}
+                            />
+                            {/*<h5>Email</h5>*/}
+                            <input 
+                                type ="text" 
+                                className = "form-input"
+                                name ="email" 
+                                placeholder={`Email : ${location.state.guest.emailId}`}
+                                disabled = {true}
+                            />
+                            {/*<h5>Contact Number</h5>*/}
+                            <input 
                                 type="text"
                                 className="form-input"
                                 name="contactNo"
-                                placeholder={location.state.guest.contactNo}
+                                placeholder={`Contact Number : ${location.state.guest.contactNo}`}
                                 disabled = {true}
                             />
-                        <input 
-                                type="text"
-                                className="form-input"
-                                name="Designation"
-                                placeholder={location.state.guest.designation}
-                                disabled = {true}
-                            />
-                        <input 
+                            {/*<h5>Relation</h5>*/}
+                            <input 
                                 type="text"
                                 className="form-input"
                                 name="Relation"
-                                placeholder={location.state.relation}
+                                placeholder={`Relation :  ${location.state.relation}`}
                                 disabled = {true}
                             />
-                        <input 
+                            {/*<h5>Age</h5>*/}
+                            <input 
                                 type="text"
                                 className="form-input"
                                 name="Age"
-                                placeholder={location.state.guest.age}
+                                placeholder={`Age :  ${location.state.guest.age}`}
                                 disabled = {true}
                             />
-                        <input 
+                            {/*<h5>CheckIn</h5>*/}
+                            <input 
                                 type="text"
                                 className="form-input"
                                 name="checkIn"
-                                placeholder={location.state.guest.checkIn}
+                                placeholder={`Check In:  ${location.state.guest.checkIn}`}
                                 disabled = {true}
                             />
-                        <input 
+                            {/*<h5>CheckOut</h5>*/}
+                            <input 
                                 type="text"
                                 className="form-input"
                                 name="checkOut"
-                                placeholder={location.state.guest.checkOut}
+                                placeholder={`Check Out:  ${location.state.guest.checkOut}`}
                                 disabled = {true}
                             />
                     </div>
                     
-                    <button classname="btn alert-btn" onClick={()=>navigate('/Admin/Approval/', {replace:true})}>Approve</button>
+                    <button className="btn btn-alert" onClick={()=>{
+                        axios.post('http://localhost:5000/employee/update/Guests',location.state.guest)
+                        .then(
+                            navigate('/Admin/Approval/', {replace:true})
+                        )
+                    }}>Approve</button>
 
                 </form>
             </div>

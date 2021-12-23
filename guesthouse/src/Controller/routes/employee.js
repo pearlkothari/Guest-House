@@ -33,6 +33,19 @@ router.route('/approveGuests').get(function(req, res) {
         return res.status(200).json(emp);
     })
 });
+router.route('/update/Guests').post(function(req, res) {
+    Booking.findOneAndUpdate({Name:req.body.Name},
+        {$set:{approved:true}},{new:true},function(err, emp) {
+        if(err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        if(!emp) {
+            return res.status(404).send();
+        }
+        return res.status(200).json(emp);
+    })
+});
 router.route('/add').post(function(req, res) {
     const employeeId = req.body.employeeId;
     const jobRole = req.body.jobRole;

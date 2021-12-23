@@ -13,8 +13,13 @@ function Approval() {
     const url='http://localhost:5000/employee';
 
     function update(value){
+        const array=[].concat.apply([],value);
+        setGuests(array);
         // setGuests(value);
-        console.log(value["employeeId"])
+        // for(let i=0;i<value.length;i++){
+        //     // setGuests(value[i])
+        //     console.log(value[i]);
+        // }
     }
     useEffect(() => 
         axios.get(`${url}/approveGuests`)
@@ -32,7 +37,6 @@ function Approval() {
             <table className="table">
                             <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Contact Info</th>
                                         <th>Email ID</th>
@@ -40,17 +44,14 @@ function Approval() {
                             </thead>
                             <tbody>
                             {
-                                Guests.map(input => input.map(
-                                        guest =>
-                                        <tr key={guest.guestId}>
-                                            <td>{guest.guestId}</td>
+                                Guests.map(guest =>
+                                        <tr>
                                             <td>{guest.Name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.emailId}</td>
-                                            <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
+                                            <td><button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button></td>
                                         </tr>
                                     )
-                                )
                             }
                             </tbody>
                 </table>

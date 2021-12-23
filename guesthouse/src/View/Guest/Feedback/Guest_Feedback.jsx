@@ -11,7 +11,7 @@ function Guest_Feedback() {
     let user=AuthenticationService.getuseremail();
     const [inputs, setInputs] = useState({
         name: "",
-        email:user,
+        emailId:user,
         feedback:"",
         serviceRating:"",
         foodRating:"",
@@ -72,10 +72,10 @@ function Guest_Feedback() {
                         <input 
                             type ="text" 
                             className = "form-input"
-                            name ="email" 
+                            name ="emailId" 
                             placeholder="Email"
                             onChange ={updateForm} 
-                            value = {inputs.email}
+                            value = {inputs.emailId}
                             disabled={true}
                         />
                     </div>

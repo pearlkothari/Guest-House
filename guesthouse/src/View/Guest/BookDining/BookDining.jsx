@@ -9,8 +9,9 @@ function BookDining() {
 
     const [success,setsuccess]=useState(false);
 
+    let user=AuthenticationService.getuseremail();
     const [about,setabout] = useState({
-        guestId:"",
+        emailId:user,
         reservationDate:"",
         totalGuests:""
     })
@@ -41,7 +42,7 @@ function BookDining() {
                         name ="guestId" 
                         placeholder="Your email"
                         onChange ={updateForm} 
-                        value = {AuthenticationService.getuseremail()}
+                        value = {user}
                         disabled={true}
                     />
                     <input 
