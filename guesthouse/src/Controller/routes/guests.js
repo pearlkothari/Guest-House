@@ -112,10 +112,17 @@ router.route('/bookDining').post(function(req, res) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/see/Status').get(function(req,res){
-    Booking.find({emailId: req.body.emailId})
-    .then(user => res.json(user))
-    .catch(err => res.status(400).json('Error: '+ err));
+router.route('/see/Status').post(function(req,res){
+    Booking.find({emailId: req.body.emailId}, function(err, user) {
+        if(err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        if(!user) {
+            return res.status(404).send();
+        }
+        return res.status(200).json(user);
+    })
 });
 router.route('/see').get(function(req, res) {
     guest.find()

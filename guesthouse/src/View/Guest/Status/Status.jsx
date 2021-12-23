@@ -12,7 +12,7 @@ function Status() {
     let user=AuthenticationService.getuseremail(); 
     const email={emailId:user};
     useEffect(() =>
-        axios.get(`${url}/see/Status`,email)
+        axios.post(`${url}/see/Status`,email)
         .then(res =>{
             const Data=res.data;
             console.log(res.data);
@@ -40,7 +40,7 @@ function Status() {
                                     guest => 
                                         <tr key={guest.emailId}>
                                             <td>{guest.emailId}</td>
-                                            <td>{guest.name}</td>
+                                            <td>{guest.Name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.age}</td>
                                             <td>{guest.relation}</td>
