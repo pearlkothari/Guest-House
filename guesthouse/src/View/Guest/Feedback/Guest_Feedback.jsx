@@ -38,7 +38,7 @@ function Guest_Feedback() {
     const handleSubmit = (event) => {
         event.preventDefault();
         setCount({
-            count:true
+            count:true 
         })
         axios.post("http://localhost:5000/guests/feedback",inputs)
         .then(

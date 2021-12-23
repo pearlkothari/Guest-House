@@ -51,7 +51,7 @@ router.route('/add').post(function(req, res) {
 });
 
 router.route('/feedback').post(function(req, res) {
-    const name = req.boby.name;
+    const name = req.body.name;
     const emailId=req.body.emailId;
     const feedback = req.body.feedback;
     const serviceRating = req.body.serviceRating;
@@ -137,7 +137,7 @@ router.route('/search/contact').get(function(req, res) {
 });
 
 router.route('/search/id').get(function(req, res) {
-    guest.findOne({emailId: req.body.emailId})
+    guest.find({emailId: req.body.emailId})
     .then(emp => res.json(emp))
     .catch(err => res.status(400).json('Error: ' + err));
 });
