@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const employeeSchema = new Schema({
-    employeeId: {type: Number, required: true, unique: true, default: false},
+    employeeId: {type: Number, required: true, default: false},
     jobRole: {type: String, required: true, default: false},
     contactNo: {type: Number, required: true, default: false},
     Name: {type: String, required: true, default: false},

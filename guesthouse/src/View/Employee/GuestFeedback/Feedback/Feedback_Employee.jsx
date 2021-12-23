@@ -34,7 +34,7 @@ function Feedback_Employee() {
                                     guest => 
                                         <tr key={guest.emailId}>
                                             <td>{guest.name}</td>
-                                            <td>{guest.emailID}</td>
+                                            <td>{guest.emailId}</td>
                                             <td><button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button></td>
                                         </tr>
                                 )

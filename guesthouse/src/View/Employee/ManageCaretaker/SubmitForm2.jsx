@@ -9,6 +9,7 @@ function SubmitForm3() {
 
 
     const [about, setabout] = useState({
+        employeeId:"",
         jobRole:"Caretaker",
         contactNo:"",
         Name:"",
@@ -39,7 +40,15 @@ function SubmitForm3() {
         <div className="submit">
             <form >
                 <div className="form" onSubmit={handleSubmit}>
-
+                    <input 
+                        type="text"
+                        className="form-input"
+                        name="employeeId"
+                        placeholder='Employee ID'
+                        onChange={updateForm}
+                        value={about.employeeId}
+                        required={true}
+                    />
                     <input 
                         type ="text" 
                         className = "form-input"
