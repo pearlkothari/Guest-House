@@ -24,9 +24,7 @@ function Feedback() {
             <table className="table">
                             <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
-                                        <th>Contact Info</th>
                                         <th>Email ID</th>
                                     </tr>
                             </thead>
@@ -34,12 +32,10 @@ function Feedback() {
                             {
                                 Guests.map(
                                     guest => 
-                                        <tr key={guest.guestId}>
-                                            <td>{guest.guestId}</td>
-                                            <td>{guest.Name}</td>
-                                            <td>{guest.contactNo}</td>
+                                        <tr>
+                                            <td>{guest.name}</td>
                                             <td>{guest.emailId}</td>
-                                            <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
+                                            <td><button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button></td>
                                         </tr>
                                 )
                             }

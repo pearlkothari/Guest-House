@@ -19,11 +19,11 @@ function ManageGuest() {
         const [searchValue,setsearchValue] =useState("");
 
         useEffect(() => 
-        axios.get(`${url}/see`)
-        .then(res =>{
-            const Data=res.data;
-            setGuests(Data)
-        })
+            axios.get(`${url}/see`)
+            .then(res =>{
+                const Data=res.data;
+                setGuests(Data)
+            })
         ,[])
         
         const doSomethingWith =(e) =>{
@@ -65,19 +65,17 @@ function ManageGuest() {
                                         <th>Name</th>
                                         <th>Contact Info</th>
                                         <th>Guest Type</th>
-                                        <th>Room Number</th>
                                     </tr>
                             </thead>
                             <tbody>
                             {
                                 Guests.map(
                                     guest => 
-                                        <tr key={guest.emailId}>
+                                        <tr>
                                             <td>{guest.emailId}</td>
                                             <td>{guest.Name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.guestType}</td>
-                                            <td>{guest.roomNo}</td>
                                         </tr>
                                 )
                             }
