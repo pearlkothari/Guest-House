@@ -40,10 +40,12 @@ function Guest_Feedback() {
         setCount({
             count:true 
         })
+        console.log(inputs);
         axios.post("http://localhost:5000/guests/feedback",inputs)
         .then(
             alert(`Added Feedback SuccessFully for Guest: ${inputs.name}`)
         )
+        .catch(err => "error: " + err);
       }
 
     const handleRating =(name,event) =>{
