@@ -52,7 +52,7 @@ router.route('/add').post(function(req, res) {
 
 router.route('/feedback').post(function(req, res) {
     const name = req.body.name;
-    const emailId=req.body.emailId;
+    const emailId = req.body.emailId;
     const feedback = req.body.feedback;
     const serviceRating = req.body.serviceRating;
     const foodRating = req.body.foodRating;
