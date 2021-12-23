@@ -60,25 +60,23 @@ function ManageGuestEmployee() {
                     <table className="table">
                             <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Contact Info</th>
-                                        <th>Room Type</th>
                                         <th>Guest Type</th>
                                         <th>Room Number</th>
+                                        <th>Email</th>
                                     </tr>
                             </thead>
                             <tbody>
                             {
                                 Guests.map(
                                     guest => 
-                                        <tr key={guest.guestId}>
-                                            <td>{guest.guestId}</td>
-                                            <td>{guest.name}</td>
+                                        <tr key={guest.emailId}>
+                                            <td>{guest.Name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.guestType}</td>
-                                            <td>{guest.roomType}</td>
                                             <td>{guest.roomNo}</td>
+                                            <td>{guest.emailId}</td>
                                         </tr>
                                 )
                             }

@@ -34,10 +34,10 @@ function ManageEmployee() {
     }
 
     const deleteEmployee =(emp) =>{
-        const req={employeeId:emp};
+        const req={emailId:emp};
         const res= axios.delete(`${url}/delete`,req)
                     .then(result=>{
-                        const update=Employees.filter(item => item.employeeId!=emp)
+                        const update=Employees.filter(item => item.emailId!=emp)
                         setEmployees(update);
                     })
         if(res){
@@ -74,24 +74,23 @@ function ManageEmployee() {
                            
                             <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Contact Info</th>
                                         <th>Job Role</th>
                                         <th>Email ID</th>
+                                        <th>Action</th>
                                     </tr>
                             </thead>
                             <tbody>
                             {
                                 Employees.map(
                                     Employees => 
-                                        <tr key={Employees.employeeId}>
-                                            <td>{Employees.employeeId}</td>
+                                        <tr key={Employees.emailId}>
                                             <td>{Employees.Name}</td>
                                             <td>{Employees.contactNo}</td>
                                             <td>{Employees.jobRole}</td>
                                             <td>{Employees.emailId}</td>
-                                            <button className="btn btn-danger" onClick={() => deleteEmployee(Employees.employeeId)}>Remove Employee</button>
+                                            <td><button className="btn btn-danger" onClick={() => deleteEmployee(Employees.emailId)}>Remove Employee</button></td>
                                         </tr>
                                 )
                             }

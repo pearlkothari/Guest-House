@@ -1,0 +1,56 @@
+.submit {
+  margin-top: 25px;
+  width: 700px;
+  background-color: white;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 12px solid lightgray;
+  padding: 20px;
+}
+
+.form > input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  margin: 0.9vw 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: 20px;
+}
+/* .submit > h1 {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.submit > form > label > input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  height: 30px;
+  margin-left: 30px;
+  margin-right: 0px;
+}
+.submit > form > label {
+  height: 25px;
+  margin-bottom: 10px;
+  background-color: white;
+  width: 96%;
+}
+.submit > p {
+  margin-top: 15px;
+  font-size: 12px;
+} */
+
+.submit > form > button {
+  border-radius: 3px;
+  width: 40%;
+  background-color: #1b3d4d;
+  height: 40px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-radius: 15px;
+  color: #fff;
+  background-color: lighten(#1b3d4d, 5%);
+}

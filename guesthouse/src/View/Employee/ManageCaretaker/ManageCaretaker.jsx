@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Employee_Header from '../Employee_Header.jsx'
 import SearchBar from 'material-ui-search-bar';
 import './ManageCaretaker.css'
+import { useNavigate } from 'react-router';
 
 function ManageCaretaker() {
     const [Employees,setEmployees]=useState([]);
@@ -28,6 +29,20 @@ function ManageCaretaker() {
         const update=Employees.filter(item => (item.employeeId===e || item.name===e || item.contactNo===e || item.emailId===e));
         setEmployees(update);
     }
+    const deleteEmployee =(emp) =>{
+        const req={emailId:emp};
+        const res= axios.delete(`${url}/delete`,req)
+                    .then(result=>{
+                        const update=Employees.filter(item => item.emailId!=emp)
+                        setEmployees(update);
+                    })
+        if(res){
+            alert(`Employee with Employee-Id ${emp} has been deleted successfully`);
+        }else{
+            alert('Unexpected Error Occurred');
+        }
+    }
+    const navigate=useNavigate();
     return (
         <div className='ManageEmployee'>
             <Employee_Header/>
@@ -48,36 +63,36 @@ function ManageCaretaker() {
                                     }}
                                 />
                     </div>
+                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{replace:true})}>Add Employee</button>
+
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">
                            
                             <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Contact Info</th>
                                         <th>Job Role</th>
                                         <th>Email ID</th>
+                                        <th>Action</th>
                                     </tr>
                             </thead>
                             <tbody>
                             {
                                 Employees.map(
                                     Employees => 
-                                        <tr key={Employees.Id}>
-                                            <td>{Employees.Id}</td>
+                                        <tr key={Employees.emailId}>
                                             <td>{Employees.Name}</td>
-                                            <td>{Employees.Contact_Info}</td>
-                                            <td>{Employees.Job_Role}</td>
-                                            <td>{Employees.Email_ID}</td>
-                                            <button className="btn" >Remove Employee</button>
+                                            <td>{Employees.contactNo}</td>
+                                            <td>{Employees.jobRole}</td>
+                                            <td>{Employees.emailId}</td>
+                                            <td><button className="btn btn-danger" onClick={() => deleteEmployee(Employees.emailId)}>Remove Employee</button></td>
                                         </tr>
                                 )
                             }
                             </tbody>
                 </table>
-                <button className="Add_Employee" >Add Employee</button>
         </div>
     )
 }

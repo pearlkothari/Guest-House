@@ -2,15 +2,26 @@ import React from 'react'
 import './Dining_Lounge.css';
 import Employee_Header from '../Employee_Header.jsx'
 import { useNavigate } from 'react-router';
+import axios from 'axios';
+import { useState,useEffect } from 'react';
+
 
 function Dining_Lounge() {
-    const Guest=[
-        {Id:1,Name:'Pearl Kothari',contactNo:'9919919191',emailID:'pearlkothari@gmail.com',Feedback:'Double'},
-        {Id:2,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:3,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:4,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-        {Id:5,Name:'Pearl Kothari',Contact_Info:'9919919191',Email_ID:'pearlkothari@gmail.com',Room_Type:'Double'},
-    ]
+    const [Guests,setGuests]=useState([]);
+
+    function update(value){
+        const array=[].concat.apply([],value);
+        setGuests(array);
+    }
+    useEffect(() => {
+        axios.get('http://localhost:5000/employee/see/dining')
+        .then(res =>{
+            if(res){
+                update(res.data);
+            }
+        })
+
+    }, [])
     const navigate=useNavigate();
     return (
         <div className="Info">
@@ -18,22 +29,20 @@ function Dining_Lounge() {
             <table className="table">
                             <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Contact Info</th>
                                         <th>Email ID</th>
+                                        <th>Reservation Date</th>
+                                        <th>Total Guests</th>
                                     </tr>
                             </thead>
                             <tbody>
                             {
-                                Guest.map(
+                                Guests.map(
                                     guest => 
-                                        <tr key={guest.Id}>
-                                            <td>{guest.Id}</td>
-                                            <td>{guest.Name}</td>
-                                            <td>{guest.Contact_Info}</td>
-                                            <td>{guest.Email_ID}</td>
-                                            <button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button>
+                                        <tr key={guest.emailId}>
+                                            <td>{guest.emailId}</td>
+                                            <td>{guest.reservationDate}</td>
+                                            <td>{guest.totalGuests}</td>
+                                            <td><button className="btn" onClick={() => navigate('./details', {state:{guest} })}>View</button></td>
                                         </tr>
                                 )
                             }

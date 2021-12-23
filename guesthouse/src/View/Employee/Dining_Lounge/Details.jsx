@@ -1,22 +1,47 @@
 import React from 'react'
 import './Details.css'
+import { useState,useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
+import axios from 'axios';
 
 function Details4() {
     const location = useLocation();
     const navigate=useNavigate();
+    const [Guests,setGuests]=useState([]);
+    const [success,setsuccess]=useState(false);
 
+    function update(value){
+        const array=[].concat.apply([],value);
+        console.log(value);
+        setGuests(array);
+    }
+    useEffect(() => {
+        axios.get('http://localhost:5000/guests/search/id',{emailId:location.state.guest.emailId})
+        .then(res =>{
+            update(res.data);
+        })
+    }, [])
+
+    const handleSubmit = () =>{
+        axios.post('http://localhost:5000/guests/update/dining',{emailId:Guests.emailId})
+        .then(res =>{
+            if(res){
+                setsuccess(true);
+            }
+        })
+        setsuccess(true);
+    }
     return (
             <div className="Feedback">
             <div className="submit">
-                <h2 className="heading1">Dining Lounge Request #{location.state.guest.Id}</h2>
+                <h2 className="heading1">Dining Lounge Request #{Guests.Name}</h2>
                 <form>
                     <div className="form">
                         <input 
                             type ="text" 
                             className = "form-input"
-                            name ="name" 
-                            placeholder={location.state.guest.Feedback}
+                            name ="Name" 
+                            placeholder={`Name: ${Guests.Name}`}
                             disabled = {true}
                         />
                         
@@ -24,42 +49,34 @@ function Details4() {
                             type ="text" 
                             className = "form-input"
                             name ="email" 
-                            placeholder={location.state.guest.Feedback}
+                            placeholder={`Email : ${location.state.guest.emailId}`}
                             disabled = {true}
                         />
-                    </div>
-                    <div className="feedback">
-                            <input 
+                        <input 
                                 type="text"
                                 className="form-input"
-                                name="feedback"
-                                placeholder={location.state.guest.Feedback}
+                                name="contactNo"
+                                placeholder={`Contact Number: ${Guests.contactNo}`}
                                 disabled = {true}
-                            />
+                        />
+                        <input
+                            type="text"
+                            className='form-input'
+                            name="DateOfReservation"
+                            placeholder={`Date Of Reservation :${location.state.guest.reservationDate}`}
+                            disabled={true}
+                        />
+                        <input 
+                            type="text"
+                            className='form-input'
+                            name="roomNo"
+                            placeholder={`Room Number Alloted :${Guests.roomNo}`}
+                            disabled={true}
+                        />
                     </div>
-                    <div className='Rating'>
-                        <div className='Rating1'>
-                            <>
-                                <h5 className='head'>Service Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                            </>
-                            <>
-                                <h5 className='head'>Food Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                            </>
-                        </div>
-                    </div>
-                    <div className='Rating'>
-                            <div className='Rating1'>
-                                <h5 className='head'>Room Rating:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                                <h5 className='head'>Overall Experience:</h5>
-                                <h5>{location.state.guest.Feedback}</h5>
-                            </div>
-                    </div>
-                    <button classname="btn alert-btn" onClick={()=>navigate('/Employee/Dining%20Lounge%20Requests/', {replace:true})}>Approve</button>
-
+                    <button classname="btn btn-danger" onClick={handleSubmit}>Approve</button>
                 </form>
+                {success && navigate('/Employee/Manager/Dining%20Lounge%20Requests/', {replace:true})}
             </div>
         </div>
     )

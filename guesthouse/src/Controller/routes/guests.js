@@ -130,7 +130,7 @@ router.route('/search/contact').get(function(req, res) {
 });
 
 router.route('/search/id').get(function(req, res) {
-    guest.find({employeeId: req.body.employeeId})
+    guest.findOne({emailId: req.body.emailId})
     .then(emp => res.json(emp))
     .catch(err => res.status(400).json('Error: ' + err));
 });

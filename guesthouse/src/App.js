@@ -24,6 +24,8 @@ import BookDining from './View/Guest/BookDining/BookDining';
 import SubmitForm2 from './View/Admin/EmployeeManage/SubmitForm2';
 import Details3 from './View/Admin/Approval/Details';
 import ManageRooms from './View/Employee/ManageRooms/ManageRooms'
+import SubmitForm3 from './View/Employee/ManageCaretaker/SubmitForm2';
+import Details4 from './View/Employee/Dining_Lounge/Details';
 
 
 
@@ -50,8 +52,10 @@ function App() {
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback" element={<Feedback_Employee/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback/details" element={<Details2/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests" element={<Dining_Lounge/>}/>}
-                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests/details" element={<Details3/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests/details" element={<Details4/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests/ManageRooms" element={<ManageRooms/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Caretaker/Add_Employee" element={<SubmitForm3/>}/>}
+
 
 
 
