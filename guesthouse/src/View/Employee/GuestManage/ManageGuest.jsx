@@ -63,7 +63,6 @@ function ManageGuestEmployee() {
                                         <th>Name</th>
                                         <th>Contact Info</th>
                                         <th>Guest Type</th>
-                                        <th>Room Number</th>
                                         <th>Email</th>
                                     </tr>
                             </thead>
@@ -75,7 +74,6 @@ function ManageGuestEmployee() {
                                             <td>{guest.Name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.guestType}</td>
-                                            <td>{guest.roomNo}</td>
                                             <td>{guest.emailId}</td>
                                         </tr>
                                 )

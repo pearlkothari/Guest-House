@@ -38,14 +38,14 @@ function Details3() {
                                 placeholder={`Contact Number : ${location.state.guest.contactNo}`}
                                 disabled = {true}
                             />
-                            {/*<h5>Relation</h5>*/}
+                            {/* <h5>Relation</h5>
                             <input 
                                 type="text"
                                 className="form-input"
                                 name="Relation"
                                 placeholder={`Relation :  ${location.state.relation}`}
                                 disabled = {true}
-                            />
+                            /> */}
                             {/*<h5>Age</h5>*/}
                             <input 
                                 type="text"

@@ -10,20 +10,24 @@ function Details4() {
     const [Guests,setGuests]=useState([]);
     const [success,setsuccess]=useState(false);
 
+    const doSomethingWith =(e) =>{
+        const update=Guests.filter(item => (item.emailId===e));
+        setGuests(update);
+    }
     function update(value){
-        const array=[].concat.apply([],value);
-        console.log(value);
-        setGuests(array);
+        const array=value.filter(item=>(item.emailId===location.state.guest.emailId))
+        setGuests(array[0]);
+        // doSomethingWith(location.state.guest.emailId);
     }
     useEffect(() => {
-        axios.get('http://localhost:5000/guests/search/id',{emailId:location.state.guest.emailId})
+        axios.get('http://localhost:5000/guests/see')
         .then(res =>{
-            update(res.data);
+            if(res)update(res.data);
         })
     }, [])
 
     const handleSubmit = () =>{
-        axios.post('http://localhost:5000/guests/update/dining',{emailId:Guests.emailId})
+        axios.post('http://localhost:5000/guests/update/dining',{emailId:Guests.emailId,reservationDate:location.state.guest.reservationDate})
         .then(res =>{
             if(res){
                 setsuccess(true);
@@ -34,7 +38,7 @@ function Details4() {
     return (
             <div className="Feedback">
             <div className="submit">
-                <h2 className="heading1">Dining Lounge Request #{Guests.Name}</h2>
+                <h2 className="heading1">Dining Lounge Request #{location.state.guest.emailId}</h2>
                 <form>
                     <div className="form">
                         <input 
@@ -66,17 +70,10 @@ function Details4() {
                             placeholder={`Date Of Reservation :${location.state.guest.reservationDate}`}
                             disabled={true}
                         />
-                        <input 
-                            type="text"
-                            className='form-input'
-                            name="roomNo"
-                            placeholder={`Room Number Alloted :${Guests.roomNo}`}
-                            disabled={true}
-                        />
                     </div>
-                    <button classname="btn btn-danger" onClick={handleSubmit}>Approve</button>
+                    <button className="btn btn-danger" onClick={handleSubmit}>Approve</button>
                 </form>
-                {success && navigate('/Employee/Manager/Dining%20Lounge%20Requests/', {replace:true})}
+                {success && navigate('/Employee/', {replace:true})}
             </div>
         </div>
     )
