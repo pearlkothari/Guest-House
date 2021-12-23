@@ -21,7 +21,7 @@ function SubmitForm() {
         age:"",
         gender:"",
         checkIn:"",
-        checkOut:""
+        checkOut:"",
     })
 
     const updateForm= (event) =>{

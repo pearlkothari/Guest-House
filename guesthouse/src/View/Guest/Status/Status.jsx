@@ -44,7 +44,7 @@ function Status() {
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.age}</td>
                                             <td>{guest.relation}</td>
-                                            <td>{guest.approved}</td>
+                                            <td>{`${guest.approved}`}</td>
                                             <td>{guest.roomNo}</td>
                                         </tr>
                                 )

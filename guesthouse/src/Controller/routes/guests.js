@@ -81,6 +81,7 @@ router.route('/bookRoom').post(function(req, res) {
     const checkIn = req.body.checkIn;
     const checkOut = req.body.checkOut;
     const emailId = req.body.emailId;
+    const approved=req.body.approved;
 
     const user = new Booking({
         Name,
@@ -89,7 +90,8 @@ router.route('/bookRoom').post(function(req, res) {
         contactNo,
         checkIn,
         checkOut,
-        emailId
+        emailId,
+        approved
     });
     user.save()
     .then(() => res.json('Booking added'))
