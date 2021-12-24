@@ -203,7 +203,7 @@ router.route('/add/rooms').post(function(req, res) {
 });
 router.route('/update/rooms').post(function(req, res) {
     Rooms.findOneAndUpdate({roomNo:req.body.roomNo},
-        {$set:{availability:!req.body.availability}},function(err, emp) {
+        {$set:{availability:!req.body.availability}},{new:true},function(err, emp) {
         if(err) {
             console.log(err);
             return res.status(500).send();
