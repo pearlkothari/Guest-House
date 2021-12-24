@@ -11,7 +11,6 @@ function ManageRooms() {
     function update(value){
         const array=[].concat.apply([],value);
         setrooms(array);
-        console.log(rooms);
     }
     useEffect(() => {
         axios.get('http://localhost:5000/employee/see/rooms')
