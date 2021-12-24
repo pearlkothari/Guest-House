@@ -11,12 +11,21 @@ function ManageEmployee() {
     const [Employees,setEmployees]=useState([]);
     
     const [value, setValue] = useState();
+    const [Id,setId]=useState(0);
 
     const handleChange = (e) => {
         setValue(e.target.value);
-        console.log(value);
     };
 
+    function update(value){
+        setEmployees(value);
+
+        let max_val=0;
+        for(let i=0;i<value.length;i++){
+            max_val=Math.max(parseInt(value[i].employeeId),max_val);
+        }
+        setId(max_val+1);
+    }
     const url='http://localhost:5000/employee';
     const [searchValue,setsearchValue] =useState("");
 
@@ -24,7 +33,7 @@ function ManageEmployee() {
         axios.get(`${url}/see`)
         .then(res =>{
             const Data=res.data;
-            setEmployees(Data)
+            update(Data);
         })
     ,[])
 
@@ -67,7 +76,7 @@ function ManageEmployee() {
                                     }}
                                 />
                     </div>
-                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{state:`${Employees.length+1}`})}>Add Employee</button>
+                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{state:`${Id}`})}>Add Employee</button>
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">

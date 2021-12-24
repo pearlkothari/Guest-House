@@ -12,12 +12,19 @@ function ManageCaretaker() {
     const [value, setValue] = useState();
     const url='http://localhost:5000/employee';
 
-    const [sz,set_sz]=useState(0);
+    const [Id,setId]=useState(0);
 
     const handleChange = (e) => {
         setValue(e.target.value);
-        console.log(value);
     };
+
+    function update(value){
+        let max_val=0;
+        for(let i=0;i<value.length;i++){
+            max_val=Math.max(parseInt(value[i].employeeId),max_val);
+        }
+        setId(max_val+1);
+    }
 
     const [searchValue,setsearchValue] =useState("");
     useEffect(() => 
@@ -28,7 +35,7 @@ function ManageCaretaker() {
         }),
         axios.get(`${url}/see`)
         .then(res =>{
-            set_sz(res.data.length);
+            update(res.data);
         })
         ,[])
     const doSomethingWith =(e) =>{
@@ -69,7 +76,7 @@ function ManageCaretaker() {
                                     }}
                                 />
                     </div>
-                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{state:`${sz+1}`})}>Add Employee</button>
+                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{state:`${Id}`})}>Add Employee</button>
 
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
