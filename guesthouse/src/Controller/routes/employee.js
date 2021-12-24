@@ -219,6 +219,12 @@ router.route('/see/rooms').get(function(req, res) {
     .then(room => res.json(room))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
+router.route('/see/unreservedRooms').get(function(req, res) {
+    Rooms.find({availability:true})
+    .then(room => res.json(room))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 //add
 //remove
 //fetch through contact, id, emailid, name
