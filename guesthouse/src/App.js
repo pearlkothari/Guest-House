@@ -21,6 +21,7 @@ import Feedback_Employee from './View/Employee/GuestFeedback/Feedback/Feedback_E
 import Details2 from './View/Employee/GuestFeedback/Feedback/Details';
 import Dining_Lounge from './View/Employee/Dining_Lounge/Dining_Lounge';
 import BookDining from './View/Guest/BookDining/BookDining';
+import DiningStatus from './View/Guest/seeDining/DiningStatus';
 import SubmitForm2 from './View/Admin/EmployeeManage/SubmitForm2';
 import Details3 from './View/Admin/Approval/Details';
 import ManageRooms from './View/Employee/ManageRooms/ManageRooms'
@@ -57,10 +58,9 @@ function App() {
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Caretaker/Add_Employee" element={<SubmitForm3/>}/>}
 
 
-
-
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest" element={<Guest/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest/Dining%20Lounge" element={<BookDining/>}/>}
+                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest/Dining%20Lounge%20Status" element={<DiningStatus/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Status" element={<Status/>}/>}

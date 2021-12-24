@@ -27,7 +27,7 @@ function BookDining() {
         setsuccess(true);
         axios.post("http://localhost:5000/guests/bookDining",about)
         .then(
-            alert(`Request for dining reservation generated SuccessFully for Guest: ${about.guestId}`)
+            alert(`Request for dining reservation generated SuccessFully for Guest: ${about.emailId}`)
         )
     }
 
