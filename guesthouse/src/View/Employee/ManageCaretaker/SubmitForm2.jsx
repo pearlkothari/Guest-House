@@ -1,15 +1,15 @@
-import React, { useState} from 'react';
-import { Navigate } from 'react-router';
+import React, { isValidElement, useState} from 'react';
+import { Navigate, useLocation } from 'react-router';
 import axios from "axios";
 import './SubmitForm.css';
 
 
 function SubmitForm3() {
     const [success,setsuccess]=useState(false)
-
+    const location=useLocation();
 
     const [about, setabout] = useState({
-        employeeId:"",
+        employeeId:location.state,
         jobRole:"Caretaker",
         contactNo:"",
         Name:"",
@@ -23,18 +23,18 @@ function SubmitForm3() {
             [event.target.name]:event.target.value
         })
     }
-    
+
     const handleSubmit=(event) =>{
         event.preventDefault();
 
         setsuccess({
-            [success]:true
+             [success]:true
         })
-
-        axios.post("http://localhost:5000/employee/add",about)
-        .then(
-            alert(`Added SuccessFully Employee Name: ${about.Name}`)
-        )
+    
+         axios.post("http://localhost:5000/employee/add",about)
+            .then(
+                alert(`Added SuccessFully Employee Name: ${about.Name}`)
+            )        
     }
     return (
         <div className="submit">
@@ -48,6 +48,7 @@ function SubmitForm3() {
                         onChange={updateForm}
                         value={about.employeeId}
                         required={true}
+                        disabled={true}
                     />
                     <input 
                         type ="text" 

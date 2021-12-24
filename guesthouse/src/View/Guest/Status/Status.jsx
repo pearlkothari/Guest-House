@@ -30,8 +30,8 @@ function Status() {
                                         <th>Contact Info</th>
                                         <th>Age</th>
                                         <th>Relation</th>
-                                        <th>Status</th>
                                         <th>Room Allocated</th>
+                                        <th>Status</th>
                                     </tr>
                             </thead>
                             <tbody>
@@ -44,8 +44,8 @@ function Status() {
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.age}</td>
                                             <td>{guest.relation}</td>
-                                            <td>{`${guest.approved}`}</td>
                                             <td>{guest.roomNo}</td>
+                                            <button className='btn'>{`${guest.approved===true?"Granted":"Waiting"}`}</button>
                                         </tr>
                                 )
                             }

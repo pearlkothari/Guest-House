@@ -1,15 +1,15 @@
 import React, { useState} from 'react';
-import { Navigate } from 'react-router';
+import { Navigate, useLocation } from 'react-router';
 import axios from "axios";
 import './SubmitForm.css';
 
 
 function SubmitForm2() {
     const [success,setsuccess]=useState(false)
-
+    const location=useLocation();
 
     const [about, setabout] = useState({
-        employeeId:"",
+        employeeId:location.state,
         jobRole:"",
         contactNo:"",
         Name:"",
@@ -48,6 +48,7 @@ function SubmitForm2() {
                         placeholder="Employee ID"
                         onChange ={updateForm} 
                         value = {about.employeeId}
+                        disabled={true}
                     />
                     <input 
                         type ="text" 
@@ -71,7 +72,7 @@ function SubmitForm2() {
                         type ="tel" 
                         className = "form-input"
                         name ="contactNo" 
-                        placeholder="Employee Number"
+                        placeholder="Employee Contact Number"
                         onChange ={updateForm} 
                         value = {about.contactNo}
                     />

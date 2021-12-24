@@ -12,6 +12,8 @@ function ManageCaretaker() {
     const [value, setValue] = useState();
     const url='http://localhost:5000/employee';
 
+    const [sz,set_sz]=useState(0);
+
     const handleChange = (e) => {
         setValue(e.target.value);
         console.log(value);
@@ -23,6 +25,10 @@ function ManageCaretaker() {
         .then(res =>{
             const Data=res.data;
             setEmployees(Data)
+        }),
+        axios.get(`${url}/see`)
+        .then(res =>{
+            set_sz(res.data.length);
         })
         ,[])
     const doSomethingWith =(e) =>{
@@ -63,7 +69,7 @@ function ManageCaretaker() {
                                     }}
                                 />
                     </div>
-                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{replace:true})}>Add Employee</button>
+                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{state:`${sz+1}`})}>Add Employee</button>
 
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}

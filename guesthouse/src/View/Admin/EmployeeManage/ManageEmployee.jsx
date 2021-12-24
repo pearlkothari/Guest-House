@@ -67,7 +67,7 @@ function ManageEmployee() {
                                     }}
                                 />
                     </div>
-                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{replace:true})}>Add Employee</button>
+                    <button className="Add_Employee" onClick={() => navigate('./Add_Employee',{state:`${Employees.length+1}`})}>Add Employee</button>
             </div>
             {/* Id,Name,Contact_Info,Job_Role,Email_ID */}
             <table className="table">

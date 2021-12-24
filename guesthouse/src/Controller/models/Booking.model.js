@@ -10,7 +10,7 @@ const bookingSchema = new Schema({
     checkIn: {type: Date, required: true, default: false},
     checkOut: {type: Date, required: true, default: false},
     roomNo: {type: String, required: true, default: "Not Alloted"},
-    approved: {type: String, required: true, default: "Not Yet"}, 
+    approved: {type: Boolean, required: true, default: false}, 
 })
 const booking = mongoose.model('Booking', bookingSchema);
 module.exports = booking;
