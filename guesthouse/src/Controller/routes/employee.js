@@ -74,11 +74,9 @@ router.route('/see').get(function(req, res) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/see/dining').post(function(req, res) {
+router.route('/see/dining').get(function(req, res) {
     const date = new Date();
-    Dining.find({reservationDate: {
-        $gte: date
-    }})
+    Dining.find({approved:false})
     .then(emp => res.json(emp))
     .catch(err => res.status(400).json('Error: ' + err));
 });
