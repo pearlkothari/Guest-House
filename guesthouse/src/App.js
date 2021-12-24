@@ -56,6 +56,7 @@ function App() {
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests/details" element={<Details4/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Dining%20Lounge%20Requests/ManageRooms" element={<ManageRooms/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Caretaker/Add_Employee" element={<SubmitForm3/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Rooms" element={<ManageRooms/>}/>}
 
 
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest" element={<Guest/>}/>}
