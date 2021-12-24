@@ -202,13 +202,17 @@ router.route('/add/rooms').post(function(req, res) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/update/rooms').post(function(req, res) {
-    Rooms.updateOne({
-        roomNo: req.body.roomNo,
-        availability: req.body.availability,
-        charge: req.body.charge
+    Rooms.findOneAndUpdate({roomNo:req.body.roomNo},
+        {$set:{approved:!req.body.approved}},function(err, emp) {
+        if(err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        if(!emp) {
+            return res.status(404).send();
+        }
+        return res.status(200).json(emp);
     })
-    .then(room => res.json('rooms updated'))
-    .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/see/rooms').get(function(req, res) {
     Rooms.find()
