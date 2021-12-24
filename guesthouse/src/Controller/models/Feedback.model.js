@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const feedbackSchema = new Schema({
     name: {type: String, required: true, default: false},
-    emailId: {type: String, required: true, unique: true, default: false},
+    emailId: {type: String, required: true, default: false},
     feedback: {type: String, required: true, default: false},
     serviceRating: {type: String, required: true, default: false},
     foodRating: {type: String, required: true, default: false},
