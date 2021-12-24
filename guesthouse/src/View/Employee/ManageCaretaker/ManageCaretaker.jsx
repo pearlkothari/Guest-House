@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router';
 function ManageCaretaker() {
     const [Employees,setEmployees]=useState([]);
     const [value, setValue] = useState();
-    const url='http://localhost:5000/employee/';
+    const url='http://localhost:5000/employee';
 
     const handleChange = (e) => {
         setValue(e.target.value);
@@ -31,7 +31,7 @@ function ManageCaretaker() {
     }
     const deleteEmployee =(emp) =>{
         const req={emailId:emp};
-        const res= axios.delete(`${url}/delete`,req)
+        const res= axios.delete(`${url}/delete`+emp)
                     .then(result=>{
                         const update=Employees.filter(item => item.emailId!=emp)
                         setEmployees(update);

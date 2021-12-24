@@ -89,8 +89,9 @@ router.route('/see/caretaker').get(function(req, res) {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/delete').delete(function(req, res) {
-    employee.findOneAndDelete({employeeId: req.body.employeeId})
+router.route('/delete/:emailId').delete(function(req, res) {
+    res.json(req.params.emailId);
+    employee.findOneAndDelete({emailId: req.params.emailId})
     .then(() => res.json('Employee deleted'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
