@@ -17,7 +17,7 @@ function ManageEmployee() {
         console.log(value);
     };
 
-    const url='http://localhost:5000/employee/';
+    const url='http://localhost:5000/employee';
     const [searchValue,setsearchValue] =useState("");
 
     useEffect(() => 
@@ -35,7 +35,7 @@ function ManageEmployee() {
 
     const deleteEmployee =(emp) =>{
         const req={emailId:emp};
-        const res= axios.delete(`${url}/delete`,req)
+        const res= axios.delete(`${url}/delete/`+emp)
                     .then(result=>{
                         const update=Employees.filter(item => item.emailId!=emp)
                         setEmployees(update);
