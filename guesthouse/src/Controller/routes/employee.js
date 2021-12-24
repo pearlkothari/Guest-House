@@ -32,9 +32,23 @@ router.route('/approveGuests').get(function(req, res) {
         }
         return res.status(200).json(emp);
     })
+
 });
 router.route('/update/Guests').post(function(req, res) {
     Booking.findOneAndUpdate({Name:req.body.Name},
+        {$set:{approved:true}},{new:true},function(err, emp) {
+        if(err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        if(!emp) {
+            return res.status(404).send();
+        }
+        return res.status(200).json(emp);
+    })
+});
+router.route('/update/dining').post(function(req, res) {
+    Dining.findOneAndUpdate({emailId:req.body.emailId,reservationDate:req.body.reservationDate},
         {$set:{approved:true}},{new:true},function(err, emp) {
         if(err) {
             console.log(err);
