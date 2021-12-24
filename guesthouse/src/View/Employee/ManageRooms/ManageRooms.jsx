@@ -21,6 +21,17 @@ function ManageRooms() {
             }
         })
     }, [])
+
+    const handleChange = (room) =>{
+        axios.post('http://localhost:5000/employee/update/rooms',{roomNo:room.roomNo})
+        .then()
+
+        for(let i=0;i<rooms.length;i++){
+            if(rooms[i].roomNo===room.roomNo){
+                rooms[i].availability=!rooms[i].availability;
+            }
+        }
+    }
     return (
         <div className='Rooms'>
             <Employee_Header/>
@@ -42,8 +53,14 @@ function ManageRooms() {
                                             <td>{room.roomNo}</td>
                                             <td>{room.charge}</td>
                                             <td>{room.roomType}</td>
-                                            {room.availability===true && <td><button className='btn'>{"Reserved"}</button></td>}
-                                            {room.availability===false && <td><button className='btn2'>{"Not Reserved"}</button></td>}
+                                            {room.availability===true && <td><button className='btn' onClick={() =>{
+                                                handleChange(room)
+                                                room.availability=false;
+                                            }}>{"Reserved"}</button></td>}
+                                            {room.availability===false && <td><button className='btn2' onClick={() =>{
+                                                handleChange(room)
+                                                room.availability=true;
+                                            }}>{"Not Reserved"}</button></td>}
                                         </tr>
                                 )
                             }
