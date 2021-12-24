@@ -19,7 +19,7 @@ function Guest() {
                  <Container what={"Status"}/>
                  {/* <Container what={"Feedback"}/> */}
                 <Container what={"Dining Lounge"}/>
-                {/* <Container what={"Check Availability"}/> */}
+                <Container what={"Dining Lounge Status"}/>
                 <Container what={"Feedback"}/>
             </div>
         </div>
