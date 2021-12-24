@@ -27,7 +27,7 @@ function Details4() {
     }, [])
 
     const handleSubmit = () =>{
-        axios.post('http://localhost:5000/guests/update/dining',{emailId:Guests.emailId,reservationDate:location.state.guest.reservationDate})
+        axios.post('http://localhost:5000/employee/update/dining',{emailId:Guests.emailId,reservationDate:location.state.guest.reservationDate})
         .then(res =>{
             if(res){
                 setsuccess(true);

@@ -24,13 +24,11 @@ function ManageRooms() {
 
     const handleChange = (room) =>{
         axios.post('http://localhost:5000/employee/update/rooms',{roomNo:room.roomNo})
-        .then()
-
-        for(let i=0;i<rooms.length;i++){
-            if(rooms[i].roomNo===room.roomNo){
-                rooms[i].availability=!rooms[i].availability;
+        .then(res=>{
+            if(res){
+                update(res.data);
             }
-        }
+        })
     }
     return (
         <div className='Rooms'>
