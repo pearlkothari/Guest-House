@@ -9,10 +9,12 @@ function SubmitFormAdmin() {
     const [success,setsuccess]=useState(false)
 
     let email=AuthenticationService.getuseremail();
+    let Name=AuthenticationService.getusername();
+    let role=AuthenticationService.whatRole();
 
     const [about, setabout] = useState({
-        name: "",
-        designation: "",
+        name: Name,
+        designation: role,
         emailId: email,
         mobileNo: "",
         Name:"",
@@ -56,6 +58,7 @@ function SubmitFormAdmin() {
                         placeholder="Name"
                         onChange ={updateForm} 
                         value = {about.name}
+                        disabled={true}
                     />
                     
                     <input 
@@ -64,7 +67,8 @@ function SubmitFormAdmin() {
                         name ="designation" 
                         placeholder="Designation"
                         onChange ={updateForm} 
-                        value = {about.designation}
+                        value = {about.role}
+                        disabled={true}
                     />
                     
                     <input 

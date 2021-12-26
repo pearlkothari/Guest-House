@@ -45,13 +45,14 @@ class Login extends Component {
         .then(res =>{
             if(res.data.emailId===this.state.emailId){
                 let temp="";
+                let name=res.data.Name;
                 jobRole=res.data.jobRole;
                 if(jobRole=='Admin'){
                     temp="admin";
                 }else{
                     temp="Employee";
                 }
-                AuthenticationService.RegisterSuccessfulLogin(res.data.emailId,jobRole);
+                AuthenticationService.RegisterSuccessfulLogin(res.data.emailId,jobRole,name);
                 this.setState({
                     success:true,
                     what:temp
@@ -63,8 +64,9 @@ class Login extends Component {
             .then(res =>{
                 if(res.data.emailId===this.state.emailId){
                     let temp="guest";
+                    let name=res.data.Name;
                     jobRole=res.data.designation;
-                    AuthenticationService.RegisterSuccessfulLogin(res.data.emailId,jobRole);
+                    AuthenticationService.RegisterSuccessfulLogin(res.data.emailId,jobRole,name);
                     this.setState({
                         success:true,
                         what:temp

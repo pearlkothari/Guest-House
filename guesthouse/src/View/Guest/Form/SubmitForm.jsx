@@ -9,10 +9,11 @@ function SubmitForm() {
     const [success,setsuccess]=useState(false)
 
     let email=AuthenticationService.getuseremail();
-
+    let role=AuthenticationService.whatRole();
+    let Name=AuthenticationService.getusername();
     const [about, setabout] = useState({
-        name: "",
-        designation: "",
+        name: Name,
+        designation: role,
         emailId: email,
         mobileNo: "",
         Name:"",
@@ -55,6 +56,7 @@ function SubmitForm() {
                         placeholder="Name"
                         onChange ={updateForm} 
                         value = {about.name}
+                        disabled={true}
                     />
                     
                     <input 
@@ -64,6 +66,7 @@ function SubmitForm() {
                         placeholder="Designation"
                         onChange ={updateForm} 
                         value = {about.designation}
+                        disabled={true}
                     />
                     
                     <input 
@@ -72,7 +75,7 @@ function SubmitForm() {
                         name ="emailId" 
                         placeholder="EmailId"
                         onChange ={updateForm} 
-                        value = {AuthenticationService.getuseremail()}
+                        value = {email}
                         disabled={true}
                     />
                     

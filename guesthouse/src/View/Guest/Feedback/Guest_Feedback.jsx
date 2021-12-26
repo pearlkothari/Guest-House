@@ -9,8 +9,9 @@ import AuthenticationService from '../../../AuthenticationService';
 
 function Guest_Feedback() {
     let user=AuthenticationService.getuseremail();
+    let Name=AuthenticationService.getusername();
     const [inputs, setInputs] = useState({
-        name: "",
+        name: Name,
         emailId:user,
         feedback:"",
         serviceRating:"",
@@ -26,15 +27,6 @@ function Guest_Feedback() {
             [e.target.name]:e.target.value
         })
     }
-    const Emotions= [
-        {Angry:0},
-        {Mad:0.5},
-        {Whatever:1},
-        {Confused:2},
-        {Happy:3},
-        {Wow:4},
-        {Love:5}
-    ]
     const handleSubmit = (event) => {
         event.preventDefault();
         setCount({
@@ -68,6 +60,7 @@ function Guest_Feedback() {
                             placeholder="Name"
                             onChange ={updateForm} 
                             value = {inputs.name}
+                            disabled={true}
                         />
                         
 
