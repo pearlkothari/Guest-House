@@ -10,17 +10,14 @@ function Details4() {
     const [Guests,setGuests]=useState([]);
     const [success,setsuccess]=useState(false);
 
-    const doSomethingWith =(e) =>{
-        const update=Guests.filter(item => (item.emailId===e));
-        setGuests(update);
-    }
     function update(value){
         const array=value.filter(item=>(item.emailId===location.state.guest.emailId))
         setGuests(array[0]);
+        console.log(array[0]);
         // doSomethingWith(location.state.guest.emailId);
     }
     useEffect(() => {
-        axios.get('http://localhost:5000/guests/see')
+        axios.get('http://localhost:5000/guests/see/user')
         .then(res =>{
             if(res)update(res.data);
         })

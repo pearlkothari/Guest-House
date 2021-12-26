@@ -28,6 +28,7 @@ import ManageRooms from './View/Employee/ManageRooms/ManageRooms'
 import SubmitForm3 from './View/Employee/ManageCaretaker/SubmitForm2';
 import Details4 from './View/Employee/Dining_Lounge/Details';
 import SubmitFormAdmin from './View/Admin/Approval/SubmitForm';
+import ManageUser from './View/Admin/ManageUser/ManageUser';
 
 
 
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/login" element={<Login/>}/> 
 
                 {AuthenticationService.isLoggedIn()  &&  AuthenticationService.whatRole()==='Admin' && (<Route  path="/admin" element={<Admin/>}/>)}
+                {AuthenticationService.isLoggedIn()  &&  AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Manage%20User" element={<ManageUser/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' &&  <Route path="/admin/Manage%20Guest" element={<ManageGuest/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Manage%20Employee" element={<ManageEmployee/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Manage%20Employee/Add_Employee" element={<SubmitForm2/>}/>}
@@ -62,12 +64,12 @@ function App() {
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Rooms" element={<ManageRooms/>}/>}
 
 
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest" element={<Guest/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest/Dining%20Lounge" element={<BookDining/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' &&  <Route path="/guest/Dining%20Lounge%20Status" element={<DiningStatus/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
-                {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Student' && <Route path="/guest/Status" element={<Status/>}/>}
+                {AuthenticationService.isLoggedIn()  &&  <Route path="/guest" element={<Guest/>}/>}
+                {AuthenticationService.isLoggedIn()  &&  <Route path="/guest/Dining%20Lounge" element={<BookDining/>}/>}
+                {AuthenticationService.isLoggedIn()  &&  <Route path="/guest/Dining%20Lounge%20Status" element={<DiningStatus/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Book%20Your%20Stay" element={<RoomBooking/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Feedback" element={<Guest_Feedback/>}/>}
+                {AuthenticationService.isLoggedIn()  && <Route path="/guest/Status" element={<Status/>}/>}
 
                 {!AuthenticationService.isLoggedIn() && <Route path='*' exact={true} element={<ErrorComponent/>}/>}
               </Routes>

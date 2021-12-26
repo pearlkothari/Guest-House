@@ -139,8 +139,14 @@ router.route('/see/Status').post(function(req,res){
         return res.status(200).json(user);
     })
 });
+router.route('/see/user').get(function(req, res) {
+    guest.find()
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/see').get(function(req, res) {
-    Booking.find({approved:true})
+    Booking.find()
     .then(user => res.json(user))
     .catch(err => res.status(400).json('Error: ' + err));
 });
