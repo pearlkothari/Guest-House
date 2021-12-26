@@ -39,7 +39,7 @@ function ManageCaretaker() {
         })
         ,[])
     const doSomethingWith =(e) =>{
-        const update=Employees.filter(item => (item.employeeId===e || item.name===e || item.contactNo===e || item.emailId===e));
+        const update=Employees.filter(item => (item.employeeId==e || item.name==e || item.contactNo==e || item.emailId==e));
         setEmployees(update);
     }
     const deleteEmployee =(emp) =>{
