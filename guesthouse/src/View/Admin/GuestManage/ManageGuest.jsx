@@ -12,7 +12,6 @@ function ManageGuest() {
 
         const handleChange = (e) => {
             setValue(e.target.value);
-            console.log(value);
         };
         const url='http://localhost:5000/guests/';
 
@@ -27,7 +26,7 @@ function ManageGuest() {
         ,[])
         
         const doSomethingWith =(e) =>{
-            const update=Guests.filter(item => (item.guestId===e || item.name===e || item.contactNo===e || item.RoomNo===e));
+            const update=Guests.filter(item => (item.emailId===e || item.Name==e || item.contactNo==e || item.roomNo==e));
             setGuests(update);
         }
         return (
@@ -43,11 +42,11 @@ function ManageGuest() {
                 <div className="Subclass">
                     <div className="Searching">
                         <select name='value' onChange={handleChange}>
-                            <option value="ID">ID</option>
+                            <option value="emailId">ID</option>
                             <option value="Name">Name</option>
-                            <option value="Room_Type">Room Type</option>
-                            <option value="Room_Number">Room Number</option>
-                            <option value="Contact_Info">Contact Number</option>
+                            <option value="contactNo">Contact Number</option>
+                            <option value="guestType">Guest Type</option>
+                            <option value="roomNo">Room Number</option>
                         </select>   
                         <SearchBar value={searchValue}
                                     onChange={(newValue) => setsearchValue(newValue)}
@@ -65,6 +64,9 @@ function ManageGuest() {
                                         <th>Name</th>
                                         <th>Contact Info</th>
                                         <th>Guest Type</th>
+                                        <th>Check-In</th>
+                                        <th>Check-Out</th>
+                                        <th>Room Number</th>
                                     </tr>
                             </thead>
                             <tbody>
@@ -76,6 +78,9 @@ function ManageGuest() {
                                             <td>{guest.Name}</td>
                                             <td>{guest.contactNo}</td>
                                             <td>{guest.guestType}</td>
+                                            <td>{guest.checkIn}</td>
+                                            <td>{guest.checkOut}</td>
+                                            <td>{guest.roomNo}</td>
                                         </tr>
                                 )
                             }

@@ -140,7 +140,7 @@ router.route('/see/Status').post(function(req,res){
     })
 });
 router.route('/see').get(function(req, res) {
-    guest.find()
+    Booking.find({approved:true})
     .then(user => res.json(user))
     .catch(err => res.status(400).json('Error: ' + err));
 });

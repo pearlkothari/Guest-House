@@ -51,7 +51,7 @@ function App() {
 
 
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Caretaker' || AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee" element={<Employee/>}/>}
-                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20User" element={<ManageGuestEmployee/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Guest" element={<ManageGuestEmployee/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Caretaker" element={<ManageCaretaker/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback" element={<Feedback_Employee/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback/details" element={<Details2/>}/>}
