@@ -27,6 +27,7 @@ import Details3 from './View/Admin/Approval/Details';
 import ManageRooms from './View/Employee/ManageRooms/ManageRooms'
 import SubmitForm3 from './View/Employee/ManageCaretaker/SubmitForm2';
 import Details4 from './View/Employee/Dining_Lounge/Details';
+import SubmitFormAdmin from './View/Admin/Approval/SubmitForm';
 
 
 
@@ -46,9 +47,11 @@ function App() {
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' &&  <Route path="/admin/Approval/details" element={<Details3/>}/>}
                 {AuthenticationService.isLoggedIn()  && AuthenticationService.whatRole()==='Admin' && <Route path="/admin/Guest%20Feedback" element={<Feedback/>}/>}
                 {AuthenticationService.isLoggedIn() && AuthenticationService.whatRole()==='Admin'  &&  <Route path="/admin/Guest%20Feedback/details" element={<Details/>}/>}
+                {AuthenticationService.isLoggedIn() && AuthenticationService.whatRole()==='Admin'  &&  <Route path="/admin/Approval/Add_Guest" element={<SubmitFormAdmin/>}/>}
+
 
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Caretaker' || AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee" element={<Employee/>}/>}
-                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Guest" element={<ManageGuestEmployee/>}/>}
+                {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20User" element={<ManageGuestEmployee/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Manage%20Caretaker" element={<ManageCaretaker/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback" element={<Feedback_Employee/>}/>}
                 {AuthenticationService.isLoggedIn() && (AuthenticationService.whatRole()==='Manager')  && <Route path="/Employee/Manager/Guest%20Feedback/details" element={<Details2/>}/>}

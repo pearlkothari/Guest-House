@@ -11,6 +11,7 @@ const bookingSchema = new Schema({
     checkOut: {type: Date, required: true, default: false},
     roomNo: {type: String, required: true, default: "Not Alloted"},
     approved: {type: Boolean, required: true, default: false}, 
+    guestType:{type:String,required:true,default:"general"}
 })
 const booking = mongoose.model('Booking', bookingSchema);
 module.exports = booking;

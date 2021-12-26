@@ -34,6 +34,7 @@ function Approval() {
     return (
         <div className="Info">
             <AdminHeader/>
+            <button className="Add_Employee" onClick={() => navigate('./Add_Guest')}>Add Guest</button>
             <table className="table">
                             <thead>
                                     <tr>

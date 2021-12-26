@@ -91,7 +91,7 @@ router.route('/bookRoom').post(function(req, res) {
         checkIn,
         checkOut,
         emailId,
-        approved
+        approved,
     });
     user.save()
     .then(() => res.json('Booking added'))

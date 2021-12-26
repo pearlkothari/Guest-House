@@ -34,9 +34,35 @@ router.route('/approveGuests').get(function(req, res) {
     })
 
 });
+router.route('/bookRoom').post(function(req, res) {
+    const Name = req.body.Name;
+    const relation = req.body.relation;
+    const age = req.body.age;
+    const contactNo = req.body.contactNo;
+    const checkIn = req.body.checkIn;
+    const checkOut = req.body.checkOut;
+    const emailId = req.body.emailId;
+    const approved=req.body.approved;
+    const guestType=req.body.guestType;
+
+    const user = new Booking({
+        Name,
+        relation, 
+        age,
+        contactNo,
+        checkIn,
+        checkOut,
+        emailId,
+        approved,
+        guestType
+    });
+    user.save()
+    .then(() => res.json('Booking added'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 router.route('/update/Guests').post(function(req, res) {
-    Booking.findOneAndUpdate({Name:req.body.Name},
-        {$set:{approved:true}},{new:true},function(err, emp) {
+    Booking.findOneAndUpdate({Name:req.body.Name,emailId:req.body.emailId},
+        {$set:{approved:true,roomNo:req.body.roomNo}},{new:true},function(err, emp) {
         if(err) {
             console.log(err);
             return res.status(500).send();
@@ -221,7 +247,12 @@ router.route('/see/rooms').get(function(req, res) {
 });
 
 router.route('/see/unreservedRooms').get(function(req, res) {
-    Rooms.find({availability:true})
+    Rooms.findOne({roomType:'general',availability:true})
+    .then(room => res.json(room))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/see/unreservedRoomsVip').get(function(req, res) {
+    Rooms.findOne({roomType:"Vip",availability:true})
     .then(room => res.json(room))
     .catch(err => res.status(400).json('Error: ' + err));
 });

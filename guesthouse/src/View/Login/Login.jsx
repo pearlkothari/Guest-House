@@ -57,9 +57,7 @@ class Login extends Component {
                     what:temp
                 })
             }
-        })
-
-        if(!this.state.success){
+        });
             axios
             .post('http://localhost:5000/guests/login',req)
             .then(res =>{
@@ -73,10 +71,6 @@ class Login extends Component {
                     })
                 }
             })
-        }
-        if(!this.state.success){
-            alert("Invalid Email or Password!!");
-        }
     }
     render(){
 
