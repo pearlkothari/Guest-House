@@ -38,9 +38,9 @@ function Approval() {
             <table className="table">
                             <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Guest Name</th>
                                         <th>Contact Info</th>
-                                        <th>Email ID</th>
+                                        <th>Booking ID</th>
                                     </tr>
                             </thead>
                             <tbody>

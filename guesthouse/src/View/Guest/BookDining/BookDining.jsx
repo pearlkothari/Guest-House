@@ -24,11 +24,16 @@ function BookDining() {
     }
 
     const handleSubmit = (event) =>{
-        setsuccess(true);
-        axios.post("http://localhost:5000/guests/bookDining",about)
-        .then(
-            alert(`Request for dining reservation generated SuccessFully for Guest: ${about.emailId}`)
-        )
+        if(about.totalGuests>50){
+            alert('capacity of Guest House is: 50 request failed');
+        }else{
+            setsuccess(true);
+            axios.post("http://localhost:5000/guests/bookDining",about)
+            .then(
+                alert(`Request for dining reservation generated SuccessFully for Guest: ${about.emailId}`)
+            )
+        }
+        
     }
 
     return (
