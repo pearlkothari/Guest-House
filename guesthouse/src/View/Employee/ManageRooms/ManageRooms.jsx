@@ -53,13 +53,13 @@ function ManageRooms() {
                                             <td>{room.roomNo}</td>
                                             <td>{room.charge}</td>
                                             <td>{room.roomType}</td>
-                                            {room.availability===true && <td><button className='btn' onClick={() =>{
-                                                handleChange(room)
-                                                room.availability=false;
-                                            }}>{"Reserved"}</button></td>}
-                                            {room.availability===false && <td><button className='btn2' onClick={() =>{
+                                            {room.availability===false && <td><button className='btn' onClick={() =>{
                                                 handleChange(room)
                                                 room.availability=true;
+                                            }}>{"Reserved"}</button></td>}
+                                            {room.availability===true && <td><button className='btn2' onClick={() =>{
+                                                handleChange(room)
+                                                room.availability=false;
                                             }}>{"Not Reserved"}</button></td>}
                                         </tr>
                                 )
